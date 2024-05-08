@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PAMaskTint03
+  m_Shader: {fileID: 4800000, guid: 0bff5e6051be4b628bf3c1161e4f663c, type: 3}
+  m_Parent: {fileID: 2100000, guid: 1344b3d6d15749aa95fc5c23c6f9a4b9, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color01: {r: 0.3729707, g: 0.15806337, b: 0.9056604, a: 0}
+    - _Color02: {r: 0.53992397, g: 0.132921, b: 0.9716981, a: 0}
+    - _Color03: {r: 0.253366, g: 0.056737285, b: 0.7075472, a: 0}
+    - _Color04: {r: 0.6216712, g: 0.27634388, b: 0.8490566, a: 0}
+    - _Color05: {r: 0.4045035, g: 0.21106264, b: 0.8773585, a: 0}
+    - _Color06: {r: 0.44014102, g: 0.2770114, b: 0.7830189, a: 0}
+    - _Color07: {r: 0.60382915, g: 0.16509432, b: 1, a: 0}
+    - _Color09: {r: 0.5243206, g: 0.46755964, b: 0.745283, a: 0}
+  m_BuildTextureStacks: []
