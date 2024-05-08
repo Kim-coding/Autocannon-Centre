@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100004, guid: d03bc3f27ec464542bd35987c8719708, type: 3}
       propertyPath: m_Name
-      value: ChestMonsterMesh
+      value: 404_ChestMonster
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d03bc3f27ec464542bd35987c8719708, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d03bc3f27ec464542bd35987c8719708, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d03bc3f27ec464542bd35987c8719708, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d03bc3f27ec464542bd35987c8719708, type: 3}
       propertyPath: m_LocalPosition.x

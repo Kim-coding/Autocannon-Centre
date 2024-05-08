@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100026, guid: c5ab377d151eed745a641b54b511bf8f, type: 3}
       propertyPath: m_Name
-      value: GolemMesh
+      value: 405_Golem
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: c5ab377d151eed745a641b54b511bf8f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: c5ab377d151eed745a641b54b511bf8f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: c5ab377d151eed745a641b54b511bf8f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: c5ab377d151eed745a641b54b511bf8f, type: 3}
       propertyPath: m_LocalPosition.x

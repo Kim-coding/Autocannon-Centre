@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
       propertyPath: m_Name
-      value: TurtleShellMesh
+      value: 211_TurtleShell_Elite
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
       propertyPath: m_LocalPosition.x

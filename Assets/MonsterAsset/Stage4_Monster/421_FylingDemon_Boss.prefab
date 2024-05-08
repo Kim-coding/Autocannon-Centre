@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100012, guid: 9ff52508895cad546bf7003f23913ba4, type: 3}
       propertyPath: m_Name
-      value: FylingDemonMesh
+      value: 421_FylingDemon_Boss
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 9ff52508895cad546bf7003f23913ba4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 9ff52508895cad546bf7003f23913ba4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 9ff52508895cad546bf7003f23913ba4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 9ff52508895cad546bf7003f23913ba4, type: 3}
       propertyPath: m_LocalPosition.x
