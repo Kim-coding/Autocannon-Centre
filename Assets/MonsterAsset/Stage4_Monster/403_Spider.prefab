@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100022, guid: f230e1d84c342044db42f3bd1a5acef1, type: 3}
       propertyPath: m_Name
-      value: SpiderMesh (1)
+      value: 403_Spider
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f230e1d84c342044db42f3bd1a5acef1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f230e1d84c342044db42f3bd1a5acef1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f230e1d84c342044db42f3bd1a5acef1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f230e1d84c342044db42f3bd1a5acef1, type: 3}
       propertyPath: m_LocalPosition.x

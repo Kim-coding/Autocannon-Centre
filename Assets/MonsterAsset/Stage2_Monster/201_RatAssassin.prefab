@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       propertyPath: m_Name
-      value: RatAssassinMesh (1)
+      value: 201_RatAssassin
       objectReference: {fileID: 0}
     - target: {fileID: 400088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       propertyPath: m_LocalPosition.x

@@ -18,19 +18,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6dde8a74ee2c4433b62a4c9b27a167f1, type: 2}
     - target: {fileID: 100028, guid: 7085298cc544efc479ba2d819ec15c9b, type: 3}
       propertyPath: m_Name
-      value: SkeletonMesh (1)
+      value: 101_Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 7085298cc544efc479ba2d819ec15c9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 7085298cc544efc479ba2d819ec15c9b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 7085298cc544efc479ba2d819ec15c9b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 7085298cc544efc479ba2d819ec15c9b, type: 3}
       propertyPath: m_LocalPosition.x
