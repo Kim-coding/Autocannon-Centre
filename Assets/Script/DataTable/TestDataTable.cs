@@ -12,12 +12,12 @@ public class TestDataTable : MonoBehaviour
         {
             foreach (var tower in towerTable.towerTable)
             {
-                Debug.Log($"Id: {tower.Id}, Name: {tower.name}, Type: {tower.type}, Damage: {tower.damage}, Attack Speed: {tower.atkSpeed}");
+                Debug.Log($"Id: {tower.ID}, Name: {tower.name}, Type: {tower.type}, Damage: {tower.damage}, Attack Speed: {tower.atkSpeed}");
             }
         }
         else
         {
-            Debug.Log("TowerTable is null or not loaded correctly.");
+            Logger.Log("TowerTable is null or not loaded correctly.");
         }
     }
 }

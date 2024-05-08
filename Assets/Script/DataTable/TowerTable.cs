@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [System.Serializable]
 public class TowerData
 {
-    public static readonly string FormatTowerPath = "{0}";
+    public static readonly string FormatTowerPath = "{0}";  //타워 프리팹 위치
 
-    public int Id {  get; set; }
+    public int ID {  get; set; }
     public string name { get; set; }
     public int towerGrade { get; set; }
     public int type { get; set; }
@@ -19,6 +20,9 @@ public class TowerData
     public int atkInc { get; set; }
     public int atkspeedInc { get; set; }
     public string skillId { get; set; }
+    public int stag {  get; set; }
+    public int percent { get; set; }
+    public int percentIncr { get; set; }
 }
 
 [System.Serializable]
@@ -28,8 +32,6 @@ public class TowerTable : DataTable
 
     public override void Load(string path)
     {
-        Debug.Log(path);
-
         TextAsset data = Resources.Load<TextAsset>(string.Format(FormatPath,path));
         string[] lines = data.text.Split('\n');
 
@@ -42,7 +44,7 @@ public class TowerTable : DataTable
             {
                 TowerData tower = new TowerData
                 {
-                    Id = int.Parse(columns[0]),
+                    ID = int.Parse(columns[0]),
                     name = columns[1],
                     towerGrade = int.Parse(columns[2]),
                     type = int.Parse(columns[3]),
@@ -52,13 +54,16 @@ public class TowerTable : DataTable
                     maxTarget = int.Parse(columns[7]),
                     atkInc = int.Parse(columns[8]),
                     atkspeedInc = int.Parse(columns[9]),
-                    skillId = columns[10]
+                    skillId = columns[10],
+                    stag = int.Parse(columns[11]),
+                    percent = int.Parse(columns[12]),
+                    percentIncr = int.Parse(columns[13]),
                 };
                 towerTable.Add(tower);
             }
             catch (FormatException ex)
             {
-                Debug.LogError($"Error parsing data on line {i + 1}: {lines[i]} - {ex.Message}");
+                Logger.LogError($"Error parsing data on line {i + 1}: {lines[i]} - {ex.Message}");
                 throw;
             }
         }
