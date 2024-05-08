@@ -1,7 +1,8 @@
+using CsvHelper;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using System.Globalization;
+using System.IO;
 using UnityEngine;
 
 [System.Serializable]
@@ -19,8 +20,8 @@ public class TowerData
     public int maxTarget { get; set; }
     public int atkInc { get; set; }
     public int atkspeedInc { get; set; }
-    public string skillId { get; set; }
-    public int stag {  get; set; }
+    public string skillID { get; set; }
+    public int stage {  get; set; }
     public int percent { get; set; }
     public int percentIncr { get; set; }
 }
@@ -28,43 +29,26 @@ public class TowerData
 [System.Serializable]
 public class TowerTable : DataTable
 {
-    public List<TowerData> towerTable = new List<TowerData>();
+    public Dictionary<int, TowerData> towerTable = new Dictionary<int, TowerData>();
+    
+    public TowerData GetID(int id)
+    {
+        towerTable.TryGetValue(id,out var data);
+        return data;
+    }
 
     public override void Load(string path)
     {
-        TextAsset data = Resources.Load<TextAsset>(string.Format(FormatPath,path));
-        string[] lines = data.text.Split('\n');
+        string fullPath = string.Format(FormatPath, path);
+        TextAsset data = Resources.Load<TextAsset>(fullPath);
 
-        for (int i = 1; i < lines.Length; i++)
+        using(var reader = new StringReader(data.text))
+        using(var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
-            if (string.IsNullOrWhiteSpace(lines[i])) continue;
-
-            string[] columns = lines[i].Split(',');
-            try
+            var records = csvReader.GetRecords<TowerData>();
+            foreach (var record in records) 
             {
-                TowerData tower = new TowerData
-                {
-                    ID = int.Parse(columns[0]),
-                    name = columns[1],
-                    towerGrade = int.Parse(columns[2]),
-                    type = int.Parse(columns[3]),
-                    damage = int.Parse(columns[4]),
-                    atkSpeed = int.Parse(columns[5]),
-                    atkRange = int.Parse(columns[6]),
-                    maxTarget = int.Parse(columns[7]),
-                    atkInc = int.Parse(columns[8]),
-                    atkspeedInc = int.Parse(columns[9]),
-                    skillId = columns[10],
-                    stag = int.Parse(columns[11]),
-                    percent = int.Parse(columns[12]),
-                    percentIncr = int.Parse(columns[13]),
-                };
-                towerTable.Add(tower);
-            }
-            catch (FormatException ex)
-            {
-                Logger.LogError($"Error parsing data on line {i + 1}: {lines[i]} - {ex.Message}");
-                throw;
+                towerTable.Add(record.ID, record);
             }
         }
     }

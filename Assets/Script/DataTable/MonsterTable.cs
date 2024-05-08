@@ -1,7 +1,11 @@
+using CsvHelper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using UnityEngine;
+using static MonsterData;
 
 public class MonsterData
 {
@@ -16,36 +20,28 @@ public class MonsterData
 
     public class MonsterTable : DataTable
     {
-        public List<TowerData> monsterTable = new List<TowerData>();
+        private Dictionary<int, MonsterData> monsterTable = new Dictionary<int, MonsterData>();
+
+        public MonsterData GetID(int id)
+        {
+            monsterTable.TryGetValue(id, out var data);
+            return data;
+        }
 
         public override void Load(string path)
         {
-            Debug.Log(path);
+            string fullPath = string.Format(FormatPath, path);
+            TextAsset data = Resources.Load<TextAsset>(fullPath);
 
-            TextAsset data = Resources.Load<TextAsset>(string.Format(FormatPath, path));
-            string[] lines = data.text.Split('\n');
-
-            for (int i = 1; i < lines.Length; i++)
+            using (var reader = new StringReader(data.text))
+            using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                if (string.IsNullOrWhiteSpace(lines[i])) continue;
-
-                string[] columns = lines[i].Split(',');
-                try
+                var records = csvReader.GetRecords<MonsterData>();
+                foreach (var record in records)
                 {
-                    TowerData tower = new TowerData
-                    {
-                        ID = int.Parse(columns[0]),
-
-                    };
-                    monsterTable.Add(tower);
-                }
-                catch (FormatException ex)
-                {
-                    Logger.LogError($"Error parsing data on line {i + 1}: {lines[i]} - {ex.Message}");
-                    throw;
+                    monsterTable.Add(record.ID, record);
                 }
             }
-
         }
     }
 }

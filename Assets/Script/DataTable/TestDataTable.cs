@@ -10,9 +10,11 @@ public class TestDataTable : MonoBehaviour
 
         if (towerTable != null)
         {
-            foreach (var tower in towerTable.towerTable)
+            foreach (var kvp in towerTable.towerTable)
             {
-                Debug.Log($"Id: {tower.ID}, Name: {tower.name}, Type: {tower.type}, Damage: {tower.damage}, Attack Speed: {tower.atkSpeed}");
+                TowerData tower = kvp.Value;
+                // 타워 정보 로깅
+                Logger.Log($"Tower ID: {tower.ID}, Name: {tower.name}, Type: {tower.type}, Damage: {tower.damage}, Attack Speed: {tower.atkSpeed}");
             }
         }
         else
