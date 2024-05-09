@@ -9,6 +9,8 @@ using static MonsterData;
 
 public class MonsterData
 {
+    public static readonly string FormatMonsterPath = "/Monster/{0}";
+
     public int ID { get; set; }
     public int monsterName { get; set; }
     public int stage { get; set; }

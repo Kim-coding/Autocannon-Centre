@@ -7,8 +7,8 @@ public class TestDataTable : MonoBehaviour
 {
     void Start()
     {
-        var towerTable = DataTableMgr.Get<TowerTable>("TowerTable");
-        var monsterTable = DataTableMgr.Get<MonsterTable>("MonsterTable");
+        var towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
+        var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
 
         if (towerTable != null)
         {
@@ -26,7 +26,6 @@ public class TestDataTable : MonoBehaviour
 
         if( monsterTable != null ) 
         {
-            Debug.Log("µÇ³ª?");
             foreach (var kvp in monsterTable.monsterTable)
             {
                 MonsterData tower = kvp.Value;

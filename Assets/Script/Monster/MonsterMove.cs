@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static MonsterData;
 
 public class MonsterMove : MonoBehaviour
 {
     public Transform endPoint;
     private NavMeshAgent agent;
     private float threshold = 0.5f;
+
+
+
     private void Start()
     {
+        var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
+
         agent = GetComponent<NavMeshAgent>();
+        
         Move();
     }
 

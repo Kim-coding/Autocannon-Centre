@@ -11,4 +11,7 @@ public static class DataTableIds
         "TowerTable",
         "MonsterTable",
     };
+
+    public static readonly string tower = "TowerTable";
+    public static readonly string monster = "MonsterTable";
 }
