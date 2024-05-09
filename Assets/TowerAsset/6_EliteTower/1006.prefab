@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3172894646022015893}
   - component: {fileID: 3172894646023014741}
   m_Layer: 0
-  m_Name: 1006_EliteTower
+  m_Name: 1006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

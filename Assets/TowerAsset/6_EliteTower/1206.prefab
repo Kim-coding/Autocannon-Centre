@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 7326134254806508332}
   - component: {fileID: 6600118045911420288}
   m_Layer: 0
-  m_Name: 1206_EliteTower_2
+  m_Name: 1206
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
