@@ -9,7 +9,7 @@ using static MonsterData;
 
 public class MonsterData
 {
-    public static readonly string FormatMonsterPath = "/Monster/{0}";
+    public static readonly string FormatMonsterPath = "Monster/{0}";
 
     public int ID { get; set; }
     public int monsterName { get; set; }
@@ -18,8 +18,8 @@ public class MonsterData
     public int monsterHP { get; set; }
     public int monsterSpeed { get; set; }
     public int monsterGold { get; set; }
-
-
+    public float scale { get; set; }
+    
     public class MonsterTable : DataTable
     {
         public Dictionary<int, MonsterData> monsterTable = new Dictionary<int, MonsterData>();
