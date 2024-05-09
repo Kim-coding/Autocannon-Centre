@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MonsterData;
 
 public static class DataTableMgr
 {
@@ -10,29 +11,26 @@ public static class DataTableMgr
 
     static DataTableMgr()
     {
-        //foreach (var id in DataTableIds.String)
-        //{
-        //    DataTable table = CreateDataTable(id);
-        //    table.Load(id);
-        //    tables.Add(id, table);
-        //}
-        DataTable table = new TowerTable();
-        table.Load("TowerTable");
-        tables.Add("TowerTable", table);
+        foreach (var id in DataTableIds.String)
+        {
+            DataTable table = CreateDataTable(id);
+            table.Load(id);
+            tables.Add(id, table);
+        }
     }
 
-    //private static DataTable CreateDataTable(string id)
-    //{
-    //    switch (id)
-    //    {
-    //        case "TowerTable":
-    //            return new TowerTable();
-    //        case "MonsterTable":
-    //            return new MonsterTable();
-    //        default:
-    //            throw new System.Exception("Unsupported table type");
-    //    }
-    //}
+    private static DataTable CreateDataTable(string id)
+    {
+        switch (id)
+        {
+            case "TowerTable":
+                return new TowerTable();
+            case "MonsterTable":
+                return new MonsterTable();
+            default:
+                throw new System.Exception("Unsupported table type");
+        }
+    }
 
     public static T Get<T>(string id) where T : DataTable
     {

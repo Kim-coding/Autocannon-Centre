@@ -5,20 +5,31 @@ using UnityEngine.AI;
 
 public class MonsterMove : MonoBehaviour
 {
-    public Transform EndPoint;
+    public Transform endPoint;
     private NavMeshAgent agent;
-
+    private float threshold = 0.5f;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         Move();
     }
 
+    private void Update()
+    {
+        if(endPoint != null && agent != null)
+        {
+            if(!agent.pathPending && agent.remainingDistance <= threshold)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
     private void Move()
     {
-        if (EndPoint != null) 
+        if (endPoint != null) 
         {
-            agent.destination = EndPoint.position; 
+            agent.destination = endPoint.position; 
         }
     }
 }
