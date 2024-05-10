@@ -31,8 +31,9 @@ public class MonsterHealth : MonoBehaviour
         }
     }
 
-    private void OnDamage(int damage)
+    public void OnDamage(int damage)
     {
+        Debug.Log("OnDamage");
         hp -= damage;
         if(hp < 0)
         {

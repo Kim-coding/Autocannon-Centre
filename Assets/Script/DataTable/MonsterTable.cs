@@ -17,7 +17,7 @@ public class MonsterData
     public int stage { get; set; }
     public int monsterType { get; set; }
     public int monsterHP { get; set; }
-    public int monsterSpeed { get; set; }
+    public float monsterSpeed { get; set; }
     public int monsterGold { get; set; }
     public float scale { get; set; }
 }

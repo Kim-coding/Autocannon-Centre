@@ -37,7 +37,12 @@ public class Bullet : MonoBehaviour
     {
         if(other.CompareTag("monster"))
         {
-
+            MonsterHealth monster = other.GetComponent<MonsterHealth>();
+            if(monster != null) 
+            {
+                monster.OnDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 }
