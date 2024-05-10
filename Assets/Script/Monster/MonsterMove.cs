@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 using static MonsterData;
@@ -10,13 +11,23 @@ public class MonsterMove : MonoBehaviour
     private NavMeshAgent agent;
     private float threshold = 0.5f;
 
-
-
     private void Start()
     {
-        var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
+        GameObject endPointObject = GameObject.FindWithTag("endPoint");
+        if (endPointObject != null)
+        {
+            endPoint = endPointObject.transform;
+        }
 
         agent = GetComponent<NavMeshAgent>();
+
+        var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
+        foreach (var kvp in monsterTable.monsterTable)
+        {
+            MonsterData monster = kvp.Value;
+            if(monster.monsterName.ToString() == this.name.Replace("(Clone)", ""))
+                agent.speed = monster.monsterSpeed;
+        }
         
         Move();
     }
@@ -29,6 +40,14 @@ public class MonsterMove : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("endPoint"))
+        {
+            //플레이어 체력 감소
         }
     }
 
