@@ -125,6 +125,7 @@ public class MonsterSpawn : MonoBehaviour
         {
             GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterName));
             GameObject moster = Instantiate(prefab, spawnPoint.position,Quaternion.identity);
+            moster.gameObject.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
         }
         
     }
