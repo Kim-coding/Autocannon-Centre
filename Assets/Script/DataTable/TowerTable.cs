@@ -29,7 +29,7 @@ public class TowerData
 [System.Serializable]
 public class TowerTable : DataTable
 {
-    public Dictionary<int, TowerData> towerTable = new Dictionary<int, TowerData>();
+    private Dictionary<int, TowerData> towerTable = new Dictionary<int, TowerData>();
     
     public TowerData GetID(int id)
     {

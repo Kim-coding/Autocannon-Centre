@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tile
   - endPoint
+  - monster
   layers:
   - Default
   - TransparentFX

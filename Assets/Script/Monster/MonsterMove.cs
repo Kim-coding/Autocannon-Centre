@@ -11,8 +11,12 @@ public class MonsterMove : MonoBehaviour
     private NavMeshAgent agent;
     private float threshold = 0.5f;
 
+    private int id;
+
     private void Start()
     {
+        id = int.Parse(name.Replace("(Clone)", ""));
+
         GameObject endPointObject = GameObject.FindWithTag("endPoint");
         if (endPointObject != null)
         {
@@ -22,11 +26,10 @@ public class MonsterMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
-        foreach (var kvp in monsterTable.monsterTable)
+        if(monsterTable != null ) 
         {
-            MonsterData monster = kvp.Value;
-            if(monster.monsterName.ToString() == this.name.Replace("(Clone)", ""))
-                agent.speed = monster.monsterSpeed;
+            var data = monsterTable.GetID(id);
+            agent.speed = data.monsterSpeed;
         }
         
         Move();

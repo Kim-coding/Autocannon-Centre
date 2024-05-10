@@ -1,5 +1,6 @@
     using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using static MonsterData;
 
@@ -7,17 +8,18 @@ public class MonsterHealth : MonoBehaviour
 {
     public int hp;
     public int Gold;
+
+    private int id;
     void Start()
     {
+        id = int.Parse(name.Replace("(Clone)", ""));
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
-        foreach (var kvp in monsterTable.monsterTable)
+
+        if (monsterTable != null)
         {
-            MonsterData monster = kvp.Value;
-            if (monster.monsterName.ToString() == this.name.Replace("(Clone)", ""))
-            {
-                hp = monster.monsterHP;
-                Gold = monster.monsterGold;
-            }
+            var data = monsterTable.GetID(id);
+            hp = data.monsterHP;
+            Gold = data.monsterGold;
         }
     }
 

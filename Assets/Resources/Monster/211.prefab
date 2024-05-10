@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 211
       objectReference: {fileID: 0}
+    - target: {fileID: 100052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
+      propertyPath: m_TagString
+      value: monster
+      objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 7ecd4d3141cb67947927bf0de9713983, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5

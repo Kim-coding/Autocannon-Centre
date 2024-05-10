@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 311
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0281274abc2ff3f439a2db407fa57c51, type: 3}
+      propertyPath: m_TagString
+      value: monster
+      objectReference: {fileID: 0}
     - target: {fileID: 3347011734577935979, guid: 0281274abc2ff3f439a2db407fa57c51, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
