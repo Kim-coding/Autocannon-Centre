@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject bullet;
+
     void Start()
     {
         
