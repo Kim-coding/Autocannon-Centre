@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4033815499275104}
   - component: {fileID: 33467980184116032}
   - component: {fileID: 23079280191121004}
+  - component: {fileID: 2016759390631313980}
+  - component: {fileID: -8352135468449523}
   m_Layer: 0
   m_Name: TB_CanonTower_Lvl1_Ball
   m_TagString: Untagged
@@ -83,3 +85,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2016759390631313980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263437943489172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997c7d0882334f649a7314292d9dde31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-8352135468449523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263437943489172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1540222, y: 0.97024333, z: 1.2527688}
+  m_Center: {x: -0.008537054, y: 0.04149407, z: 0.061976194}

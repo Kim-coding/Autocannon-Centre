@@ -43,6 +43,6 @@ public class Bullet : MonoBehaviour
                 monster.OnDamage(damage);
                 Destroy(gameObject);
             }
-        }
+        }        
     }
 }

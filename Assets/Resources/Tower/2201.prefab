@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2bc0dcbde9d106840bcdedaa3c8189ca, type: 3}
       propertyPath: m_Name
-      value: TB_MageTower_Lvl2
+      value: 2201
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2bc0dcbde9d106840bcdedaa3c8189ca, type: 3}
       propertyPath: m_LocalScale.x
@@ -75,5 +75,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 2bc0dcbde9d106840bcdedaa3c8189ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5326362644706804040}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc0dcbde9d106840bcdedaa3c8189ca, type: 3}
+--- !u!1 &3257780808927045468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2bc0dcbde9d106840bcdedaa3c8189ca, type: 3}
+  m_PrefabInstance: {fileID: 3257780808927142396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5326362644706804040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3257780808927045468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429848a320a0d794789708082eafab48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  soldier: {fileID: 0}
+  damage: 0
+  range: 0
+  speed: 0
+  fireRate: 0.5
+  fireTime: 0

@@ -6,6 +6,7 @@ public class Tower : MonoBehaviour
 {
     public GameObject bulletPrefab;
     private GameObject currentTarget;
+    public GameObject soldier;
 
     private Collider[] hitCollider;
     private int maxCollider = 10;
@@ -25,7 +26,7 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        id = int.Parse(gameObject.name);
+        id = int.Parse(name.Replace("(Clone)", ""));
 
         var towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
         if (towerTable != null)
@@ -44,6 +45,11 @@ public class Tower : MonoBehaviour
             //Å¸°Ù ¼³Á¤
             currentTarget = FindTarget();
         }
+        if(soldier != null && currentTarget != null)
+        {
+            soldier.transform.LookAt(currentTarget.transform.position);
+            soldier.transform.Rotate(0, 180, 0);
+        }
         
         fireTime += Time.deltaTime;
         if (currentTarget != null && fireTime > 0.25f)
@@ -51,6 +57,8 @@ public class Tower : MonoBehaviour
             Shoot(currentTarget);
             fireTime = 0f;
         }
+        
+
     }
 
     private GameObject FindTarget()
@@ -77,6 +85,10 @@ public class Tower : MonoBehaviour
 
     private void Shoot(GameObject target)
     {
+        if (bulletPrefab == null)
+        {
+            return;   
+        }
         GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         if(bullet != null ) 
