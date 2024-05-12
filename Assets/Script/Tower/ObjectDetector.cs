@@ -12,7 +12,10 @@ public class ObjectDetector : MonoBehaviour
     private RaycastHit hit;
 
     public Button purchaseButton;
-    private Transform selectedTile;
+    private Transform selectedTile;  //타일 선택
+    public Tower selectedTower;      //타워 선택
+
+    private Outline outline;
 
     private void Awake()
     {
@@ -37,7 +40,13 @@ public class ObjectDetector : MonoBehaviour
                     if (towerSpawner != null)
                     {
                         selectedTile = hit.transform;
+                        selectedTower = null;
                     }
+                }
+                else if (hit.collider.GetComponent<Tower>() != null)
+                {
+                    selectedTower = hit.collider.GetComponent<Tower>();
+                    selectedTile = null;
                 }
             }
         }
@@ -49,5 +58,10 @@ public class ObjectDetector : MonoBehaviour
         {
             towerSpawner.Spawn(selectedTile);
         }
+    }
+
+    public void OnIpgradClick()
+    {
+
     }
 }

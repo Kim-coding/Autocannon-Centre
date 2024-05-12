@@ -8,6 +8,7 @@ TagManager:
   - endPoint
   - monster
   - wayPoint
+  - ground
   layers:
   - Default
   - TransparentFX

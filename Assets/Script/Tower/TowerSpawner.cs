@@ -28,6 +28,13 @@ public class TowerSpawner : MonoBehaviour
 
     public void Spawn(Transform towerSpawnPoint)
     {
+        Tile tile = towerSpawnPoint.GetComponent<Tile>();
+
+        if (tile.isBuildTower)
+        {
+            return;
+        }
+
         int totalWeight = towerDatas.Sum(t => t.percent);
         int randomNumber = Random.Range(0, totalWeight);
         int cumulative = 0;
@@ -48,6 +55,7 @@ public class TowerSpawner : MonoBehaviour
             var towerName = selectedTower.ID.ToString();
             var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
             Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity);
+            tile.isBuildTower = true;
         }
     }
 }
