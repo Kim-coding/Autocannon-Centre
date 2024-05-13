@@ -7,19 +7,19 @@ public class ObjectDetector : MonoBehaviour
 {
     private TowerSpawner towerSpawner;
 
-
     private Camera mainCamera;
     private Ray ray;
     private RaycastHit hit;
 
-    public Button purchaseButton;
     private Transform selectedTile;  //타일 선택
-    public Tower selectedTower;      //타워 선택
+    private Tower selectedTower;      //타워 선택
 
-    private Outline outline;
+
+    public GameObject upgradeWindow;
 
     private void Awake()
     {
+        upgradeWindow.SetActive(false);
         mainCamera = Camera.main;
         towerSpawner = GetComponent<TowerSpawner>();
     }
@@ -58,7 +58,9 @@ public class ObjectDetector : MonoBehaviour
 
     public void OnUpgradClick()
     {
-        if(selectedTower != null)
+        upgradeWindow.SetActive(true);
+
+        if (selectedTower != null)
         {
             selectedTower.UpgradeTower();
         }

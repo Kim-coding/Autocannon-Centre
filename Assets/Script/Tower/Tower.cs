@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -9,14 +10,14 @@ public class Tower : MonoBehaviour
     public GameObject soldier;
 
     private Collider[] hitCollider;
-    private int maxCollider = 10;
+    private int maxCollider = 100;
 
     public int damage;
     public float range;
     public float speed;
     public int percent;
     public TowerTable towerTable;
-    public float fireRate = 0.5f;
+    public float fireRate = 0.05f;
     public float fireTime;
 
     private int upgradeCount = 3;
@@ -48,7 +49,7 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-        if(currentTarget == null || !currentTarget.activeInHierarchy || IsTargetOutOfRange(currentTarget))
+        if(currentTarget == null || IsTargetOutOfRange(currentTarget))
         {
             //새로운 타겟 설정
             currentTarget = FindTarget();
@@ -78,23 +79,53 @@ public class Tower : MonoBehaviour
     private GameObject FindTarget()
     {
         GameObject nearestMonster = null;
-        float shortDistance = 15f;
-        int colliders = Physics.OverlapSphereNonAlloc(transform.position, range, hitCollider);
-        for (int i = 0; i < colliders; i++)
+        float shortDistance = float.MaxValue;
+        //int colliders = Physics.OverlapSphereNonAlloc(transform.position, range, hitCollider);
+        //Debug.Log(colliders);
+        //for (int i = 0; i < colliders; i++)
+        //{
+        //    Collider collider = hitCollider[i];
+        //    Debug.Log(collider != null);
+        //    Debug.Log(collider.gameObject.CompareTag("monster"));
+        //    Debug.Log(collider.gameObject.tag) ;
+
+        //    if (collider != null && collider.gameObject.CompareTag("monster"))
+        //    {
+        //        Debug.Log("2");
+        //        float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
+        //        if(distance < shortDistance)
+        //        {
+        //            shortDistance = distance;
+        //            nearestMonster = collider.gameObject;
+        //        }
+        //    }
+        //}
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+        
+        foreach (Collider collider in colliders) 
         {
-            Collider collider = hitCollider[i];
-            if(collider != null && collider.gameObject.CompareTag("monster"))
+            if(collider != null)
             {
-                float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
-                if(distance < shortDistance)
+                if(collider.gameObject.CompareTag("monster"))
                 {
-                    shortDistance = distance;
-                    nearestMonster = collider.gameObject;
+                    float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
+                    if (distance < shortDistance)
+                    {
+                        shortDistance = distance;
+                        nearestMonster = collider.gameObject;
+                    }
                 }
             }
         }
 
         return nearestMonster;
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
     private void Shoot(GameObject target)

@@ -5,26 +5,19 @@ using System.Linq;
 
 public class TowerSpawner : MonoBehaviour
 {
-    //private List<TowerData> towerDatas = new List<TowerData>();
     private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
-    
+    private TowerTable towerTable;
     public int stage;
 
     private void Awake()
     {
-        var towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
-        if (towerTable != null)
+        towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
+        var data = towerTable.towerDatas.Where(t => t.stage <= stage && t.towerGrade == 1);
+
+        foreach (var t in data)
         {
-            var data = towerTable.towerDatas;
-            foreach (var t in data) 
-            {
-                if (stage <= t.stage && t.towerGrade == 1)
-                {
-                    towerDatas[t.ID] = t;
-                }
-            }
+            towerDatas[t.ID] = t;
         }
-        
     }
 
     public void UpgradeTowerPercent(int id, int percentInc)
@@ -48,8 +41,6 @@ public class TowerSpawner : MonoBehaviour
         int randomNumber = Random.Range(0, totalWeight);
         int cumulative = 0;
 
-        Debug.Log(totalWeight);
-
         TowerData selectedTower = null;
 
         foreach (var tower in towerDatas.Values)
@@ -61,6 +52,7 @@ public class TowerSpawner : MonoBehaviour
                 break;
             }
         }
+
         if(selectedTower != null) 
         {
             var towerName = selectedTower.ID.ToString();
