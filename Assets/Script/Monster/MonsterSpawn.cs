@@ -125,6 +125,7 @@ public class MonsterSpawn : MonoBehaviour
         {
             GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterName));
             GameObject moster = Instantiate(prefab, spawnPoint.position,Quaternion.identity);
+            moster.gameObject.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
         }
         
     }
@@ -138,17 +139,17 @@ public class MonsterSpawn : MonoBehaviour
         AddRule(1, 2, new int[] { 101 }, new int[]{ 20 });
         AddRule(1, 3, new int[] { 102 }, new int[]{ 20 });
         AddRule(1, 4, new int[] { 102 }, new int[]{ 20 });
-        AddRule(1, 5, new int[] { 101, 111 }, new int[]{ 16, 4 });
+        AddRule(1, 5, new int[] { 101, 111, 101, 111, 101, 111, 101, 111, 101, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1, 4, 1 });
         AddRule(1, 6, new int[] { 102 }, new int[]{ 20 });
         AddRule(1, 7, new int[] { 102 }, new int[]{ 20 });
         AddRule(1, 8, new int[] { 103 }, new int[]{ 20 });
         AddRule(1, 9, new int[] { 103 }, new int[]{ 20 });
-        AddRule(1, 10, new int[] { 102, 111 }, new int[]{ 16, 4 });
+        AddRule(1, 10, new int[] { 102, 111, 102, 111, 102, 111, 102, 111, 102, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1, 4, 1 });
         AddRule(1, 11, new int[] { 103 }, new int[]{ 20 });
         AddRule(1, 12, new int[] { 103 }, new int[]{ 20 });
         AddRule(1, 13, new int[] { 104 }, new int[]{ 20 });
         AddRule(1, 14, new int[] { 104 }, new int[]{ 20 });
-        AddRule(1, 15, new int[] { 103, 111 }, new int[]{ 16, 4 });
+        AddRule(1, 15, new int[] { 103, 111, 103, 111, 103, 111, 103, 111, 103, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1, 4, 1 });
         AddRule(1, 16, new int[] { 104 }, new int[]{ 20 });
         AddRule(1, 17, new int[] { 104 }, new int[]{ 20 });
         AddRule(1, 18, new int[] { 105 }, new int[]{ 20 });
@@ -161,17 +162,17 @@ public class MonsterSpawn : MonoBehaviour
         AddRule(2, 2, new int[] { 201 }, new int[] { 20 });
         AddRule(2, 3, new int[] { 202 }, new int[] { 20 });
         AddRule(2, 4, new int[] { 202 }, new int[] { 20 });
-        AddRule(2, 5, new int[] { 201, 211 }, new int[] { 16, 4 });
+        AddRule(2, 5, new int[] { 201, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1, 4, 1 });
         AddRule(2, 6, new int[] { 202 }, new int[] { 20 });
         AddRule(2, 7, new int[] { 202 }, new int[] { 20 });
         AddRule(2, 8, new int[] { 203 }, new int[] { 20 });
         AddRule(2, 9, new int[] { 203 }, new int[] { 20 });
-        AddRule(2, 10, new int[] { 202, 211 }, new int[] { 16, 4 });
+        AddRule(2, 10, new int[] { 202, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1, 4, 1 });
         AddRule(2, 11, new int[] { 203 }, new int[] { 20 });
         AddRule(2, 12, new int[] { 203 }, new int[] { 20 });
         AddRule(2, 13, new int[] { 204 }, new int[] { 20 });
         AddRule(2, 14, new int[] { 204 }, new int[] { 20 });
-        AddRule(2, 15, new int[] { 203, 211 }, new int[] { 16, 4 });
+        AddRule(2, 15, new int[] { 203, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1, 4, 1 });
         AddRule(2, 16, new int[] { 204 }, new int[] { 20 });
         AddRule(2, 17, new int[] { 204 }, new int[] { 20 });
         AddRule(2, 18, new int[] { 205 }, new int[] { 20 });
