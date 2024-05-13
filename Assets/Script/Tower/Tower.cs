@@ -14,10 +14,16 @@ public class Tower : MonoBehaviour
     public int damage;
     public float range;
     public float speed;
+    public int percent;
+    public TowerTable towerTable;
     public float fireRate = 0.5f;
     public float fireTime;
 
+    private int upgradeCount = 3;
+
     private int id;
+
+    private TowerSpawner towerSpawner;
     private void Awake()
     {
         hitCollider = new Collider[maxCollider];
@@ -26,15 +32,17 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
+        towerSpawner = GetComponentInParent<TowerSpawner>();
         id = int.Parse(name.Replace("(Clone)", ""));
 
-        var towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
+        towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
         if (towerTable != null)
         {
             var data = towerTable.GetID(id);
             speed = data.atkSpeed;
             range = data.atkRange;
-            damage = data.damage;       
+            damage = data.damage;
+            percent = data.percent;
         }
     }
 
@@ -100,6 +108,24 @@ public class Tower : MonoBehaviour
         if(bullet != null ) 
         {
             bullet.Set(currentTarget.transform, speed, damage);
+        }
+    }
+
+    public void UpgradeTower()
+    {
+        if(upgradeCount > 0)
+        {
+            upgradeCount--;
+        }
+        if (upgradeCount <= 0)
+            return;
+        if (towerTable != null)
+        {
+            var data = towerTable.GetID(id);
+            speed += data.atkspeedInc;
+            damage += data.atkInc;
+            percent += data.percentIncr;
+            towerSpawner.UpgradeTowerPercent(id, percent);
         }
     }
 }

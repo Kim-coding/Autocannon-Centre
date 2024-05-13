@@ -34927,7 +34927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       propertyPath: m_LocalScale.x
@@ -56504,6 +56504,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561202480}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnUpgradClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObjectDetector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500165613397561726, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5107718516015358623, guid: c0d2fe743e8de2e41b87cf6f33ec97bd, type: 3}
       propertyPath: m_Name
       value: upgrade_button
@@ -65442,6 +65470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   purchaseButton: {fileID: 0}
+  selectedTower: {fileID: 0}
 --- !u!4 &1561202481
 Transform:
   m_ObjectHideFlags: 0
@@ -76601,7 +76630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       propertyPath: m_LocalScale.x

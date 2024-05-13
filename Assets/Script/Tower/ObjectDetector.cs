@@ -7,6 +7,7 @@ public class ObjectDetector : MonoBehaviour
 {
     private TowerSpawner towerSpawner;
 
+
     private Camera mainCamera;
     private Ray ray;
     private RaycastHit hit;
@@ -21,11 +22,6 @@ public class ObjectDetector : MonoBehaviour
     {
         mainCamera = Camera.main;
         towerSpawner = GetComponent<TowerSpawner>();
-
-        if (towerSpawner == null)
-        {
-            Debug.LogError("TowerSpawner component not found!");
-        }
     }
 
     private void Update()
@@ -60,8 +56,11 @@ public class ObjectDetector : MonoBehaviour
         }
     }
 
-    public void OnIpgradClick()
+    public void OnUpgradClick()
     {
-
+        if(selectedTower != null)
+        {
+            selectedTower.UpgradeTower();
+        }
     }
 }

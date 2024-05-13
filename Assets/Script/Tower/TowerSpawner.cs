@@ -5,8 +5,9 @@ using System.Linq;
 
 public class TowerSpawner : MonoBehaviour
 {
-    private List<TowerData> towerDatas = new List<TowerData>();
-
+    //private List<TowerData> towerDatas = new List<TowerData>();
+    private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
+    
     public int stage;
 
     private void Awake()
@@ -19,11 +20,19 @@ public class TowerSpawner : MonoBehaviour
             {
                 if (stage <= t.stage && t.towerGrade == 1)
                 {
-                    towerDatas.Add(t);
+                    towerDatas[t.ID] = t;
                 }
             }
         }
         
+    }
+
+    public void UpgradeTowerPercent(int id, int percentInc)
+    {
+        if(towerDatas.ContainsKey(id)) 
+        {
+            towerDatas[id].percent += percentInc;
+        }
     }
 
     public void Spawn(Transform towerSpawnPoint)
@@ -35,13 +44,15 @@ public class TowerSpawner : MonoBehaviour
             return;
         }
 
-        int totalWeight = towerDatas.Sum(t => t.percent);
+        int totalWeight = towerDatas.Values.Sum(t => t.percent);
         int randomNumber = Random.Range(0, totalWeight);
         int cumulative = 0;
 
+        Debug.Log(totalWeight);
+
         TowerData selectedTower = null;
 
-        foreach (var tower in towerDatas)
+        foreach (var tower in towerDatas.Values)
         {
             cumulative += tower.percent;
             if (randomNumber < cumulative)
@@ -54,7 +65,7 @@ public class TowerSpawner : MonoBehaviour
         {
             var towerName = selectedTower.ID.ToString();
             var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
-            Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity);
+            Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity,transform);
             tile.isBuildTower = true;
         }
     }
