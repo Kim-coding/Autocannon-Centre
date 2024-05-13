@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public UpgradeTower upgradeTower;
 
-    void Start()
+    void Awake()
     {
-        
-    }
-
-
-    void Update()
-    {
-        
+        Instance = this;
+        upgradeTower = GetComponent<UpgradeTower>();
     }
 }

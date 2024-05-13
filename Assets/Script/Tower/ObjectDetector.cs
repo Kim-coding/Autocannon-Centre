@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ObjectDetector : MonoBehaviour
 {
     private TowerSpawner towerSpawner;
-
+    private UpgradeTower upgradeTower;
     private Camera mainCamera;
     private Ray ray;
     private RaycastHit hit;
@@ -15,11 +15,11 @@ public class ObjectDetector : MonoBehaviour
     private Tower selectedTower;      //타워 선택
 
 
-    public GameObject upgradeWindow;
+    
 
     private void Awake()
     {
-        upgradeWindow.SetActive(false);
+        
         mainCamera = Camera.main;
         towerSpawner = GetComponent<TowerSpawner>();
     }
@@ -56,13 +56,4 @@ public class ObjectDetector : MonoBehaviour
         }
     }
 
-    public void OnUpgradClick()
-    {
-        upgradeWindow.SetActive(true);
-
-        if (selectedTower != null)
-        {
-            selectedTower.UpgradeTower();
-        }
-    }
 }

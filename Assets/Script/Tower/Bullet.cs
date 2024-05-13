@@ -17,6 +17,11 @@ public class Bullet : MonoBehaviour
         damage = bulletDamage;
     }
 
+    private void Awake()
+    {
+        
+    }
+
     private void Update()
     {
         if(target == null)
@@ -24,13 +29,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         Vector3 dir = target.position - transform.position;
         dir = dir.normalized;
 
         transform.position += dir * speed * Time.deltaTime;
         transform.LookAt(target);
-
+        transform.Rotate(-90, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)
