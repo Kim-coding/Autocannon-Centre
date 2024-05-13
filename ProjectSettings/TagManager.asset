@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Tile
   - endPoint
+  - monster
+  - wayPoint
+  - ground
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class MonsterSpawn : MonoBehaviour
     private Dictionary<int, Dictionary<int, WaveRule>> stageWaveRules = new Dictionary<int, Dictionary<int, WaveRule>>(); //스테이지별 웨이브 규칙
 
     public Transform spawnPoint;
-    public int currentStage;
+    public int currentStage = 1;
     public int currentWave = 1;
 
     private float spawnTime = 1f;
@@ -23,6 +23,8 @@ public class MonsterSpawn : MonoBehaviour
     private float waitTime = 10f;
     private float waitTimer;
     private bool isWaiting = false;
+
+    private int id;
 
     private class SpawnRule           //몬스터별 생성 수, 한 웨이브에 두 가지 몬스터가 나올 수 있기 때문에 배열로 받음
     {
@@ -39,10 +41,12 @@ public class MonsterSpawn : MonoBehaviour
     private void Start()
     {
         CreatedRules();
+
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
         if (monsterTable != null)
         {
-            foreach (var m in monsterTable.monsterTable.Values)
+            var monster = monsterTable.monsterDatas;
+            foreach(var m in monster)
             {
                 monsterDatas.Add(m);
             }
@@ -59,6 +63,12 @@ public class MonsterSpawn : MonoBehaviour
                 isWaiting = false;
                 waitTimer = 0f;
             }
+            return;
+        }
+
+        if (!stageWaveRules.ContainsKey(currentStage))
+        {
+            Debug.Log($"No wave rules defined for stage {currentStage}");
             return;
         }
 
@@ -109,7 +119,7 @@ public class MonsterSpawn : MonoBehaviour
     {
         var rule = stageWaveRules[currentStage][wave].spawnRules[spawnIndex];
         var monsterName = rule.monsterNames[subIndex];  //현재 웨이브의 몬스터
-        Debug.Log(monsterName);
+        //Debug.Log(monsterName);
         MonsterData monsterData = null;
         
         foreach(var m in monsterDatas)
@@ -120,7 +130,7 @@ public class MonsterSpawn : MonoBehaviour
                 break;
             }
         }
-        Debug.Log(monsterData);
+        
         if(monsterData != null)
         {
             GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterName));
@@ -133,6 +143,7 @@ public class MonsterSpawn : MonoBehaviour
 
     private void CreatedRules()   //스테이지별 몬스터 생성 규칙 
     {
+        //MonsterWaveTable로 변경 예정
         //stage 1
         stageWaveRules.Add(1, new Dictionary<int, WaveRule>());
         AddRule(1, 1, new int[] { 101 }, new int[]{ 20 });

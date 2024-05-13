@@ -10,8 +10,10 @@ public static class DataTableIds
     {
         "TowerTable",
         "MonsterTable",
+        //"MonsterWaveTable",
     };
 
     public static readonly string tower = "TowerTable";
     public static readonly string monster = "MonsterTable";
+    //public static readonly string monsterWave = "MonsterWaveTable";
 }
