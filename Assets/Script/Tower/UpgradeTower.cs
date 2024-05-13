@@ -34,7 +34,7 @@ public class UpgradeTower : MonoBehaviour
     }
     public void OnUpgradClick()
     {
-        upgradeWindow.SetActive(true);
+        upgradeWindow.SetActive(!upgradeWindow.activeSelf);
     }
 
     public void TowerUpgrade(int towerId)
