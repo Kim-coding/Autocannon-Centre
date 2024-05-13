@@ -44,6 +44,7 @@ public class MonsterHealth : MonoBehaviour
     {
         //∏ÛΩ∫≈Õ ªÁ∏¡ æ÷¥œ∏ﬁ¿Ãº«
         Debug.Log(Gold + " ∞Ò »πµÊ !!");
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

@@ -11,21 +11,17 @@ public class ObjectDetector : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
-    public Button purchaseButton;
     private Transform selectedTile;  //타일 선택
-    public Tower selectedTower;      //타워 선택
+    private Tower selectedTower;      //타워 선택
 
-    private Outline outline;
+
+    public GameObject upgradeWindow;
 
     private void Awake()
     {
+        upgradeWindow.SetActive(false);
         mainCamera = Camera.main;
         towerSpawner = GetComponent<TowerSpawner>();
-
-        if (towerSpawner == null)
-        {
-            Debug.LogError("TowerSpawner component not found!");
-        }
     }
 
     private void Update()
@@ -60,8 +56,13 @@ public class ObjectDetector : MonoBehaviour
         }
     }
 
-    public void OnIpgradClick()
+    public void OnUpgradClick()
     {
+        upgradeWindow.SetActive(true);
 
+        if (selectedTower != null)
+        {
+            selectedTower.UpgradeTower();
+        }
     }
 }
