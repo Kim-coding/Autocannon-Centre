@@ -17,10 +17,6 @@ public class UpgradeTower : MonoBehaviour
     {
         upgradeWindow.SetActive(false);
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
-    }
-    public void OnUpgradClick()
-    {
-        upgradeWindow.SetActive(true);
 
         var data = towerTable.towerDatas.Where(t => t.stage <= stage && t.towerGrade == 1);
 
@@ -35,11 +31,10 @@ public class UpgradeTower : MonoBehaviour
                 slotScript.SetData(t);
             }
         }
-
-        //if (selectedTower != null)
-        //{
-        //    selectedTower.UpgradeTower();
-        //}
+    }
+    public void OnUpgradClick()
+    {
+        upgradeWindow.SetActive(true);
     }
 
     public void TowerUpgrade(int towerId)

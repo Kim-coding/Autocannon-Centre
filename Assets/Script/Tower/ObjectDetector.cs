@@ -52,8 +52,14 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTile != null) 
         {
+            if(GameManager.Instance.gold <= 0)
+            {
+                return;
+            }
+            GameManager.Instance.SubGold(10);
             towerSpawner.Spawn(selectedTile);
         }
+        selectedTile = null;
     }
 
 }

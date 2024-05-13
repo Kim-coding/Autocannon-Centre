@@ -42,6 +42,11 @@ public class MonsterMove : MonoBehaviour
             if(!agent.pathPending && agent.remainingDistance <= threshold)
             {
                 Destroy(gameObject);
+                GameManager.Instance.SubHealth(10);
+                if (GameManager.Instance.health <= 0)
+                {
+                    GameManager.Instance.EndGame();
+                }
             }
         }
     }
@@ -50,7 +55,7 @@ public class MonsterMove : MonoBehaviour
     {
         if(other.CompareTag("endPoint"))
         {
-            //플레이어 체력 감소
+            
         }
     }
 
