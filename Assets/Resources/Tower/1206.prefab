@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 7326134254806508332}
   - component: {fileID: 6600118045911420288}
   - component: {fileID: -2066002799072340870}
+  - component: {fileID: -7034400826807494849}
   m_Layer: 0
   m_Name: 1206
   m_TagString: Untagged
@@ -275,8 +276,30 @@ MonoBehaviour:
   damage: 0
   range: 0
   speed: 0
+  percent: 0
   fireRate: 0.5
   fireTime: 0
+--- !u!65 &-7034400826807494849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910695027200541584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.364576, y: 9.008527, z: 8.860218}
+  m_Center: {x: 9.737677e-21, y: 4.50378, z: -0.00000095367426}
 --- !u!1 &3254488085905272038
 GameObject:
   m_ObjectHideFlags: 0
