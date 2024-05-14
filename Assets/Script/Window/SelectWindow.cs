@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectWindow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnClickStage1()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene("1Level");
     }
 }

@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
+    - target: {fileID: 8127481472695214560, guid: f6ae6efc2624df84ca1bfcc22b19dcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1562,7 +1566,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329822583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1425282147}
+        m_TargetAssemblyTypeName: SelectWindow, Assembly-CSharp
+        m_MethodName: OnClickStage1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &387822081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,7 +2072,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 520523115}
   m_OnClick:
     m_PersistentCalls:
@@ -2844,6 +2860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c337c41b6952540af2fa2d33eae1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameButton: {fileID: 1370194606}
+  optionButton: {fileID: 1254739027}
 --- !u!1 &870069514
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,7 +3278,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 962770887}
   m_OnClick:
     m_PersistentCalls:
@@ -3475,7 +3493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1855639474}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -3725,8 +3743,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 318369472}
   m_HandleRect: {fileID: 318369471}
   m_Direction: 0
-  m_Value: 0.00000021927934
-  m_Size: 0.77457285
+  m_Value: 0
+  m_Size: 0.7745729
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3850,6 +3868,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210507506}
   m_CullTransparentMesh: 1
+--- !u!114 &1254739027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+  m_PrefabInstance: {fileID: 1016007272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1266778330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4205,6 +4234,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 584807706152320375, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
   m_PrefabInstance: {fileID: 1370194604}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1370194606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+  m_PrefabInstance: {fileID: 1370194604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1395907138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5476,7 +5516,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1889754057}
   m_OnClick:
     m_PersistentCalls:
@@ -6060,6 +6100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60925299f6776e442a525831c602abf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startWindow: {fileID: 828119759}
+  optionWindow: {fileID: 1983359046}
+  selectStageWindow: {fileID: 1425282143}
 --- !u!1001 &2134846067
 PrefabInstance:
   m_ObjectHideFlags: 0

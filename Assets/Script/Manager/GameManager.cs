@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
             isGameOver = false;
-            SceneManager.LoadScene("1Level");
+            SceneManager.LoadScene("Start");
         }
 
         if(isGameOver) 

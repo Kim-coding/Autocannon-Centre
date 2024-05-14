@@ -26,7 +26,7 @@ public class MonsterMove : MonoBehaviour
                 wayPoints.Add(wayPoint);
             }
         }
-        Debug.Log(wayPoints.Count);
+        
         GameObject endPointObject = GameObject.FindWithTag("endPoint");
         if (endPointObject != null)
         {
@@ -59,7 +59,7 @@ public class MonsterMove : MonoBehaviour
         if(currentWayPointIndex < wayPoints.Count - 1)
         {
             Transform targetWayPoint = wayPoints[currentWayPointIndex];
-            MoveTowards(targetWayPoint);
+            MoveTarget(targetWayPoint);
             
             if (Vector3.Distance(transform.position, targetWayPoint.position) <= threshold)
             {
@@ -68,7 +68,7 @@ public class MonsterMove : MonoBehaviour
         }
         else
         {
-            MoveTowards(endPoint);
+            MoveTarget(endPoint);
 
             if (Vector3.Distance(transform.position, endPoint.position) <= threshold)
             {
@@ -82,7 +82,7 @@ public class MonsterMove : MonoBehaviour
         }
     }
 
-    private void MoveTowards(Transform target)
+    private void MoveTarget(Transform target)
     {
         if (target != null)
         {

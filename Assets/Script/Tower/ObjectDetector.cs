@@ -52,7 +52,7 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTile != null) 
         {
-            if(GameManager.Instance.gold <= 0)
+            if(GameManager.Instance.gold < 10)
             {
                 return;
             }

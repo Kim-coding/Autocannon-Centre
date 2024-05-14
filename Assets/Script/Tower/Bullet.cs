@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -15,11 +11,6 @@ public class Bullet : MonoBehaviour
         this.target = target;
         speed = bulletSpeed;
         damage = bulletDamage;
-    }
-
-    private void Awake()
-    {
-        
     }
 
     private void Update()

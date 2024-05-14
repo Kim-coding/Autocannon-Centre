@@ -9,8 +9,9 @@ public class TowerSpawner : MonoBehaviour
     private TowerTable towerTable;
     public int stage;
 
-    private void Awake()
+    private void Start()
     {
+        stage = GameManager.Instance.stage;
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
         var data = towerTable.towerDatas.Where(t => t.stage <= stage && t.towerGrade == 1);
 
