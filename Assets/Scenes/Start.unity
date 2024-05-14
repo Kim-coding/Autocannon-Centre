@@ -302,6 +302,34 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1425282147}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Backspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectWindow, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3651,6 +3679,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3744,7 +3776,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 318369471}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.7745729
+  m_Size: 0.77457285
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
