@@ -25,10 +25,7 @@ public class MonsterHealth : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            OnDamage(100);
-        }
+
     }
 
     public void OnDamage(int damage)
@@ -44,6 +41,7 @@ public class MonsterHealth : MonoBehaviour
     {
         //∏ÛΩ∫≈Õ ªÁ∏¡ æ÷¥œ∏ﬁ¿Ãº«
         Debug.Log(Gold + " ∞Ò »πµÊ !!");
+        GameManager.Instance.AddGold(Gold);
         //gameObject.SetActive(false);
         Destroy(gameObject);
     }

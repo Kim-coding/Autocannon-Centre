@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429848a320a0d794789708082eafab48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  soldier: {fileID: 0}
+  bulletPrefab: {fileID: 1734245126228380, guid: c246c13351c285146b91ea26d3e4cda7, type: 3}
+  soldier: {fileID: 6845381020376403127}
   damage: 0
   range: 0
   speed: 0
@@ -213,5 +213,10 @@ PrefabInstance:
 --- !u!4 &6845381020376305815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bebef20717bf2cb42adfe83c7edc5a06, type: 3}
+  m_PrefabInstance: {fileID: 6845381020376435223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6845381020376403127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bebef20717bf2cb42adfe83c7edc5a06, type: 3}
   m_PrefabInstance: {fileID: 6845381020376435223}
   m_PrefabAsset: {fileID: 0}
