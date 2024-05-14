@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using static MonsterData;
@@ -10,6 +11,7 @@ public class MonsterSpawn : MonoBehaviour
     private Dictionary<int, Dictionary<int, WaveRule>> stageWaveRules = new Dictionary<int, Dictionary<int, WaveRule>>(); //스테이지별 웨이브 규칙
 
     public Transform spawnPoint;
+    public Transform wayPointContainer;
     public int currentStage;
     public int currentWave;
 
@@ -128,8 +130,17 @@ public class MonsterSpawn : MonoBehaviour
         if(monsterData != null)
         {
             GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterName));
-            GameObject moster = Instantiate(prefab, spawnPoint.position,Quaternion.identity);
-            moster.gameObject.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
+            GameObject monster = Instantiate(prefab, spawnPoint.position,Quaternion.identity);
+            monster.gameObject.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
+
+            MonsterMove monsterMove = monster.GetComponent<MonsterMove>();
+            if (monsterMove != null && wayPointContainer != null)
+            {
+                foreach (Transform wayPoint in wayPointContainer)
+                {
+                    monsterMove.wayPoints.Add(wayPoint);
+                }
+            }
         }
         
     }

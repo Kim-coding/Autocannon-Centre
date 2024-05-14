@@ -26,7 +26,7 @@ public class Slot : MonoBehaviour
         }
         else
         {
-            Debug.Log("잔액 부족");
+            Debug.Log("횟수 초과");
         }
     }
 }
