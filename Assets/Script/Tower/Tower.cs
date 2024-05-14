@@ -17,8 +17,6 @@ public class Tower : MonoBehaviour
     public float fireRate = 0.05f;
     public float fireTime;
 
-    private int upgradeCount = 3;
-
     private int id;
 
     private TowerSpawner towerSpawner;
@@ -135,12 +133,6 @@ public class Tower : MonoBehaviour
 
     public void UpgradeTower(TowerData data)
     {
-        if(upgradeCount > 0)
-        {
-            upgradeCount--;
-        }
-        if (upgradeCount <= 0)
-            return;
         if (towerTable != null)
         {
             speed += data.atkspeedInc;

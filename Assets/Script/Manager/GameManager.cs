@@ -55,6 +55,12 @@ public class GameManager : MonoBehaviour
         UIManager.instance.UpdateWaveText(wave);
     }
 
+    public void SetMonsterCount()
+    {
+        monsterCount = 20;
+        UIManager.instance.UpdateMonsterText(monsterCount);
+    }
+
     public void SubMonsterCount(int subMonsterCount)
     {
         monsterCount -= subMonsterCount;

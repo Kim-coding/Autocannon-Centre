@@ -9,6 +9,7 @@ public class MonsterHealth : MonoBehaviour
     public int hp;
     public int Gold;
 
+    private bool isDead = false;
     private int id;
     void Start()
     {
@@ -39,9 +40,14 @@ public class MonsterHealth : MonoBehaviour
 
     private void OnDie()
     {
+        if (isDead)
+            return;
+
         //∏ÛΩ∫≈Õ ªÁ∏¡ æ÷¥œ∏ﬁ¿Ãº«
         Debug.Log(Gold + " ∞Ò »πµÊ !!");
+        isDead = true;
         GameManager.Instance.AddGold(Gold);
+        GameManager.Instance.SubMonsterCount(1);
         //gameObject.SetActive(false);
         Destroy(gameObject);
     }
