@@ -32,8 +32,6 @@ public class MonsterHealth : MonoBehaviour
 
     public void OnDamage(int damage)
     {
-        
-
         hp -= damage;
         if(hp <= 0)
         {

@@ -123,11 +123,14 @@ public class Tower : MonoBehaviour
             return;   
         }
 
-        GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        var pos = transform.position;
+        pos.y += 1.7f;
+
+        GameObject bulletGO = Instantiate(bulletPrefab, pos, Quaternion.identity);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         if(bullet != null ) 
         {
-            bullet.Set(currentTarget.transform, speed, damage);
+            bullet.Set(currentTarget.transform, speed, damage, range);
         }
     }
 

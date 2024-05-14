@@ -5,12 +5,15 @@ public class Bullet : MonoBehaviour
     private Transform target;
     private float speed;
     private int damage;
-
-    public void Set(Transform target, float bulletSpeed, int bulletDamage)
+    private float range;
+    private Vector3 startPosition;
+    public void Set(Transform target, float bulletSpeed, int bulletDamage, float range)
     {
         this.target = target;
         speed = bulletSpeed;
         damage = bulletDamage;
+        this.range = range;
+        startPosition = transform.position;
     }
 
     private void Update()
@@ -27,6 +30,11 @@ public class Bullet : MonoBehaviour
         transform.position += dir * speed * Time.deltaTime;
         transform.LookAt(target);
         transform.Rotate(-90, 0, 0);
+
+        if (Vector3.Distance(startPosition, transform.position) > range)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
