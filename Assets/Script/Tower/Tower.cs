@@ -9,9 +9,6 @@ public class Tower : MonoBehaviour
     private GameObject currentTarget;
     public GameObject soldier;
 
-    private Collider[] hitCollider;
-    private int maxCollider = 100;
-
     public int damage;
     public float range;
     public float speed;
@@ -25,11 +22,7 @@ public class Tower : MonoBehaviour
     private int id;
 
     private TowerSpawner towerSpawner;
-    private void Awake()
-    {
-        hitCollider = new Collider[maxCollider];
 
-    }
 
     private void Start()
     {
@@ -81,17 +74,14 @@ public class Tower : MonoBehaviour
         GameObject nearestMonster = null;
         float shortDistance = float.MaxValue;
         //int colliders = Physics.OverlapSphereNonAlloc(transform.position, range, hitCollider);
-        //Debug.Log(colliders);
+
         //for (int i = 0; i < colliders; i++)
         //{
         //    Collider collider = hitCollider[i];
-        //    Debug.Log(collider != null);
-        //    Debug.Log(collider.gameObject.CompareTag("monster"));
-        //    Debug.Log(collider.gameObject.tag) ;
+
 
         //    if (collider != null && collider.gameObject.CompareTag("monster"))
         //    {
-        //        Debug.Log("2");
         //        float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
         //        if(distance < shortDistance)
         //        {
@@ -134,6 +124,7 @@ public class Tower : MonoBehaviour
         {
             return;   
         }
+
         GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         if(bullet != null ) 
@@ -142,7 +133,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public void UpgradeTower()
+    public void UpgradeTower(TowerData data)
     {
         if(upgradeCount > 0)
         {
@@ -152,11 +143,9 @@ public class Tower : MonoBehaviour
             return;
         if (towerTable != null)
         {
-            var data = towerTable.GetID(id);
             speed += data.atkspeedInc;
             damage += data.atkInc;
             percent += data.percentIncr;
-            towerSpawner.UpgradeTowerPercent(id, percent);
         }
     }
 }

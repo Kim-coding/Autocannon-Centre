@@ -11,7 +11,7 @@ public class MonsterSpawn : MonoBehaviour
 
     public Transform spawnPoint;
     public int currentStage = 1;
-    public int currentWave = 1;
+    public int currentWave;
 
     private float spawnTime = 1f;
     private float spawnTimer;
@@ -22,7 +22,7 @@ public class MonsterSpawn : MonoBehaviour
 
     private float waitTime = 10f;
     private float waitTimer;
-    private bool isWaiting = false;
+    private bool isWaiting = true;
 
     private int id;
 
@@ -40,6 +40,8 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Start()
     {
+        currentWave = GameManager.Instance.wave;
+
         CreatedRules();
 
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
@@ -95,18 +97,10 @@ public class MonsterSpawn : MonoBehaviour
                         {
                             spawnIndex = 0;
                             currentWave++; // 배열의 모든 몬스터 생성 완료 시 웨이브 전환
+                            GameManager.Instance.UpdateWave(currentWave);
                             isWaiting = true;
                         }
                     }
-
-                    //if (subIndex >= waveRules[currentWave].spawnRules[spawnIndex].monsterNames.Length &&
-                    //    spawnIndex >= waveRules[currentWave].spawnRules.Length)
-                    //{
-                    //    spawnIndex = 0;
-                    //    subIndex = 0;
-                    //    currentWave++; // 배열의 모든 몬스터 생성 완료 시 웨이브 전환
-                    //    isWaiting = true;
-                    //}
                 }
 
                
