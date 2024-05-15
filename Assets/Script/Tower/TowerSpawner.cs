@@ -38,28 +38,37 @@ public class TowerSpawner : MonoBehaviour
             return;
         }
 
+        TowerData selectedTower = selectRandomTower();
+
+        if(selectedTower != null) 
+        {
+            InstantiateTower(selectedTower, towerSpawnPoint);
+            tile.isBuildTower = true;
+        }
+    }
+
+    private TowerData selectRandomTower()
+    {
         int totalWeight = towerDatas.Values.Sum(t => t.percent);
         int randomNumber = Random.Range(0, totalWeight);
         int cumulative = 0;
-
-        TowerData selectedTower = null;
 
         foreach (var tower in towerDatas.Values)
         {
             cumulative += tower.percent;
             if (randomNumber < cumulative)
             {
-                selectedTower = tower;
-                break;
+                return tower;
             }
         }
 
-        if(selectedTower != null) 
-        {
-            var towerName = selectedTower.ID.ToString();
-            var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
-            Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity,transform);
-            tile.isBuildTower = true;
-        }
+        return null;
+    }
+
+    private void InstantiateTower(TowerData selectedTower, Transform towerSpawnPoint)
+    {
+        var towerName = selectedTower.ID.ToString();
+        var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
+        Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity, transform);
     }
 }

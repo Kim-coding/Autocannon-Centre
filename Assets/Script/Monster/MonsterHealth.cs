@@ -25,13 +25,10 @@ public class MonsterHealth : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (isDead) return;
-    }
-
     public void OnDamage(int damage)
     {
+        if (isDead) return;
+
         hp -= damage;
         if(hp <= 0)
         {
@@ -48,7 +45,7 @@ public class MonsterHealth : MonoBehaviour
 
         Debug.Log(Gold + " °ñ È¹µæ !!");
         GameManager.Instance.AddGold(Gold);
-        GameManager.Instance.SubMonsterCount(1);
+        GameManager.Instance.SubMonsterCount();
 
         Destroy(gameObject);
     }

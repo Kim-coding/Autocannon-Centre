@@ -24,17 +24,22 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        Move();
+
+        if (Vector3.Distance(startPosition, transform.position) > range)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Move()
+    {
         Vector3 dir = target.position - transform.position;
         dir = dir.normalized;
 
         transform.position += dir * speed * Time.deltaTime;
         transform.LookAt(target);
         transform.Rotate(-90, 0, 0);
-
-        if (Vector3.Distance(startPosition, transform.position) > range)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void OnTriggerEnter(Collider other)

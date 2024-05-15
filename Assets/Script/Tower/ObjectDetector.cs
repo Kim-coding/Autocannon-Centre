@@ -6,20 +6,16 @@ using UnityEngine.UI;
 public class ObjectDetector : MonoBehaviour
 {
     private TowerSpawner towerSpawner;
-    private UpgradeTower upgradeTower;
     private Camera mainCamera;
     private Ray ray;
     private RaycastHit hit;
 
-    private Transform selectedTile;  //타일 선택
-    private Tower selectedTower;      //타워 선택
+    private Transform selectedTile;
+    private Tower selectedTower;
 
-
-    
 
     private void Awake()
     {
-        
         mainCamera = Camera.main;
         towerSpawner = GetComponent<TowerSpawner>();
     }
@@ -33,19 +29,34 @@ public class ObjectDetector : MonoBehaviour
             {
                 if(hit.transform.CompareTag("Tile"))
                 {
-                    if (towerSpawner != null)
-                    {
-                        selectedTile = hit.transform;
-                        selectedTower = null;
-                    }
+                    SelectTile(hit.transform);
                 }
                 else if (hit.collider.GetComponent<Tower>() != null)
                 {
-                    selectedTower = hit.collider.GetComponent<Tower>();
-                    selectedTile = null;
+                    SelectTower(hit.collider.GetComponent<Tower>());
                 }
             }
         }
+    }
+
+    private void ClearSelection()
+    {
+        selectedTile = null;
+        selectedTower = null;
+    }
+
+    private void SelectTile(Transform tile)
+    {
+        ClearSelection();
+        selectedTile = hit.transform;
+        selectedTower = null;
+    }
+
+    private void SelectTower(Tower tower)
+    {
+        ClearSelection();
+        selectedTower = hit.collider.GetComponent<Tower>();
+        selectedTile = null;
     }
 
     public void OnClick()

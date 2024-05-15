@@ -7,8 +7,9 @@ public class Slot : MonoBehaviour
 {
     public TowerData towerData;
     public TextMeshProUGUI slotText;
+    public TextMeshProUGUI upgradeText;
 
-    private int maxCount = 3;
+    private int upgradeCount = 0;
 
     public void SetData(TowerData data)
     {
@@ -18,11 +19,12 @@ public class Slot : MonoBehaviour
 
     public void OnSlotClick()
     {
-        if(maxCount > 0)
+        if(upgradeCount < 3)
         {
             Debug.Log(towerData.ID + " 업그레이드");
             GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
-            maxCount--;
+            upgradeCount++;
+            upgradeText.text = $"+{upgradeCount}";
         }
         else
         {

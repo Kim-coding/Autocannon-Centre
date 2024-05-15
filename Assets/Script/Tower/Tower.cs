@@ -40,13 +40,9 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-        if(currentTarget == null || IsTargetOutOfRange(currentTarget))
-        {
-            //새로운 타겟 설정
-            currentTarget = FindTarget();
-        }
+        UpdateCurrentTarget();
 
-        if(soldier != null && currentTarget != null)
+        if (soldier != null && currentTarget != null)
         {
             soldier.transform.LookAt(currentTarget.transform.position);
             soldier.transform.Rotate(0, 180, 0);
@@ -62,6 +58,15 @@ public class Tower : MonoBehaviour
 
     }
 
+    private void UpdateCurrentTarget()
+    {
+        if (currentTarget == null || IsTargetOutOfRange(currentTarget))
+        {
+            //새로운 타겟 설정
+            currentTarget = FindTarget();
+        }
+    }
+
     private bool IsTargetOutOfRange(GameObject target)  // 현재 타겟과의 거리 검사
     {
         return Vector3.Distance(transform.position, target.transform.position) > range;
@@ -71,23 +76,6 @@ public class Tower : MonoBehaviour
     {
         GameObject nearestMonster = null;
         float shortDistance = float.MaxValue;
-        //int colliders = Physics.OverlapSphereNonAlloc(transform.position, range, hitCollider);
-
-        //for (int i = 0; i < colliders; i++)
-        //{
-        //    Collider collider = hitCollider[i];
-
-
-        //    if (collider != null && collider.gameObject.CompareTag("monster"))
-        //    {
-        //        float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
-        //        if(distance < shortDistance)
-        //        {
-        //            shortDistance = distance;
-        //            nearestMonster = collider.gameObject;
-        //        }
-        //    }
-        //}
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
         

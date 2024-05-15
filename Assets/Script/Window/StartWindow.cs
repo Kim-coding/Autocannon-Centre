@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,5 +26,14 @@ public class StartWindow : MonoBehaviour
     public void OnClickOption()
     {
         windowManager.Open(Windows.Option);
+    }
+
+    public void OnClickExit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false; 
+#else
+        Application.Quit();
+#endif
     }
 }
