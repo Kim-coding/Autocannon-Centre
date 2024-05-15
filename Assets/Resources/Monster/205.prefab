@@ -100,9 +100,6 @@ PrefabInstance:
       addedObject: {fileID: 3068624560320203264}
     - targetCorrespondingSourceObject: {fileID: 100004, guid: eb340446546ace345befe87cd064862b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4734666026814185867}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: eb340446546ace345befe87cd064862b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6837959092490767517}
     - targetCorrespondingSourceObject: {fileID: 100004, guid: eb340446546ace345befe87cd064862b, type: 3}
       insertIndex: -1
@@ -125,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9705b1b98380c44cb0590587718546a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wayPoints: []
   endPoint: {fileID: 0}
 --- !u!114 &3068624560320203264
 MonoBehaviour:
@@ -140,28 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   Gold: 0
---- !u!195 &4734666026814185867
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76107785692397590}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!136 &6837959092490767517
 CapsuleCollider:
   m_ObjectHideFlags: 0

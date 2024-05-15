@@ -419,6 +419,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 703cfc861f03e414e84780b923604d8f, type: 3}
   m_PrefabInstance: {fileID: 8672830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &11780396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11780398}
+  - component: {fileID: 11780397}
+  m_Layer: 0
+  m_Name: WayPoint (1)
+  m_TagString: WayPointContainer
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &11780397
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11780396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &11780398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11780396}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.04, y: 0, z: -4.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1438019214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &13000851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2672,7 +2725,7 @@ PrefabInstance:
       addedObject: {fileID: 61310097}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 61310101}
+      addedObject: {fileID: 61310104}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &61310095 stripped
 Transform:
@@ -2717,7 +2770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &61310101
+--- !u!114 &61310104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2729,7 +2782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &63650364
@@ -3933,7 +3986,7 @@ PrefabInstance:
       addedObject: {fileID: 93660763}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 93660767}
+      addedObject: {fileID: 93660770}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &93660761 stripped
 Transform:
@@ -3978,7 +4031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &93660767
+--- !u!114 &93660770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3990,7 +4043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &94780668
@@ -4306,7 +4359,7 @@ PrefabInstance:
       addedObject: {fileID: 96899869}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 96899873}
+      addedObject: {fileID: 96899876}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &96899867 stripped
 Transform:
@@ -4351,7 +4404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &96899873
+--- !u!114 &96899876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4363,7 +4416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &97413474
@@ -5641,7 +5694,7 @@ PrefabInstance:
       addedObject: {fileID: 117397960}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 117397964}
+      addedObject: {fileID: 117397967}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &117397958 stripped
 Transform:
@@ -5686,7 +5739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &117397964
+--- !u!114 &117397967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5698,7 +5751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &118475651
@@ -6532,7 +6585,7 @@ PrefabInstance:
       addedObject: {fileID: 127172745}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 127172749}
+      addedObject: {fileID: 127172752}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &127172743 stripped
 Transform:
@@ -6577,7 +6630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &127172749
+--- !u!114 &127172752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6589,7 +6642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &129048318
@@ -6823,7 +6876,7 @@ PrefabInstance:
       addedObject: {fileID: 135920623}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 135920627}
+      addedObject: {fileID: 135920630}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &135920621 stripped
 Transform:
@@ -6868,7 +6921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &135920627
+--- !u!114 &135920630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6880,7 +6933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1 &137023823
@@ -7132,7 +7185,7 @@ PrefabInstance:
       addedObject: {fileID: 145564093}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 145564097}
+      addedObject: {fileID: 145564100}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &145564091 stripped
 Transform:
@@ -7177,7 +7230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &145564097
+--- !u!114 &145564100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7189,7 +7242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &146296643
@@ -10679,7 +10732,7 @@ PrefabInstance:
       addedObject: {fileID: 251495330}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 251495334}
+      addedObject: {fileID: 251495337}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &251495328 stripped
 Transform:
@@ -10724,7 +10777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &251495334
+--- !u!114 &251495337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10736,7 +10789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &254265084
@@ -11792,7 +11845,7 @@ PrefabInstance:
       addedObject: {fileID: 280692068}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 280692072}
+      addedObject: {fileID: 280692075}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &280692066 stripped
 Transform:
@@ -11837,7 +11890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &280692072
+--- !u!114 &280692075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11849,7 +11902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &282173315
@@ -13436,7 +13489,7 @@ PrefabInstance:
       addedObject: {fileID: 322359133}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 322359137}
+      addedObject: {fileID: 322359140}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &322359131 stripped
 Transform:
@@ -13481,7 +13534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &322359137
+--- !u!114 &322359140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13493,7 +13546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &322736764
@@ -13945,7 +13998,7 @@ PrefabInstance:
       addedObject: {fileID: 331951622}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 331951626}
+      addedObject: {fileID: 331951629}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &331951620 stripped
 Transform:
@@ -13990,7 +14043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &331951626
+--- !u!114 &331951629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14002,7 +14055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &332020569
@@ -15050,7 +15103,7 @@ PrefabInstance:
       addedObject: {fileID: 359456236}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 359456240}
+      addedObject: {fileID: 359456243}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &359456234 stripped
 Transform:
@@ -15095,7 +15148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &359456240
+--- !u!114 &359456243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15107,7 +15160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &359855150
@@ -15563,7 +15616,7 @@ PrefabInstance:
       addedObject: {fileID: 365933547}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 365933551}
+      addedObject: {fileID: 365933554}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &365933545 stripped
 Transform:
@@ -15608,7 +15661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &365933551
+--- !u!114 &365933554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15620,7 +15673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &367971654
@@ -18958,7 +19011,7 @@ PrefabInstance:
       addedObject: {fileID: 440159857}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 440159861}
+      addedObject: {fileID: 440159864}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &440159855 stripped
 Transform:
@@ -19003,7 +19056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &440159861
+--- !u!114 &440159864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19015,7 +19068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &440239461
@@ -22690,7 +22743,7 @@ PrefabInstance:
       addedObject: {fileID: 538902483}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 538902487}
+      addedObject: {fileID: 538902490}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &538902481 stripped
 Transform:
@@ -22735,7 +22788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &538902487
+--- !u!114 &538902490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22747,7 +22800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &543922987
@@ -22907,7 +22960,7 @@ PrefabInstance:
       addedObject: {fileID: 544700126}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 544700130}
+      addedObject: {fileID: 544700133}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &544700124 stripped
 Transform:
@@ -22952,7 +23005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &544700130
+--- !u!114 &544700133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22964,7 +23017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &545317744
@@ -24694,7 +24747,7 @@ PrefabInstance:
       addedObject: {fileID: 594725318}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 594725322}
+      addedObject: {fileID: 594725325}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &594725316 stripped
 Transform:
@@ -24739,7 +24792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &594725322
+--- !u!114 &594725325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24751,7 +24804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &596643934
@@ -29305,7 +29358,7 @@ PrefabInstance:
       addedObject: {fileID: 694767315}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 694767319}
+      addedObject: {fileID: 694767322}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &694767313 stripped
 Transform:
@@ -29350,7 +29403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &694767319
+--- !u!114 &694767322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29362,7 +29415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &698471888
@@ -30389,6 +30442,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 703cfc861f03e414e84780b923604d8f, type: 3}
   m_PrefabInstance: {fileID: 725588852}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &728010439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728010441}
+  - component: {fileID: 728010440}
+  m_Layer: 0
+  m_Name: WayPoint (4)
+  m_TagString: WayPointContainer
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &728010440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728010439}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &728010441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728010439}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.65, y: 0, z: -4.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1438019214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &729052893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31064,7 +31170,7 @@ PrefabInstance:
       addedObject: {fileID: 742045373}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 742045377}
+      addedObject: {fileID: 742045380}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &742045371 stripped
 Transform:
@@ -31109,7 +31215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &742045377
+--- !u!114 &742045380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31121,7 +31227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &744250196
@@ -31577,7 +31683,7 @@ PrefabInstance:
       addedObject: {fileID: 748020331}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 748020335}
+      addedObject: {fileID: 748020338}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &748020329 stripped
 Transform:
@@ -31622,7 +31728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &748020335
+--- !u!114 &748020338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31634,7 +31740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &748741839
@@ -32628,7 +32734,7 @@ PrefabInstance:
       addedObject: {fileID: 775861327}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 775861331}
+      addedObject: {fileID: 775861334}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &775861325 stripped
 Transform:
@@ -32673,7 +32779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &775861331
+--- !u!114 &775861334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32685,7 +32791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &779741157
@@ -32998,7 +33104,7 @@ GameObject:
   m_Layer: 0
   m_Name: startPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -33011,7 +33117,7 @@ Transform:
   m_GameObject: {fileID: 788096373}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.5, y: 0.75, z: -8.5}
+  m_LocalPosition: {x: -26.5, y: 0.25, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33051,6 +33157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 788096374}
+  wayPointContainer: {fileID: 1438019214}
   currentStage: 1
   currentWave: 1
 --- !u!1001 &788678095
@@ -35130,7 +35237,7 @@ PrefabInstance:
       addedObject: {fileID: 825451464}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 825451468}
+      addedObject: {fileID: 825451471}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &825451462 stripped
 Transform:
@@ -35175,7 +35282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &825451468
+--- !u!114 &825451471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35187,9 +35294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
+  m_UseGraphicAlpha: 0
 --- !u!1001 &826307059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38164,6 +38271,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 703cfc861f03e414e84780b923604d8f, type: 3}
   m_PrefabInstance: {fileID: 905024538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &907560069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907560071}
+  - component: {fileID: 907560070}
+  m_Layer: 0
+  m_Name: WayPoint (3)
+  m_TagString: WayPointContainer
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &907560070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907560069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &907560071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907560069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.31, y: 0, z: 4.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1438019214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &908121557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40019,7 +40179,7 @@ PrefabInstance:
       addedObject: {fileID: 958381231}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 958381235}
+      addedObject: {fileID: 958381238}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &958381229 stripped
 Transform:
@@ -40064,7 +40224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &958381235
+--- !u!114 &958381238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40076,7 +40236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &962086917
@@ -42842,7 +43002,7 @@ PrefabInstance:
       addedObject: {fileID: 1012498145}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1012498149}
+      addedObject: {fileID: 1012498152}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1012498143 stripped
 Transform:
@@ -42887,7 +43047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1012498149
+--- !u!114 &1012498152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42899,7 +43059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1013036939
@@ -43269,7 +43429,7 @@ PrefabInstance:
       addedObject: {fileID: 1020747722}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1020747726}
+      addedObject: {fileID: 1020747729}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1020747720 stripped
 Transform:
@@ -43314,7 +43474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1020747726
+--- !u!114 &1020747729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43326,7 +43486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1024417275
@@ -43412,7 +43572,7 @@ PrefabInstance:
       addedObject: {fileID: 1024417278}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1024417282}
+      addedObject: {fileID: 1024417285}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1024417276 stripped
 Transform:
@@ -43457,7 +43617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1024417282
+--- !u!114 &1024417285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43469,7 +43629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1024923890
@@ -49901,7 +50061,7 @@ PrefabInstance:
       addedObject: {fileID: 1180962539}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1180962543}
+      addedObject: {fileID: 1180962546}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1180962537 stripped
 Transform:
@@ -49946,7 +50106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1180962543
+--- !u!114 &1180962546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49958,7 +50118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1181881613
@@ -52952,7 +53112,7 @@ PrefabInstance:
       addedObject: {fileID: 1247609341}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1247609345}
+      addedObject: {fileID: 1247609348}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1247609339 stripped
 Transform:
@@ -52997,7 +53157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1247609345
+--- !u!114 &1247609348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53009,7 +53169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1250640901
@@ -56467,7 +56627,7 @@ PrefabInstance:
       addedObject: {fileID: 1356603730}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1356603734}
+      addedObject: {fileID: 1356603737}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1356603728 stripped
 Transform:
@@ -56512,7 +56672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1356603734
+--- !u!114 &1356603737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56524,7 +56684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1360177377
@@ -59885,7 +60045,7 @@ PrefabInstance:
       addedObject: {fileID: 1429792317}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1429792321}
+      addedObject: {fileID: 1429792324}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1429792315 stripped
 Transform:
@@ -59930,7 +60090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1429792321
+--- !u!114 &1429792324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59942,7 +60102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1430614078
@@ -60611,6 +60771,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 703cfc861f03e414e84780b923604d8f, type: 3}
   m_PrefabInstance: {fileID: 1436465670}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1438019213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438019214}
+  m_Layer: 0
+  m_Name: WayPointContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1438019214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438019213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6709394, y: 0.36023378, z: -4.3695073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 11780398}
+  - {fileID: 1828103833}
+  - {fileID: 907560071}
+  - {fileID: 728010441}
+  - {fileID: 1689538124}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1439834043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60768,7 +60964,7 @@ PrefabInstance:
       addedObject: {fileID: 1444661996}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1444662000}
+      addedObject: {fileID: 1444662003}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1444661994 stripped
 Transform:
@@ -60813,7 +61009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1444662000
+--- !u!114 &1444662003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60825,7 +61021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1445125571
@@ -65711,6 +65907,7 @@ GameObject:
   - component: {fileID: 1561202482}
   - component: {fileID: 1561202483}
   - component: {fileID: 1561202484}
+  - component: {fileID: 1561202485}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -65788,8 +65985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeTower: {fileID: 1561202482}
-  stage: 0
-  wave: 0
+  stage: 1
+  wave: 1
   monsterCount: 20
   gold: 50
   health: 100
@@ -65810,6 +66007,18 @@ MonoBehaviour:
   monsterCount: {fileID: 1956760587}
   gold: {fileID: 21724060}
   health: {fileID: 1124286935}
+--- !u!114 &1561202485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561202478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3129134f79c6845b06b2f394f943e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1561797926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66701,7 +66910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1580842080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66719,7 +66928,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -12, y: 0.0000076294}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 320, y: 5}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1580842081
 MonoBehaviour:
@@ -68356,7 +68565,7 @@ PrefabInstance:
       addedObject: {fileID: 1620204457}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1620204461}
+      addedObject: {fileID: 1620204464}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1620204455 stripped
 Transform:
@@ -68401,7 +68610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1620204461
+--- !u!114 &1620204464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68413,7 +68622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1620285574
@@ -70845,7 +71054,7 @@ PrefabInstance:
       addedObject: {fileID: 1661179911}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1661179915}
+      addedObject: {fileID: 1661179918}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1661179909 stripped
 Transform:
@@ -70890,7 +71099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1661179915
+--- !u!114 &1661179918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70902,7 +71111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1661814537
@@ -71791,7 +72000,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1688627899}
   - component: {fileID: 1688627898}
-  - component: {fileID: 1688627900}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -71827,40 +72035,8 @@ Transform:
   - {fileID: 1625299172}
   - {fileID: 1738035893}
   - {fileID: 788096374}
-  - {fileID: 1689538124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1688627900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688627897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.17333333
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3320a0c1fd6d73a4a85ac4735744ebee, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1688925939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72022,7 +72198,7 @@ GameObject:
   m_Layer: 0
   m_Name: endPoint
   m_TagString: endPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -72034,12 +72210,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689538123}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19, y: 0.75, z: -8.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.67094, y: 0, z: -4.1304927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1688627899}
+  m_Father: {fileID: 1438019214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1689538125
 BoxCollider:
@@ -75351,7 +75527,7 @@ PrefabInstance:
       addedObject: {fileID: 1770513622}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1770513626}
+      addedObject: {fileID: 1770513629}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1770513620 stripped
 Transform:
@@ -75396,7 +75572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1770513626
+--- !u!114 &1770513629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75408,7 +75584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1772776558
@@ -77138,7 +77314,7 @@ PrefabInstance:
       addedObject: {fileID: 1807363068}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1807363072}
+      addedObject: {fileID: 1807363075}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1807363066 stripped
 Transform:
@@ -77183,7 +77359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1807363072
+--- !u!114 &1807363075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77195,9 +77371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
+  m_UseGraphicAlpha: 0
 --- !u!1001 &1809761323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78094,6 +78270,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 90d5e58a1d011ff44818f452dc247d7d, type: 3}
   m_PrefabInstance: {fileID: 1827092156}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1828103831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828103833}
+  - component: {fileID: 1828103832}
+  m_Layer: 0
+  m_Name: WayPoint (2)
+  m_TagString: WayPointContainer
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1828103832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828103831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1828103833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828103831}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.849061, y: 0, z: 4.76}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1438019214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1828445057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79805,7 +80034,7 @@ PrefabInstance:
       addedObject: {fileID: 1877782848}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1877782852}
+      addedObject: {fileID: 1877782855}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1877782846 stripped
 Transform:
@@ -79850,7 +80079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1877782852
+--- !u!114 &1877782855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79862,7 +80091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1 &1878529061
@@ -81780,7 +82009,7 @@ PrefabInstance:
       addedObject: {fileID: 1920156805}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1920156809}
+      addedObject: {fileID: 1920156812}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &1920156803 stripped
 Transform:
@@ -81825,7 +82054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1920156809
+--- !u!114 &1920156812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81837,7 +82066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &1923342435
@@ -86992,7 +87221,7 @@ PrefabInstance:
       addedObject: {fileID: 2076727339}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2076727343}
+      addedObject: {fileID: 2076727346}
   m_SourcePrefab: {fileID: 100100000, guid: 4b352da785577ef4ea5af11b8e082770, type: 3}
 --- !u!4 &2076727337 stripped
 Transform:
@@ -87037,7 +87266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345ada84d9f652e4fbf50702f68edc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2076727343
+--- !u!114 &2076727346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87049,7 +87278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1001 &2077502797
@@ -89866,3 +90095,4 @@ SceneRoots:
   - {fileID: 1688627899}
   - {fileID: 1117917580}
   - {fileID: 1878529064}
+  - {fileID: 1438019214}

@@ -7,6 +7,9 @@ public class Slot : MonoBehaviour
 {
     public TowerData towerData;
     public TextMeshProUGUI slotText;
+    public TextMeshProUGUI upgradeText;
+
+    private int upgradeCount = 0;
 
     public void SetData(TowerData data)
     {
@@ -16,10 +19,16 @@ public class Slot : MonoBehaviour
 
     public void OnSlotClick()
     {
-        Debug.Log(towerData.ID);
-        GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
-        //towerData.ID;를 넘기면
-        //해당 ID를 가지고 있는 타워의 speed와 damage, percent가 증가
-        //해당 ID를 가지고 있는 생성된 타워는 물론이고, 이후에 생성될 해당 ID를 가지는 타워도 speed와 damage, percent가 증가해야함
+        if(upgradeCount < 3)
+        {
+            Debug.Log(towerData.ID + " 업그레이드");
+            GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
+            upgradeCount++;
+            upgradeText.text = $"+{upgradeCount}";
+        }
+        else
+        {
+            Debug.Log("횟수 초과");
+        }
     }
 }

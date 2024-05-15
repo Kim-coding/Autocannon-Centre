@@ -6,8 +6,8 @@ using UnityEngine;
 public class UpgradeTower : MonoBehaviour
 {
     public GameObject upgradeWindow;
-    public GameObject slotPrefab; // 슬롯 프리팹
-    public Transform slotParent; // 슬롯이 생성될 부모 컨테이너
+    public GameObject slotPrefab;
+    public Transform slotParent;
     private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
     private TowerTable towerTable;
     public TowerSpawner towerSpawner;
@@ -16,10 +16,9 @@ public class UpgradeTower : MonoBehaviour
     void Awake()
     {
         upgradeWindow.SetActive(false);
+        
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
-
         var data = towerTable.towerDatas.Where(t => t.stage <= stage && t.towerGrade == 1);
-
         foreach (var t in data)
         {
             towerDatas[t.ID] = t;

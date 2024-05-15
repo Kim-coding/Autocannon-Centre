@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public UpgradeTower upgradeTower;
 
     public int stage;
-    public int wave = 1;
+    public int wave = 0;
     public int monsterCount = 20;
     
     public int gold = 50;
@@ -35,11 +35,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(isGameOver && Input.GetKeyDown(KeyCode.Space))
         {
             Time.timeScale = 1.0f;
             isGameOver = false;
-            SceneManager.LoadScene("1Level");
+            SceneManager.LoadScene("Start");
         }
 
         if(isGameOver) 
@@ -55,9 +55,15 @@ public class GameManager : MonoBehaviour
         UIManager.instance.UpdateWaveText(wave);
     }
 
-    public void SubMonsterCount(int subMonsterCount)
+    public void SetMonsterCount()
     {
-        monsterCount -= subMonsterCount;
+        monsterCount = 20;
+        UIManager.instance.UpdateMonsterText(monsterCount);
+    }
+
+    public void SubMonsterCount()
+    {
+        monsterCount--;
         UIManager.instance.UpdateMonsterText(monsterCount);
     }
 

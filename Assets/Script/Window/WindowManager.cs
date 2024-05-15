@@ -1,18 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WindowManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject startWindow;
+    public GameObject optionWindow;
+    public GameObject selectStageWindow;
+
+    private Dictionary<Windows, GameObject> windows;
+
+    private void Start()
     {
-        
+        windows = new Dictionary<Windows, GameObject>()
+        {
+            {Windows.Start, startWindow },
+            {Windows.Option, optionWindow},
+            {Windows.SelectStage, selectStageWindow }
+        };
+
+        Open(Windows.Start);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Open(Windows window)
     {
-        
+        foreach (var win in windows) 
+        {
+            win.Value.SetActive(false);
+        }
+
+        if(windows.ContainsKey(window)) 
+        {
+            windows[window].SetActive(true);
+        }
     }
 }
