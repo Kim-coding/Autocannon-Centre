@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -9,17 +5,15 @@ public class Bullet : MonoBehaviour
     private Transform target;
     private float speed;
     private int damage;
-
-    public void Set(Transform target, float bulletSpeed, int bulletDamage)
+    private float range;
+    private Vector3 startPosition;
+    public void Set(Transform target, float bulletSpeed, int bulletDamage, float range)
     {
         this.target = target;
         speed = bulletSpeed;
         damage = bulletDamage;
-    }
-
-    private void Awake()
-    {
-        
+        this.range = range;
+        startPosition = transform.position;
     }
 
     private void Update()
@@ -30,6 +24,16 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        Move();
+
+        if (Vector3.Distance(startPosition, transform.position) > range)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Move()
+    {
         Vector3 dir = target.position - transform.position;
         dir = dir.normalized;
 

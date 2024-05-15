@@ -1,4 +1,5 @@
-    using System.Collections;
+using CsvHelper.Configuration.Attributes;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -24,15 +25,12 @@ public class MonsterHealth : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-
-    }
-
     public void OnDamage(int damage)
     {
+        if (isDead) return;
+
         hp -= damage;
-        if(hp < 0)
+        if(hp <= 0)
         {
             OnDie();
         }
@@ -40,15 +38,15 @@ public class MonsterHealth : MonoBehaviour
 
     private void OnDie()
     {
-        if (isDead)
-            return;
+        if (isDead) return;
 
         //¸ó½ºÅÍ »ç¸Á ¾Ö´Ï¸ÞÀÌ¼Ç
-        Debug.Log(Gold + " °ñ È¹µæ !!");
         isDead = true;
+
+        Debug.Log(Gold + " °ñ È¹µæ !!");
         GameManager.Instance.AddGold(Gold);
-        GameManager.Instance.SubMonsterCount(1);
-        //gameObject.SetActive(false);
+        GameManager.Instance.SubMonsterCount();
+
         Destroy(gameObject);
     }
 }

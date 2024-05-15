@@ -21,17 +21,19 @@ public static class DataTableMgr
 
     private static DataTable CreateDataTable(string id)
     {
-        switch (id)
+        var tableTypes = new Dictionary<string, Func<DataTable>>
         {
-            case "TowerTable":
-                return new TowerTable();
-            case "MonsterTable":
-                return new MonsterTable();
-            //case "MonsterWaveTable":
-            //    return new MonsterWaveTable();
-            default:
-                throw new System.Exception("Unsupported table type");
+            { "TowerTable", () => new TowerTable() },
+            { "MonsterTable", () => new MonsterTable() }
+            //{ "MonsterWaveTable", () => new MonsterWaveTable() }
+        };
+
+        if (tableTypes.ContainsKey(id))
+        {
+            return tableTypes[id]();
         }
+
+        throw new Exception("Unsupported table type");
     }
 
     public static T Get<T>(string id) where T : DataTable
