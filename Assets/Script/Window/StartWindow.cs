@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +28,7 @@ public class StartWindow : MonoBehaviour
     public void OnClickExit()
     {
 #if UNITY_EDITOR
-        EditorApplication.isPlaying = false; 
+        //Application.isPlaying=false;
 #else
         Application.Quit();
 #endif
