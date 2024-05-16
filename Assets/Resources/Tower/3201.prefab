@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3201
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2b524ad204e38474691761960599b115, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b524ad204e38474691761960599b115, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.35

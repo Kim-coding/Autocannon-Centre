@@ -33,7 +33,7 @@ public class ObjectDetector : MonoBehaviour
                 {
                     SelectTile(hit.transform);
                 }
-                else if (hit.collider.GetComponent<Tower>() != null)
+                else if (hit.transform.CompareTag("Tower"))
                 {
                     SelectTower(hit.collider.GetComponent<Tower>());
                 }
@@ -72,12 +72,12 @@ public class ObjectDetector : MonoBehaviour
         selectedTower = hit.collider.GetComponent<Tower>();
         selectedTile = null;
 
-        //var outline = selectedTile.GetComponent<Outlinable>();
-        //if (outline != null)
-        //{
-        //    outline.enabled = true;
-        //    currentOutline = outline;
-        //}
+        var outline = selectedTower.GetComponent<Outlinable>();
+        if (outline != null)
+        {
+            outline.enabled = true;
+            currentOutline = outline;
+        }
     }
 
     public void OnClick()

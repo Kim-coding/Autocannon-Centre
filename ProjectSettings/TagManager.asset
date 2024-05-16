@@ -10,6 +10,7 @@ TagManager:
   - wayPoint
   - ground
   - WayPointContainer
+  - Tower
   layers:
   - Default
   - TransparentFX
