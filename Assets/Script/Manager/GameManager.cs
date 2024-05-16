@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(isGameOver && Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             Time.timeScale = 1.0f;
             isGameOver = false;
