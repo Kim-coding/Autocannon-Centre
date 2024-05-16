@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429848a320a0d794789708082eafab48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1263437943489172, guid: 9e26aec6688c4604db5b8271d50b40ae, type: 3}
+  bulletPrefab: {fileID: 1263437943489172, guid: cb62e61d7f8cce44f8082c0a857ba37c, type: 3}
   soldier: {fileID: 0}
   damage: 0
   range: 0
