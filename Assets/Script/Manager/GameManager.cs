@@ -89,4 +89,9 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
     }
+
+    public void OnClickOption()
+    {
+
+    }
 }
