@@ -18,20 +18,20 @@ public class MonsterMove : MonoBehaviour
     {
         id = int.Parse(name.Replace("(Clone)", ""));
 
-        GameObject wayPointContainer = GameObject.FindWithTag("WayPointContainer");
-        if(wayPointContainer != null )
-        {
-            foreach( Transform wayPoint in wayPointContainer.transform )
-            {
-                wayPoints.Add(wayPoint);
-            }
-        }
+        //GameObject wayPointContainer = GameObject.FindWithTag("WayPointContainer");
+        //if(wayPointContainer != null )
+        //{
+        //    foreach( Transform wayPoint in wayPointContainer.transform )
+        //    {
+        //        wayPoints.Add(wayPoint);
+        //    }
+        //}
         
-        GameObject endPointObject = GameObject.FindWithTag("endPoint");
-        if (endPointObject != null)
-        {
-            endPoint = endPointObject.transform;
-        }
+        //GameObject endPointObject = GameObject.FindWithTag("endPoint");
+        //if (endPointObject != null)
+        //{
+        //    endPoint = endPointObject.transform;
+        //}
 
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
         if(monsterTable != null ) 
@@ -90,6 +90,21 @@ public class MonsterMove : MonoBehaviour
             transform.position += direction * speed * Time.deltaTime;
             Quaternion rot = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, rot, Time.deltaTime * rotSpeed);
+        }
+    }
+
+    public void SetWayPoints(Transform wayPointContainer)
+    {
+        wayPoints.Clear();
+        foreach(Transform wayPoint in wayPointContainer)
+        {
+            wayPoints.Add(wayPoint);
+        }
+
+        GameObject endPointObject = GameObject.FindWithTag("endPoint");
+        if(endPointObject != null) 
+        {
+            endPoint = endPointObject.transform;
         }
     }
 }

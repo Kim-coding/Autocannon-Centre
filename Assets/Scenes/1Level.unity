@@ -35477,8 +35477,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd76c7e7ef278b4698284b4cea1d1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 788096374}
-  wayPointContainer: {fileID: 1438019214}
+  spawnPoints:
+  - {fileID: 788096374}
+  wayPointContainers:
+  - {fileID: 1438019214}
   currentStage: 1
   currentWave: 1
 --- !u!1001 &788678095
