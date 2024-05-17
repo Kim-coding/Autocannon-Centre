@@ -49,6 +49,7 @@ public class TowerCombiner : MonoBehaviour
         selectedTower = null;
         combinationTower1 = null;
         combinationTower2 = null;
+        combinationTower3 = null;
 
         //combinationSlot1 = null;
         //combinationSlot2 = null;
@@ -60,10 +61,10 @@ public class TowerCombiner : MonoBehaviour
     {
         selectedTower = tower;
         towerInfo.SetActive(true);
-        towerName.text = tower.name;
-        towerdamage.text = tower.damage.ToString();
-        towerAtkSpeed.text = tower.range.ToString();
-        towerRange.text = tower.range.ToString();
+        towerName.text = $"name : {tower.name.Replace("(Clone)", "")}";
+        towerdamage.text = $"damage : {tower.damage.ToString()}";
+        towerAtkSpeed.text = $"atk Speed : {tower.speed.ToString()}";
+        towerRange.text = $"range : {tower.range.ToString()}";
     }
 
     public void CombinationSlot1()
@@ -71,7 +72,7 @@ public class TowerCombiner : MonoBehaviour
         if(selectedTower != null) 
         {
             combinationTower1 = selectedTower;
-            //combinationSlot1
+            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.name;
         }
     }
 
@@ -80,6 +81,7 @@ public class TowerCombiner : MonoBehaviour
         if(selectedTower != null)
         {
             combinationTower2 = selectedTower;
+            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.name;
         }
     }
 
@@ -88,6 +90,7 @@ public class TowerCombiner : MonoBehaviour
         if (selectedTower != null)
         {
             combinationTower3 = selectedTower;
+            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.name;
         }
     }
 

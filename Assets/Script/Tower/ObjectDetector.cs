@@ -56,7 +56,7 @@ public class ObjectDetector : MonoBehaviour
 
         selectedTile = null;
         selectedTower = null;
-        //towerCombiner.ClearSelection();
+        towerCombiner.ClearSelection();
     }
 
     private void SelectTile(Transform tile)
@@ -86,7 +86,7 @@ public class ObjectDetector : MonoBehaviour
             currentOutline = outline;
         }
 
-        //towerCombiner.DisplayTowerInfo(selectedTower);
+        towerCombiner.OnInfo(selectedTower);
     }
 
     public void OnClick()
