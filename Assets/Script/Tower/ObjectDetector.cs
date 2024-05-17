@@ -14,6 +14,8 @@ public class ObjectDetector : MonoBehaviour
     private Transform selectedTile;
     private Tower selectedTower;
 
+    public TowerCombiner towerCombiner;
+
     private Outlinable currentOutline;
     private int cost = 10;
     private void Awake()
@@ -54,6 +56,7 @@ public class ObjectDetector : MonoBehaviour
 
         selectedTile = null;
         selectedTower = null;
+        //towerCombiner.ClearSelection();
     }
 
     private void SelectTile(Transform tile)
@@ -82,6 +85,8 @@ public class ObjectDetector : MonoBehaviour
             outline.enabled = true;
             currentOutline = outline;
         }
+
+        //towerCombiner.DisplayTowerInfo(selectedTower);
     }
 
     public void OnClick()

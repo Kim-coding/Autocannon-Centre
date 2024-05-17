@@ -91,5 +91,11 @@ public class MonsterMove : MonoBehaviour
         {
             endPoint = endPointObject.transform;
         }
+        currentWayPointIndex = 0;
+    }
+
+    private void OnEnable()
+    {
+        currentWayPointIndex = 0;
     }
 }

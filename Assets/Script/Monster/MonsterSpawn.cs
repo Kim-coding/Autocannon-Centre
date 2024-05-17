@@ -133,7 +133,7 @@ public class MonsterSpawn : MonoBehaviour
         {
             GameObject monster = PoolManager.instance.GetObjectPool(monsterName.ToString());
             var index = Random.Range(0, spawnPoints.Length - 1);
-
+            Debug.Log(index);
             monster.transform.position = spawnPoints[index].position;
             monster.transform.rotation = Quaternion.identity;
             monster.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
