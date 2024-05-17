@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EPOOutline;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ObjectDetector : MonoBehaviour
     private Transform selectedTile;
     private Tower selectedTower;
 
+    private Outlinable currentOutline;
 
     private void Awake()
     {
@@ -31,7 +33,7 @@ public class ObjectDetector : MonoBehaviour
                 {
                     SelectTile(hit.transform);
                 }
-                else if (hit.collider.GetComponent<Tower>() != null)
+                else if (hit.transform.CompareTag("Tower"))
                 {
                     SelectTower(hit.collider.GetComponent<Tower>());
                 }
@@ -41,6 +43,11 @@ public class ObjectDetector : MonoBehaviour
 
     private void ClearSelection()
     {
+        if(currentOutline != null)
+        {
+            currentOutline.enabled = false;
+        }
+
         selectedTile = null;
         selectedTower = null;
     }
@@ -48,8 +55,15 @@ public class ObjectDetector : MonoBehaviour
     private void SelectTile(Transform tile)
     {
         ClearSelection();
-        selectedTile = hit.transform;
+        selectedTile = tile;
         selectedTower = null;
+
+        var outline = selectedTile.GetComponent<Outlinable>();
+        if (outline != null) 
+        {
+            outline.enabled = true;
+            currentOutline = outline;
+        }
     }
 
     private void SelectTower(Tower tower)
@@ -57,6 +71,13 @@ public class ObjectDetector : MonoBehaviour
         ClearSelection();
         selectedTower = hit.collider.GetComponent<Tower>();
         selectedTile = null;
+
+        var outline = selectedTower.GetComponent<Outlinable>();
+        if (outline != null)
+        {
+            outline.enabled = true;
+            currentOutline = outline;
+        }
     }
 
     public void OnClick()

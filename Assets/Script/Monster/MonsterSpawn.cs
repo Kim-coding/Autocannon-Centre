@@ -10,8 +10,9 @@ public class MonsterSpawn : MonoBehaviour
     public List<MonsterData> monsterDatas = new List<MonsterData>();
     private Dictionary<int, Dictionary<int, WaveRule>> stageWaveRules = new Dictionary<int, Dictionary<int, WaveRule>>(); //스테이지별 웨이브 규칙
 
-    public Transform spawnPoint;
-    public Transform wayPointContainer;
+    public Transform[] spawnPoints;
+    //public Transform wayPointContainer;
+    public Transform[] wayPointContainers;        //
     public int currentStage;
     public int currentWave;
 
@@ -130,15 +131,18 @@ public class MonsterSpawn : MonoBehaviour
         if(monsterData != null)
         {
             GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterName));
-            GameObject monster = Instantiate(prefab, spawnPoint.position,Quaternion.identity);
+            var index = Random.Range(0, spawnPoints.Length - 1);
+
+            GameObject monster = Instantiate(prefab, spawnPoints[index].position,Quaternion.identity);
             monster.gameObject.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
 
             MonsterMove monsterMove = monster.GetComponent<MonsterMove>();
-            if (monsterMove != null && wayPointContainer != null)
+            if (monsterMove != null && wayPointContainers.Length >= index)
             {
-                foreach (Transform wayPoint in wayPointContainer)
+                foreach (Transform wayPoint in wayPointContainers)
                 {
-                    monsterMove.wayPoints.Add(wayPoint);
+                    //monsterMove.wayPoints.Add(wayPoint);
+                    monsterMove.SetWayPoints(wayPointContainers[index]);
                 }
             }
         }

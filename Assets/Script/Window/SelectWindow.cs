@@ -19,7 +19,7 @@ public class SelectWindow : MonoBehaviour
 
     public void OnClickStage2()
     {
-
+        SceneManager.LoadScene("2Level");
     }
     public void OnClickStage3()
     {
