@@ -10,6 +10,8 @@ public class Slot : MonoBehaviour
     public TextMeshProUGUI upgradeText;
 
     private int upgradeCount = 0;
+    private int cost = 25;
+    private int costInc = 5;
 
     public void SetData(TowerData data)
     {
@@ -21,9 +23,16 @@ public class Slot : MonoBehaviour
     {
         if(upgradeCount < 3)
         {
-            Debug.Log(towerData.ID + " 업그레이드");
+            if (GameManager.Instance.gold < cost)
+            {
+                Debug.Log("잔액 부족");
+                return;
+            }
+
+            GameManager.Instance.SubGold(cost);
             GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
             upgradeCount++;
+            cost += costInc * upgradeCount;
             upgradeText.text = $"+{upgradeCount}";
         }
         else

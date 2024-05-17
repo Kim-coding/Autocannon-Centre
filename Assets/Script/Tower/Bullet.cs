@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if(target == null)
         {
-            Destroy(gameObject);
+            PoolManager.instance.ReturnObjectToPool(gameObject);
             return;
         }
 
@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 
         if (Vector3.Distance(startPosition, transform.position) > range)
         {
-            Destroy(gameObject);
+            PoolManager.instance.ReturnObjectToPool(gameObject);
         }
     }
 
@@ -50,12 +50,12 @@ public class Bullet : MonoBehaviour
             if(monster != null) 
             {
                 monster.OnDamage(damage);
-                Destroy(gameObject);
+                PoolManager.instance.ReturnObjectToPool(gameObject);
             }
         }
         else if (other.CompareTag("ground"))
         {
-            Destroy(gameObject);
+            PoolManager.instance.ReturnObjectToPool(gameObject);
         }
     }
 }

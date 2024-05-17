@@ -47,6 +47,6 @@ public class MonsterHealth : MonoBehaviour
         GameManager.Instance.AddGold(Gold);
         GameManager.Instance.SubMonsterCount();
 
-        Destroy(gameObject);
+        PoolManager.instance.ReturnObjectToPool(gameObject);
     }
 }

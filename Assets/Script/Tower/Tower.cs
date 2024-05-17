@@ -36,6 +36,8 @@ public class Tower : MonoBehaviour
             damage = data.damage;
             percent = data.percent;
         }
+
+        PoolManager.instance.CreatePool(bulletPrefab, 1);
     }
 
     private void Update()
@@ -114,11 +116,17 @@ public class Tower : MonoBehaviour
         var pos = transform.position;
         pos.y += 1.7f;
 
-        GameObject bulletGO = Instantiate(bulletPrefab, pos, Quaternion.identity);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        if(bullet != null ) 
+        GameObject bulletGO = PoolManager.instance.GetObjectPool(bulletPrefab.name);
+        if(bulletGO != null) 
         {
-            bullet.Set(currentTarget.transform, speed, damage, range);
+            bulletGO.transform.position = pos;
+            bulletGO.transform.rotation = Quaternion.identity;
+
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                bullet.Set(currentTarget.transform, speed, damage, range);
+            }
         }
     }
 

@@ -16,6 +16,10 @@ public class PoolManager : MonoBehaviour
     public void CreatePool(GameObject prefab, int poolSize)
     {
         string poolKey = prefab.name;
+        if (poolDictionary.ContainsKey(poolKey))
+        {
+            return;
+        }
         List<GameObject> objectPool = new List<GameObject>();
 
         for (int i = 0; i < poolSize; i++) 

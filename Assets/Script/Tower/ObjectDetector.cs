@@ -15,7 +15,7 @@ public class ObjectDetector : MonoBehaviour
     private Tower selectedTower;
 
     private Outlinable currentOutline;
-
+    private int cost = 10;
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -36,6 +36,10 @@ public class ObjectDetector : MonoBehaviour
                 else if (hit.transform.CompareTag("Tower"))
                 {
                     SelectTower(hit.collider.GetComponent<Tower>());
+                }
+                else
+                {
+                    ClearSelection();
                 }
             }
         }
@@ -84,11 +88,11 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTile != null) 
         {
-            if(GameManager.Instance.gold < 10)
+            if(GameManager.Instance.gold < cost)
             {
                 return;
             }
-            GameManager.Instance.SubGold(10);
+            GameManager.Instance.SubGold(cost);
             towerSpawner.Spawn(selectedTile);
         }
         selectedTile = null;
