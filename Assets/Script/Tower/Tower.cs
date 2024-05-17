@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -18,13 +19,15 @@ public class Tower : MonoBehaviour
     public float fireTime;
 
     private int id;
-
+    public string TowerID {  get; private set; }
     private TowerSpawner towerSpawner;
 
 
     private void Start()
     {
         towerSpawner = GetComponentInParent<TowerSpawner>();
+        TowerID = $"{name.Replace("(Clone)", "")}_{DateTime.Now.Ticks}";
+
         id = int.Parse(name.Replace("(Clone)", ""));
 
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);

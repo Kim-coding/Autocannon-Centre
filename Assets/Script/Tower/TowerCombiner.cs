@@ -7,7 +7,6 @@ using EPOOutline;
 
 public class TowerCombiner : MonoBehaviour
 {
-    public GameObject towerInfo;
     public TextMeshProUGUI towerName;
     public TextMeshProUGUI towerdamage;
     public TextMeshProUGUI towerAtkSpeed;
@@ -21,9 +20,9 @@ public class TowerCombiner : MonoBehaviour
     public Button randomCombiButton;
 
     private Tower selectedTower;
-    private Tower combinationTower1;
-    private Tower combinationTower2;
-    private Tower combinationTower3;
+    private string combinationTower1ID;
+    private string combinationTower2ID;
+    private string combinationTower3ID;
 
     private Outlinable currentOutline;
 
@@ -36,7 +35,10 @@ public class TowerCombiner : MonoBehaviour
         mainCamara = Camera.main;
         combiButton = Camera.main.GetComponent<Button>();
         randomCombiButton = Camera.main.GetComponent<Button>();
-        towerInfo.SetActive(false);
+
+        combinationTower1ID = string.Empty;
+        combinationTower2ID = string.Empty;
+        combinationTower3ID = string.Empty;
     }
 
     public void ClearSelection()
@@ -47,20 +49,11 @@ public class TowerCombiner : MonoBehaviour
         }
 
         selectedTower = null;
-        combinationTower1 = null;
-        combinationTower2 = null;
-        combinationTower3 = null;
-
-        //combinationSlot1 = null;
-        //combinationSlot2 = null;
-
-        towerInfo.SetActive(false);
     }
 
     public void OnInfo(Tower tower)
     {
         selectedTower = tower;
-        towerInfo.SetActive(true);
         towerName.text = $"name : {tower.name.Replace("(Clone)", "")}";
         towerdamage.text = $"damage : {tower.damage.ToString()}";
         towerAtkSpeed.text = $"atk Speed : {tower.speed.ToString()}";
@@ -69,34 +62,46 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot1()
     {
-        if(selectedTower != null) 
+        if (!string.IsNullOrEmpty(combinationTower1ID))
         {
-            combinationTower1 = selectedTower;
-            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.name;
+            ClearSlot1();
+        }
+        else if (selectedTower != null && !IsTowerInSlots(selectedTower.TowerID)) 
+        {
+            combinationTower1ID = selectedTower.TowerID;
+            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.TowerID;
         }
     }
 
     public void CombinationSlot2()
     {
-        if(selectedTower != null)
+        if (!string.IsNullOrEmpty(combinationTower2ID))
         {
-            combinationTower2 = selectedTower;
-            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.name;
+            ClearSlot2();
+        }
+        else if(selectedTower != null && !IsTowerInSlots(selectedTower.TowerID))
+        {
+            combinationTower2ID = selectedTower.TowerID;
+            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.TowerID;
         }
     }
 
     public void CombinationSlot3()
     {
-        if (selectedTower != null)
+        if (!string.IsNullOrEmpty(combinationTower3ID))
         {
-            combinationTower3 = selectedTower;
-            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.name;
+            ClearSlot3();
+        }
+        else if(selectedTower != null && !IsTowerInSlots(selectedTower.TowerID))
+        {
+            combinationTower3ID = selectedTower.TowerID;
+            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.TowerID;
         }
     }
 
     public void OnClickRandomButton()
     {
-        if(combinationTower1 != null && combinationTower2 != null && combinationTower3 != null) 
+        if(combinationTower1ID != null && combinationTower2ID != null && combinationTower3ID != null) 
         {
             //타워 조합
         }
@@ -104,9 +109,32 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickButton()
     {
-        if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
+        if (combinationTower1ID != null && combinationTower2ID != null && combinationTower3ID != null)
         {
 
         }
+    }
+
+    private bool IsTowerInSlots(string towerID)
+    {
+        return towerID == combinationTower1ID || towerID == combinationTower2ID || towerID == combinationTower3ID;
+    }
+
+    private void ClearSlot1()
+    {
+        combinationTower1ID = string.Empty;
+        combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+    }
+
+    private void ClearSlot2()
+    {
+        combinationTower2ID = string.Empty;
+        combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+    }
+
+    private void ClearSlot3()
+    {
+        combinationTower3ID = string.Empty;
+        combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
     }
 }
