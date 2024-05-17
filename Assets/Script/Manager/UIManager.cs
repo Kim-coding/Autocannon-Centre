@@ -27,24 +27,24 @@ public class UIManager : MonoBehaviour
 
     public void UpdateStageText(int newStage)
     {
-        stage.text = "스테이지 : " + newStage;
+        stage.text = $"스테이지 : {newStage}";
     }
 
     public void UpdateWaveText(int newWave)
     {
-        wave.text = "웨이브 : " + newWave;
+        wave.text = $"웨이브 : {newWave} / 20";
     }
 
     public void UpdateMonsterText(int newMonsterCount)
     {
-        monsterCount.text = "몬스터 : " + newMonsterCount;
+        monsterCount.text = $"몬스터 : {newMonsterCount}";
     }
     public void UpdateGoldText(int newGold) 
     {
-        gold.text = "골드 : " + newGold + "G";
+        gold.text = $"골드 : {newGold}G";
     }
     public void UpdateHealthText(int newHealth) 
     {
-        health.text = "남은 체력 : " + newHealth;
+        health.text = $"남은 체력 : {newHealth}";
     }
 }

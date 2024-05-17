@@ -11,8 +11,7 @@ public class MonsterSpawn : MonoBehaviour
     private Dictionary<int, Dictionary<int, WaveRule>> stageWaveRules = new Dictionary<int, Dictionary<int, WaveRule>>(); //스테이지별 웨이브 규칙
 
     public Transform[] spawnPoints;
-    //public Transform wayPointContainer;
-    public Transform[] wayPointContainers;        //
+    public Transform[] wayPointContainers;
     public int currentStage;
     public int currentWave;
 
@@ -57,6 +56,8 @@ public class MonsterSpawn : MonoBehaviour
                 monsterDatas.Add(m);
             }
         }
+
+        MonsterPools();
     }
 
     private void Update()
@@ -130,25 +131,56 @@ public class MonsterSpawn : MonoBehaviour
         
         if(monsterData != null)
         {
-            GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterName));
+            GameObject monster = PoolManager.instance.GetObjectPool(monsterName.ToString());
             var index = Random.Range(0, spawnPoints.Length - 1);
-
-            GameObject monster = Instantiate(prefab, spawnPoints[index].position,Quaternion.identity);
-            monster.gameObject.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
+            Debug.Log(index);
+            monster.transform.position = spawnPoints[index].position;
+            monster.transform.rotation = Quaternion.identity;
+            monster.transform.localScale = new Vector3(monsterData.scale, monsterData.scale, monsterData.scale);
 
             MonsterMove monsterMove = monster.GetComponent<MonsterMove>();
             if (monsterMove != null && wayPointContainers.Length >= index)
             {
                 foreach (Transform wayPoint in wayPointContainers)
                 {
-                    //monsterMove.wayPoints.Add(wayPoint);
                     monsterMove.SetWayPoints(wayPointContainers[index]);
                 }
             }
         }
         
     }
-    
+
+
+    private void MonsterPools()
+    {
+        HashSet<int> requiredMonsters = new HashSet<int>();
+
+        if (stageWaveRules.ContainsKey(currentStage))
+        {
+            var waveRules = stageWaveRules[currentStage];
+            foreach (var waveRule in waveRules.Values)
+            {
+                foreach (var spawnRule in waveRule.spawnRules)
+                {
+                    foreach (var monsterName in spawnRule.monsterNames)
+                    {
+                        requiredMonsters.Add(monsterName);
+                    }
+                }
+            }
+        }
+
+        foreach (var monsterName in requiredMonsters)
+        {
+            MonsterData monsterData = monsterDatas.Find(m => m.monsterName == monsterName);
+            if (monsterData != null)
+            {
+                GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterData.monsterName));
+                PoolManager.instance.CreatePool(prefab, 1);
+            }
+        }
+    }
+
 
     private void CreatedRules()   //스테이지별 몬스터 생성 규칙 
     {
@@ -203,6 +235,5 @@ public class MonsterSpawn : MonoBehaviour
     private void AddRule(int stage, int wave, int[] monsterName, int[] monsterCount)
     {
         stageWaveRules[stage].Add(wave, new WaveRule { spawnRules = new SpawnRule[] { new SpawnRule { monsterNames = monsterName, spawnCounts = monsterCount }}});
-        //스테이지 규칙을 
     }
 }

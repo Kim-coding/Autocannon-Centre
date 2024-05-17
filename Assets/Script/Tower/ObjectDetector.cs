@@ -14,8 +14,10 @@ public class ObjectDetector : MonoBehaviour
     private Transform selectedTile;
     private Tower selectedTower;
 
-    private Outlinable currentOutline;
+    public TowerCombiner towerCombiner;
 
+    private Outlinable currentOutline;
+    private int cost = 10;
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -37,6 +39,10 @@ public class ObjectDetector : MonoBehaviour
                 {
                     SelectTower(hit.collider.GetComponent<Tower>());
                 }
+                else
+                {
+                    ClearSelection();
+                }
             }
         }
     }
@@ -50,6 +56,7 @@ public class ObjectDetector : MonoBehaviour
 
         selectedTile = null;
         selectedTower = null;
+        towerCombiner.ClearSelection();
     }
 
     private void SelectTile(Transform tile)
@@ -78,17 +85,19 @@ public class ObjectDetector : MonoBehaviour
             outline.enabled = true;
             currentOutline = outline;
         }
+
+        towerCombiner.OnInfo(selectedTower);
     }
 
     public void OnClick()
     {
         if(selectedTile != null) 
         {
-            if(GameManager.Instance.gold < 10)
+            if(GameManager.Instance.gold < cost)
             {
                 return;
             }
-            GameManager.Instance.SubGold(10);
+            GameManager.Instance.SubGold(cost);
             towerSpawner.Spawn(selectedTile);
         }
         selectedTile = null;

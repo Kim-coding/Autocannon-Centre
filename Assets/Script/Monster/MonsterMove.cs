@@ -18,21 +18,6 @@ public class MonsterMove : MonoBehaviour
     {
         id = int.Parse(name.Replace("(Clone)", ""));
 
-        //GameObject wayPointContainer = GameObject.FindWithTag("WayPointContainer");
-        //if(wayPointContainer != null )
-        //{
-        //    foreach( Transform wayPoint in wayPointContainer.transform )
-        //    {
-        //        wayPoints.Add(wayPoint);
-        //    }
-        //}
-        
-        //GameObject endPointObject = GameObject.FindWithTag("endPoint");
-        //if (endPointObject != null)
-        //{
-        //    endPoint = endPointObject.transform;
-        //}
-
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
         if(monsterTable != null ) 
         {
@@ -72,7 +57,7 @@ public class MonsterMove : MonoBehaviour
 
             if (Vector3.Distance(transform.position, endPoint.position) <= threshold)
             {
-                Destroy(gameObject);
+                PoolManager.instance.ReturnObjectToPool(gameObject);
                 GameManager.Instance.SubHealth(10);
                 if (GameManager.Instance.health <= 0)
                 {
@@ -106,5 +91,11 @@ public class MonsterMove : MonoBehaviour
         {
             endPoint = endPointObject.transform;
         }
+        currentWayPointIndex = 0;
+    }
+
+    private void OnEnable()
+    {
+        currentWayPointIndex = 0;
     }
 }

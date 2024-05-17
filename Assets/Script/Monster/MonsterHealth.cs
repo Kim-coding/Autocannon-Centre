@@ -7,6 +7,7 @@ using static MonsterData;
 
 public class MonsterHealth : MonoBehaviour
 {
+    private int maxHp;
     public int hp;
     public int Gold;
 
@@ -21,8 +22,10 @@ public class MonsterHealth : MonoBehaviour
         {
             var data = monsterTable.GetID(id);
             hp = data.monsterHP;
+            maxHp = hp;
             Gold = data.monsterGold;
         }
+       
     }
 
     public void OnDamage(int damage)
@@ -47,6 +50,12 @@ public class MonsterHealth : MonoBehaviour
         GameManager.Instance.AddGold(Gold);
         GameManager.Instance.SubMonsterCount();
 
-        Destroy(gameObject);
+        PoolManager.instance.ReturnObjectToPool(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        hp = maxHp;
+        isDead = false;
     }
 }
