@@ -128,7 +128,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -1.7112914e-15, y: 1, z: -0.000000021855694, w: -0.0000000754979}
   m_LocalPosition: {x: -21.88, y: 0.03, z: -5.0915117}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3172894646021245879}
@@ -199,13 +199,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1734245126228380, guid: c246c13351c285146b91ea26d3e4cda7, type: 3}
-  soldier: {fileID: 3496041275412413504}
+  soldiers:
+  - {fileID: 3496041275412413504}
+  towerName: 
   damage: 0
   range: 0
   speed: 0
   percent: 0
   fireRate: 0.5
   fireTime: 0
+  towerGrade: 0
+  id: 0
 --- !u!65 &-2612689864421911012
 BoxCollider:
   m_ObjectHideFlags: 0

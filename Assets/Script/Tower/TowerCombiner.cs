@@ -16,29 +16,20 @@ public class TowerCombiner : MonoBehaviour
     public GameObject combinationSlot2;
     public GameObject combinationSlot3;
 
-    public Button combiButton;
-    public Button randomCombiButton;
-
     private Tower selectedTower;
-    private string combinationTower1ID;
-    private string combinationTower2ID;
-    private string combinationTower3ID;
+    private Tower combinationTower1;
+    private Tower combinationTower2;
+    private Tower combinationTower3;
 
     private Outlinable currentOutline;
 
-    private Camera mainCamara;
-    private Ray ray;
-    private RaycastHit hit;
+    private TowerTable towerTable;
+    private TowerSpawner towerSpawner;
 
     private void Awake()
     {
-        mainCamara = Camera.main;
-        combiButton = Camera.main.GetComponent<Button>();
-        randomCombiButton = Camera.main.GetComponent<Button>();
-
-        combinationTower1ID = string.Empty;
-        combinationTower2ID = string.Empty;
-        combinationTower3ID = string.Empty;
+        towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
+        towerSpawner = GetComponent<TowerSpawner>();
     }
 
     public void ClearSelection()
@@ -54,7 +45,7 @@ public class TowerCombiner : MonoBehaviour
     public void OnInfo(Tower tower)
     {
         selectedTower = tower;
-        towerName.text = $"name : {tower.name.Replace("(Clone)", "")}";
+        towerName.text = $"name : {tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"damage : {tower.damage.ToString()}";
         towerAtkSpeed.text = $"atk Speed : {tower.speed.ToString()}";
         towerRange.text = $"range : {tower.range.ToString()}";
@@ -62,79 +53,138 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot1()
     {
-        if (!string.IsNullOrEmpty(combinationTower1ID))
+        if (combinationTower1 != null)
         {
             ClearSlot1();
         }
         else if (selectedTower != null && !IsTowerInSlots(selectedTower.TowerID)) 
         {
-            combinationTower1ID = selectedTower.TowerID;
-            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.TowerID;
+            combinationTower1 = selectedTower;
+            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.towerName;
         }
     }
 
     public void CombinationSlot2()
     {
-        if (!string.IsNullOrEmpty(combinationTower2ID))
+        if (combinationTower2 != null)
         {
             ClearSlot2();
         }
         else if(selectedTower != null && !IsTowerInSlots(selectedTower.TowerID))
         {
-            combinationTower2ID = selectedTower.TowerID;
-            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.TowerID;
+            combinationTower2 = selectedTower;
+            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.towerName;
         }
     }
 
     public void CombinationSlot3()
     {
-        if (!string.IsNullOrEmpty(combinationTower3ID))
+        if (combinationTower3 != null)
         {
             ClearSlot3();
         }
         else if(selectedTower != null && !IsTowerInSlots(selectedTower.TowerID))
         {
-            combinationTower3ID = selectedTower.TowerID;
-            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.TowerID;
-        }
-    }
-
-    public void OnClickRandomButton()
-    {
-        if(combinationTower1ID != null && combinationTower2ID != null && combinationTower3ID != null) 
-        {
-            //타워 조합
+            combinationTower3 = selectedTower;
+            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.towerName;
         }
     }
 
     public void OnClickButton()
     {
-        if (combinationTower1ID != null && combinationTower2ID != null && combinationTower3ID != null)
+        if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
+            Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
+            Tile tile2 = combinationTower2.GetComponentInParent<Tile>();
+            Tile tile3 = combinationTower3.GetComponentInParent<Tile>();
 
+            if (combinationTower1.id ==  combinationTower2.id && combinationTower2.id == combinationTower3.id)
+            {
+                int newTowerID = combinationTower1.id + 100;
+                TowerData newTowerData = towerTable.GetID(newTowerID);
+                if (newTowerData != null)
+                {
+                    tile2.RemoveCurrentTower();
+                    tile3.RemoveCurrentTower();
+                    SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
+                    ReSetSlot();
+                }
+
+
+            }
+            else if (combinationTower1.towerGrade == combinationTower2.towerGrade && combinationTower2.towerGrade == combinationTower3.towerGrade)
+            {
+                List<TowerData> Towers = towerTable.towerDatas
+                        .FindAll(t => t.stage <= towerSpawner.stage && t.towerGrade == combinationTower1.towerGrade + 1);
+                if (Towers.Count > 0)
+                {
+                    TowerData newTowerData = Towers[Random.Range(0, Towers.Count)];
+                    tile2.RemoveCurrentTower();
+                    tile3.RemoveCurrentTower();
+                    SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
+                    ReSetSlot();
+                }
+            }
+            else
+            {
+                Debug.Log("잘못된 조합입니다");
+            }
+        }
+    }
+
+    private void ReSetSlot()
+    {
+        Destroy(combinationTower1.gameObject);
+        Destroy(combinationTower2.gameObject);
+        Destroy(combinationTower3.gameObject);
+
+        ClearSlot1();
+        ClearSlot2();
+        ClearSlot3();
+    }
+
+    private void SpawnNewTower(TowerData newTowerData, Vector3 position, Tile tile1)
+    {
+        // 새로운 타워 생성
+        var towerName = newTowerData.ID.ToString();
+        var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
+        if (towerPrefab != null)
+        {
+            GameObject newTower = Instantiate(towerPrefab, position, Quaternion.identity, tile1.transform);
+            Tile tile = newTower.GetComponentInParent<Tile>();
+            if (tile != null)
+            {
+                tile.BuildTower(newTower.GetComponent<Tower>());
+            }
+        }
+        else
+        {
+            Debug.LogError($"Tower prefab not found for {towerName}");
         }
     }
 
     private bool IsTowerInSlots(string towerID)
     {
-        return towerID == combinationTower1ID || towerID == combinationTower2ID || towerID == combinationTower3ID;
+        return (combinationTower1 != null && combinationTower1.TowerID == towerID) ||
+               (combinationTower2 != null && combinationTower2.TowerID == towerID) ||
+               (combinationTower3 != null && combinationTower3.TowerID == towerID);
     }
 
     private void ClearSlot1()
     {
-        combinationTower1ID = string.Empty;
+        combinationTower1 = null;
         combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
     }
 
     private void ClearSlot2()
     {
-        combinationTower2ID = string.Empty;
+        combinationTower2 = null;
         combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
     }
 
     private void ClearSlot3()
     {
-        combinationTower3ID = string.Empty;
+        combinationTower3 = null;
         combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
     }
 }

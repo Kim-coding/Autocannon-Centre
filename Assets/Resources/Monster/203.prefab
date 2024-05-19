@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1344b3d6d15749aa95fc5c23c6f9a4b9, type: 2}
+    - target: {fileID: 9500000, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e902b9c79cff9f641880375817d66914, type: 2}
+    - target: {fileID: 9500000, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -92,6 +100,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8909931551474893188}
+    - targetCorrespondingSourceObject: {fileID: 100088, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4143384110188559265}
   m_SourcePrefab: {fileID: 100100000, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
 --- !u!1 &5709819216831873056 stripped
 GameObject:
@@ -176,3 +187,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &4143384110188559265
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709819216831873056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: adcc1532090e6424981d6c3359f65f88, type: 3}
+  m_Controller: {fileID: 9100000, guid: e902b9c79cff9f641880375817d66914, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

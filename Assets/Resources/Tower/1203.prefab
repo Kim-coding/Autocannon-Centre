@@ -200,15 +200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 00508f8ccaa61a54890e091bece3fbf0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 00508f8ccaa61a54890e091bece3fbf0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 00508f8ccaa61a54890e091bece3fbf0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 00508f8ccaa61a54890e091bece3fbf0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,14 +302,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429848a320a0d794789708082eafab48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  soldier: {fileID: 0}
+  bulletPrefab: {fileID: 1734245126228380, guid: c246c13351c285146b91ea26d3e4cda7, type: 3}
+  soldiers:
+  - {fileID: 171797855454208812}
+  - {fileID: 8817716021705053239}
+  - {fileID: 8375169850874655093}
+  towerName: 
   damage: 0
   range: 0
   speed: 0
   percent: 0
   fireRate: 0.5
   fireTime: 0
+  towerGrade: 0
+  id: 0
 --- !u!65 &8462520809240308742
 BoxCollider:
   m_ObjectHideFlags: 0

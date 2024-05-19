@@ -20,4 +20,10 @@ public class Tile : MonoBehaviour
     {
         return currentTower;
     }
+
+    public void RemoveCurrentTower()
+    {
+        currentTower = null;
+        isBuildTower = false;
+    }
 }

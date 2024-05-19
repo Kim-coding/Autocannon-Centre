@@ -915,6 +915,7 @@ GameObject:
   - component: {fileID: 21724059}
   - component: {fileID: 21724061}
   - component: {fileID: 21724060}
+  - component: {fileID: 21724062}
   m_Layer: 5
   m_Name: gold
   m_TagString: Untagged
@@ -1038,6 +1039,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21724058}
   m_CullTransparentMesh: 1
+--- !u!114 &21724062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21724058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 152.13333
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &22493941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7629,7 +7650,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 137462824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1561202486}
+        m_TargetAssemblyTypeName: TowerCombiner, Assembly-CSharp
+        m_MethodName: OnClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &137462824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15620,6 +15653,18 @@ PrefabInstance:
     - target: {fileID: 7702604333114744638, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
       propertyPath: m_Name
       value: CombinationSlot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1631596422574026493, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31609,6 +31654,7 @@ GameObject:
   - component: {fileID: 692413839}
   - component: {fileID: 692413838}
   - component: {fileID: 692413840}
+  - component: {fileID: 692413841}
   m_Layer: 5
   m_Name: wave
   m_TagString: Untagged
@@ -31750,6 +31796,26 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: 2.3
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &692413841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692413836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 172.77191
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!1001 &693167800
@@ -39940,6 +40006,7 @@ GameObject:
   - component: {fileID: 865071787}
   - component: {fileID: 865071789}
   - component: {fileID: 865071788}
+  - component: {fileID: 865071790}
   m_Layer: 5
   m_Name: stage
   m_TagString: Untagged
@@ -40063,6 +40130,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865071786}
   m_CullTransparentMesh: 1
+--- !u!114 &865071790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865071786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 152.13333
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &865104040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41984,9 +42071,9 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: -1
+  m_PreferredWidth: 100
   m_PreferredHeight: -1
-  m_FlexibleWidth: 2
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!114 &911101428
@@ -47551,7 +47638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 15
+    m_Left: 10
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
@@ -47579,9 +47666,9 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: -1
+  m_PreferredWidth: 120
   m_PreferredHeight: -1
-  m_FlexibleWidth: 1
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!1001 &1020747719
@@ -51823,6 +51910,7 @@ GameObject:
   - component: {fileID: 1124286936}
   - component: {fileID: 1124286935}
   - component: {fileID: 1124286937}
+  - component: {fileID: 1124286938}
   m_Layer: 5
   m_Name: health
   m_TagString: Untagged
@@ -51964,6 +52052,26 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1124286938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124286933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 172.77191
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!1001 &1124733494
@@ -72218,7 +72326,7 @@ MonoBehaviour:
   stage: 1
   wave: 1
   monsterCount: 20
-  gold: 50
+  gold: 10000000
   health: 100
 --- !u!114 &1561202484
 MonoBehaviour:
@@ -72268,8 +72376,6 @@ MonoBehaviour:
   combinationSlot1: {fileID: 904184137}
   combinationSlot2: {fileID: 543824271}
   combinationSlot3: {fileID: 1335486649}
-  combiButton: {fileID: 137462823}
-  randomCombiButton: {fileID: 1845574767}
 --- !u!1001 &1561797926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73203,7 +73309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 104.00323, y: 0}
+  m_AnchoredPosition: {x: -340, y: 89}
   m_SizeDelta: {x: 320, y: 5}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1580842081
@@ -81963,6 +82069,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombinationSlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1631596422574026493, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86391,7 +86509,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1845574768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1561202486}
+        m_TargetAssemblyTypeName: TowerCombiner, Assembly-CSharp
+        m_MethodName: OnClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1845574768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98763,6 +98893,18 @@ PrefabInstance:
     - target: {fileID: 7702604333114744638, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
       propertyPath: m_Name
       value: CombinationSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1631596422574026493, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
+    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

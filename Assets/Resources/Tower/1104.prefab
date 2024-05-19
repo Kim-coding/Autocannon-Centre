@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b701252387deac544ad33cc4a95d0a0a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.35
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b701252387deac544ad33cc4a95d0a0a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b701252387deac544ad33cc4a95d0a0a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.35
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b701252387deac544ad33cc4a95d0a0a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -130,14 +130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429848a320a0d794789708082eafab48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  soldier: {fileID: 0}
+  bulletPrefab: {fileID: 1263437943489172, guid: cb62e61d7f8cce44f8082c0a857ba37c, type: 3}
+  soldiers: []
+  towerName: 
   damage: 0
   range: 0
   speed: 0
   percent: 0
   fireRate: 0.5
   fireTime: 0
+  towerGrade: 0
+  id: 0
 --- !u!65 &-6786774495923592134
 BoxCollider:
   m_ObjectHideFlags: 0
