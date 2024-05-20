@@ -5,16 +5,16 @@ public class BuffDebuffMgr
 {
     private HashSet<Tower> buffedTowers = new HashSet<Tower>();
     private HashSet<MonsterMove> debuffedMonsters = new HashSet<MonsterMove>();
-    private Tower ownerTower;
+    private Tower buffDebuffTower;
 
-    public BuffDebuffMgr(Tower owner)
+    public BuffDebuffMgr(Tower tower)
     {
-        ownerTower = owner;
+        buffDebuffTower = tower;
     }
 
     public void ApplyBuffsAndDebuffs(SkillData skillData)
     {
-        Collider[] colliders = Physics.OverlapSphere(ownerTower.transform.position, ownerTower.range);
+        Collider[] colliders = Physics.OverlapSphere(buffDebuffTower.transform.position, buffDebuffTower.range);
 
         HashSet<Tower> currentBuffedTowers = new HashSet<Tower>();
         HashSet<MonsterMove> currentDebuffedMonsters = new HashSet<MonsterMove>();
@@ -23,19 +23,18 @@ public class BuffDebuffMgr
         {
             if (collider != null && skillData != null)
             {
-                if (collider.gameObject.CompareTag("Tower") && collider.gameObject != ownerTower.gameObject && skillData.buffType != 0)
+                if (collider.gameObject.CompareTag("Tower") && collider.gameObject != buffDebuffTower.gameObject && skillData.buffType != 0)
                 {
                     Tower tower = collider.GetComponent<Tower>();
-                    currentBuffedTowers.Add(tower);
-
                     if (tower != null)
+                    {
+                        currentBuffedTowers.Add(tower);
+                        if (!buffedTowers.Contains(tower))
                         {
-                            if (!buffedTowers.Contains(tower))
-                            {
-                                ApplyBuff(tower, skillData.buffType, skillData.value);
-                                buffedTowers.Add(tower);
-                            }
+                            ApplyBuff(tower, skillData.buffType, skillData.value);
+                            //buffedTowers.Add(tower);
                         }
+                    }
                 }
                 else if (collider.gameObject.CompareTag("monster") && skillData.debuffType != 0)
                 {
@@ -46,7 +45,7 @@ public class BuffDebuffMgr
                         if (!debuffedMonsters.Contains(monster))
                         {
                             ApplyDebuff(monster, skillData.debuffType, skillData.value);
-                            debuffedMonsters.Add(monster);
+                            //debuffedMonsters.Add(monster);
                         }
                     }
                 }
@@ -75,7 +74,8 @@ public class BuffDebuffMgr
     private void ApplyBuff(Tower tower, int buffType, float value)
     {
         Debug.Log("버프 적용: " + tower.towerName);
-        if(buffType == 1) 
+        Debug.Log($"버프 적용: {tower.towerName}, ID: {tower.TowerID}, Damage: {tower.damage}, FireRate: {tower.fireRate}");
+        if (buffType == 1) 
         {
             tower.damage += value;
         }
@@ -83,6 +83,7 @@ public class BuffDebuffMgr
         {
             tower.fireRate -= value;
         }
+        buffedTowers.Add(tower);
     }
 
     private void RemoveBuff(Tower tower, int buffType, float value)
@@ -120,13 +121,13 @@ public class BuffDebuffMgr
     {
         foreach (var tower in buffedTowers)
         {
-            RemoveBuff(tower, ownerTower.skillData.buffType, ownerTower.skillData.value);
+            RemoveBuff(tower, buffDebuffTower.skillData.buffType, buffDebuffTower.skillData.value);
         }
         buffedTowers.Clear();
 
         foreach (var monster in debuffedMonsters)
         {
-            RemoveDebuff(monster, ownerTower.skillData.debuffType, ownerTower.skillData.value);
+            RemoveDebuff(monster, buffDebuffTower.skillData.debuffType, buffDebuffTower.skillData.value);
         }
         debuffedMonsters.Clear();
     }

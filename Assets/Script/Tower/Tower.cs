@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour
     public string TowerID {  get; private set; }
 
 
-    private void Start()
+    private void Awake()
     {
         TowerID = $"{name.Replace("(Clone)", "")}_{DateTime.Now.Ticks}";
 
@@ -50,7 +50,7 @@ public class Tower : MonoBehaviour
             skillID = data.skillID;
             fireRate = data.towerSpeed;
         }
-
+        Debug.Log(towerName);
         if (type == 2)
         {
             var skillTable = DataTableMgr.Get<SkillTable>(DataTableIds.monsterWave);
@@ -101,7 +101,6 @@ public class Tower : MonoBehaviour
     private void UpdateCurrentTarget()
     {
         if (currentTarget == null || IsTargetOutOfRange(currentTarget) || !currentTarget.activeInHierarchy) 
-            // 현재 타겟이 없거나, 사거리를 벗어났거나, 타겟이 비활성화(사망) 시 새로운 타겟 검색
         {
             //새로운 타겟 설정
             currentTarget = FindTarget();
@@ -176,6 +175,14 @@ public class Tower : MonoBehaviour
             fireRate -= data.towerSpeedInc;
             damage += data.atkInc;
             percent += data.percentIncr;
+        }
+    }
+
+    private void OnDestory()
+    {
+        if (buffDebuffmgr != null)
+        {
+            buffDebuffmgr.ClearAll();
         }
     }
 }
