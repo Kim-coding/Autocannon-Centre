@@ -86742,7 +86742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1561202486}
         m_TargetAssemblyTypeName: TowerCombiner, Assembly-CSharp
-        m_MethodName: OnClickButton
+        m_MethodName: OnClickRandomButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

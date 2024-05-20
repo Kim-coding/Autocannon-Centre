@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using EPOOutline;
+using System.Linq;
 
 public class TowerCombiner : MonoBehaviour
 {
@@ -117,16 +118,29 @@ public class TowerCombiner : MonoBehaviour
                     SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
                     ReSetSlot();
                 }
-
-
             }
-            else if (combinationTower1.towerGrade == combinationTower2.towerGrade && combinationTower2.towerGrade == combinationTower3.towerGrade)
+            else
+            {
+                Debug.Log("잘못된 조합입니다");
+            }
+        }
+    }
+
+    public void OnClickRandomButton()
+    {
+        if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
+        {
+            Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
+            Tile tile2 = combinationTower2.GetComponentInParent<Tile>();
+            Tile tile3 = combinationTower3.GetComponentInParent<Tile>();
+
+            if (combinationTower1.towerGrade == combinationTower2.towerGrade && combinationTower2.towerGrade == combinationTower3.towerGrade)
             {
                 List<TowerData> Towers = towerTable.towerDatas
                         .FindAll(t => t.stage <= towerSpawner.stage && t.towerGrade == combinationTower1.towerGrade + 1);
                 if (Towers.Count > 0)
                 {
-                    TowerData newTowerData = Towers[Random.Range(0, Towers.Count)];
+                    TowerData newTowerData = SelectRandomTower(Towers);
                     tile2.RemoveCurrentTower();
                     tile3.RemoveCurrentTower();
                     SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
@@ -138,6 +152,24 @@ public class TowerCombiner : MonoBehaviour
                 Debug.Log("잘못된 조합입니다");
             }
         }
+    }
+
+    private TowerData SelectRandomTower(List<TowerData> possibleTowers)
+    {
+        int total = possibleTowers.Sum(t => t.percent);
+        int random = Random.Range(0, total);
+        int cumulative = 0;
+
+        foreach (var tower in possibleTowers)
+        {
+            cumulative += tower.percent;
+            if (random < cumulative)
+            {
+                return tower;
+            }
+        }
+
+        return null;
     }
 
     private void ReSetSlot()
