@@ -34391,11 +34391,6 @@ MonoBehaviour:
     fillPass:
       shader: {fileID: 0}
       serializedProperties: []
---- !u!1 &748078440 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7702604333114744638, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-  m_PrefabInstance: {fileID: 343609649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &748741839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64158,11 +64153,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4167951366859774, guid: a34b1b3a8956b7646a7f6f696293e6da, type: 3}
   m_PrefabInstance: {fileID: 1416077267}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1417218413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7702604333114744638, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-  m_PrefabInstance: {fileID: 1763321604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1417615501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71576,8 +71566,8 @@ MonoBehaviour:
   towerAtkSpeed: {fileID: 852757094}
   towerRange: {fileID: 1382117838}
   combinationSlot1: {fileID: 904184137}
-  combinationSlot2: {fileID: 1417218413}
-  combinationSlot3: {fileID: 748078440}
+  combinationSlot2: {fileID: 0}
+  combinationSlot3: {fileID: 0}
   combiButton: {fileID: 137462823}
   randomCombiButton: {fileID: 1845574767}
 --- !u!1001 &1561797926
