@@ -11,12 +11,12 @@ public class Tower : MonoBehaviour
     public GameObject[] soldiers;
 
     public string towerName;
-    public int damage;
+    public float damage;
     public float range;
     public float speed;
     public int percent;
     public TowerTable towerTable;
-    public float fireRate = 0.25f;
+    public float fireRate;
     public float fireTime;
 
     public int towerGrade;
@@ -48,6 +48,7 @@ public class Tower : MonoBehaviour
             towerGrade = data.towerGrade;
             type = data.type;
             skillID = data.skillID;
+            fireRate = data.towerSpeed;
         }
 
         if (type == 2)
@@ -172,7 +173,7 @@ public class Tower : MonoBehaviour
     {
         if (towerTable != null)
         {
-            speed += data.atkspeedInc;
+            fireRate -= data.towerSpeedInc;
             damage += data.atkInc;
             percent += data.percentIncr;
         }

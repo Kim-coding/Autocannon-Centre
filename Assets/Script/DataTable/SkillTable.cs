@@ -15,7 +15,7 @@ public class SkillData
     public string skillName {  get; set; }
     public int buffType {  get; set; }
     public int debuffType {  get; set; }
-    public int value { get; set; }
+    public float value { get; set; }
 
 }
 

@@ -32,6 +32,14 @@ public class TowerCombiner : MonoBehaviour
         towerSpawner = GetComponent<TowerSpawner>();
     }
 
+    private void Update()
+    {
+        if(selectedTower != null) 
+        {
+            OnInfo(selectedTower);
+        }
+    }
+
     public void ClearSelection()
     {
         if(currentOutline != null)
@@ -47,7 +55,7 @@ public class TowerCombiner : MonoBehaviour
         selectedTower = tower;
         towerName.text = $"name : {tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"damage : {tower.damage.ToString()}";
-        towerAtkSpeed.text = $"atk Speed : {tower.speed.ToString()}";
+        towerAtkSpeed.text = $"Speed : {tower.fireRate.ToString()}";
         towerRange.text = $"range : {tower.range.ToString()}";
     }
 

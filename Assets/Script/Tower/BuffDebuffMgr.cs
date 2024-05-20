@@ -29,13 +29,13 @@ public class BuffDebuffMgr
                     currentBuffedTowers.Add(tower);
 
                     if (tower != null)
-                    {
-                        if (!buffedTowers.Contains(tower))
                         {
-                            ApplyBuff(tower, skillData.buffType, skillData.value);
-                            buffedTowers.Add(tower);
+                            if (!buffedTowers.Contains(tower))
+                            {
+                                ApplyBuff(tower, skillData.buffType, skillData.value);
+                                buffedTowers.Add(tower);
+                            }
                         }
-                    }
                 }
                 else if (collider.gameObject.CompareTag("monster") && skillData.debuffType != 0)
                 {
@@ -72,7 +72,7 @@ public class BuffDebuffMgr
         debuffedMonsters = currentDebuffedMonsters;
     }
 
-    private void ApplyBuff(Tower tower, int buffType, int value)
+    private void ApplyBuff(Tower tower, int buffType, float value)
     {
         Debug.Log("버프 적용: " + tower.towerName);
         if(buffType == 1) 
@@ -81,11 +81,11 @@ public class BuffDebuffMgr
         }
         else if (buffType == 2)
         {
-            tower.speed += value;
+            tower.fireRate -= value;
         }
     }
 
-    private void RemoveBuff(Tower tower, int buffType, int value)
+    private void RemoveBuff(Tower tower, int buffType, float value)
     {
         Debug.Log("버프 제거: " + tower.towerName);
         if (buffType == 1)
@@ -94,11 +94,11 @@ public class BuffDebuffMgr
         }
         if (buffType == 2)
         {
-            tower.speed -= value;
+            tower.fireRate += value;
         }
     }
 
-    private void ApplyDebuff(MonsterMove monster, int debuffType, int value)
+    private void ApplyDebuff(MonsterMove monster, int debuffType, float value)
     {
         Debug.Log("몬스터 디버프 적용: ");
         if (debuffType == 1)
@@ -107,7 +107,7 @@ public class BuffDebuffMgr
         }
     }
 
-    private void RemoveDebuff(MonsterMove monster, int debuffType, int value)
+    private void RemoveDebuff(MonsterMove monster, int debuffType, float value)
     {
         Debug.Log("몬스터 디버프 제거: ");
         if (debuffType == 1)
