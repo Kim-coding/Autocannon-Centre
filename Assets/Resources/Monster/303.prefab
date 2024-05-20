@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: monster
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: d0489392edb71804185c54d6b8412205, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 02201be95d494074280b767e94510aab, type: 2}
+    - target: {fileID: 5866666021909216657, guid: d0489392edb71804185c54d6b8412205, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7092516055279176667, guid: d0489392edb71804185c54d6b8412205, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -88,6 +96,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0489392edb71804185c54d6b8412205, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3092089215555812853}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0489392edb71804185c54d6b8412205, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9159019249752093415}
   m_SourcePrefab: {fileID: 100100000, guid: d0489392edb71804185c54d6b8412205, type: 3}
 --- !u!1 &4758081447010665078 stripped
 GameObject:
@@ -172,3 +183,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &9159019249752093415
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758081447010665078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7bb240647bebe03409d45de598f4ad49, type: 3}
+  m_Controller: {fileID: 9100000, guid: 02201be95d494074280b767e94510aab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -1,9 +1,4 @@
-using CsvHelper.Configuration.Attributes;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using static MonsterData;
 
 public class MonsterHealth : MonoBehaviour
 {
@@ -13,6 +8,7 @@ public class MonsterHealth : MonoBehaviour
 
     private bool isDead = false;
     private int id;
+
     void Start()
     {
         id = int.Parse(name.Replace("(Clone)", ""));
@@ -25,7 +21,6 @@ public class MonsterHealth : MonoBehaviour
             maxHp = hp;
             Gold = data.monsterGold;
         }
-       
     }
 
     public void OnDamage(int damage)

@@ -42,7 +42,7 @@ public class TowerSpawner : MonoBehaviour
 
         if(selectedTower != null) 
         {
-            InstantiateTower(selectedTower, towerSpawnPoint);
+            InstantiateTower(selectedTower, towerSpawnPoint, tile);
             tile.isBuildTower = true;
         }
     }
@@ -65,10 +65,10 @@ public class TowerSpawner : MonoBehaviour
         return null;
     }
 
-    private void InstantiateTower(TowerData selectedTower, Transform towerSpawnPoint)
+    private void InstantiateTower(TowerData selectedTower, Transform towerSpawnPoint, Tile tile)
     {
         var towerName = selectedTower.ID.ToString();
         var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
-        Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity, transform);
+        Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity, tile.transform);
     }
 }

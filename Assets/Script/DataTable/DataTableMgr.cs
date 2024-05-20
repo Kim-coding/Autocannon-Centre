@@ -24,8 +24,9 @@ public static class DataTableMgr
         var tableTypes = new Dictionary<string, Func<DataTable>>
         {
             { "TowerTable", () => new TowerTable() },
-            { "MonsterTable", () => new MonsterTable() }
-            //{ "MonsterWaveTable", () => new MonsterWaveTable() }
+            { "MonsterTable", () => new MonsterTable() },
+            //{ "MonsterWaveTable", () => new MonsterWaveTable() },
+            { "SkillTable", () => new SkillTable() }
         };
 
         if (tableTypes.ContainsKey(id))

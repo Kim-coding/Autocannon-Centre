@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1344b3d6d15749aa95fc5c23c6f9a4b9, type: 2}
+    - target: {fileID: 9500000, guid: eb340446546ace345befe87cd064862b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b2cb4427ace3cfa488995b756810c32b, type: 2}
+    - target: {fileID: 9500000, guid: eb340446546ace345befe87cd064862b, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: eb340446546ace345befe87cd064862b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -104,6 +112,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100004, guid: eb340446546ace345befe87cd064862b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 394654832008584451}
+    - targetCorrespondingSourceObject: {fileID: 100004, guid: eb340446546ace345befe87cd064862b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 333253210500670965}
   m_SourcePrefab: {fileID: 100100000, guid: eb340446546ace345befe87cd064862b, type: 3}
 --- !u!1 &76107785692397590 stripped
 GameObject:
@@ -188,3 +199,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &333253210500670965
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76107785692397590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: eb340446546ace345befe87cd064862b, type: 3}
+  m_Controller: {fileID: 9100000, guid: b2cb4427ace3cfa488995b756810c32b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

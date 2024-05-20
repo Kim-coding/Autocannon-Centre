@@ -21,7 +21,7 @@ public class TowerData
     public int maxTarget { get; set; }
     public int atkInc { get; set; }
     public int atkspeedInc { get; set; }
-    public string skillID { get; set; }
+    public int skillID { get; set; }
     public int stage {  get; set; }
     public int percent { get; set; }
     public int percentIncr { get; set; }

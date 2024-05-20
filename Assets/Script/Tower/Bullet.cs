@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if(target == null)
+        if(target == null || !target.gameObject.activeInHierarchy)
         {
             PoolManager.instance.ReturnObjectToPool(gameObject);
             return;
@@ -34,6 +34,12 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
+        if (target == null || !target.gameObject.activeInHierarchy)
+        {
+            PoolManager.instance.ReturnObjectToPool(gameObject);
+            return;
+        }
+
         Vector3 dir = target.position - transform.position;
         dir = dir.normalized;
 
