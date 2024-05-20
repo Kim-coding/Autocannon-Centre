@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int stage;
     public int wave = 0;
-    public int monsterCount = 20;
+    public int monsterCount = 0;
     
     public int gold = 50;
     public int health = 100;
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void SetMonsterCount()
     {
-        monsterCount = 20;
+        monsterCount += 20;
         UIManager.instance.UpdateMonsterText(monsterCount);
     }
 
