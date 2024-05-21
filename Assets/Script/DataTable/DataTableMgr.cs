@@ -25,7 +25,7 @@ public static class DataTableMgr
         {
             { "TowerTable", () => new TowerTable() },
             { "MonsterTable", () => new MonsterTable() },
-            //{ "MonsterWaveTable", () => new MonsterWaveTable() },
+            { "MonsterWaveTable", () => new MonsterWaveTable() },
             { "SkillTable", () => new SkillTable() }
         };
 

@@ -53,7 +53,7 @@ public class Tower : MonoBehaviour
         Debug.Log(towerName);
         if (type == 2)
         {
-            var skillTable = DataTableMgr.Get<SkillTable>(DataTableIds.monsterWave);
+            var skillTable = DataTableMgr.Get<SkillTable>(DataTableIds.towerSkill);
             if (skillTable != null)
             {
                 skillData = skillTable.GetID(skillID);
@@ -172,13 +172,20 @@ public class Tower : MonoBehaviour
     {
         if (towerTable != null)
         {
-            fireRate -= data.towerSpeedInc;
-            damage += data.atkInc;
-            percent += data.percentIncr;
+            if(data.type == 2)
+            {
+                percent += data.percentIncr;
+            }
+            else
+            {
+                fireRate -= data.towerSpeedInc;
+                damage += data.atkInc;
+                percent += data.percentIncr;
+            }
         }
     }
 
-    private void OnDestory()
+    private void OnDestroy()
     {
         if (buffDebuffmgr != null)
         {
