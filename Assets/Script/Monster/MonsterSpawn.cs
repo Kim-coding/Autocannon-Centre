@@ -77,7 +77,7 @@ public class MonsterSpawn : MonoBehaviour
 
         if (!stageWaveRules.ContainsKey(currentStage))
         {
-            Debug.Log($"No wave rules defined for stage {currentStage}");
+            //Debug.Log($"No wave rules defined for stage {currentStage}");
             return;
         }
 
@@ -229,6 +229,28 @@ public class MonsterSpawn : MonoBehaviour
         AddRule(2, 18, new int[] { 205 }, new int[] { 20 });
         AddRule(2, 19, new int[] { 205 }, new int[] { 20 });
         AddRule(2, 20, new int[] { 204, 221 }, new int[] { 19, 1 });
+
+        stageWaveRules.Add(3, new Dictionary<int, WaveRule>());
+        AddRule(3, 1, new int[] { 101 }, new int[] { 20 });
+        AddRule(3, 2, new int[] { 101 }, new int[] { 20 });
+        AddRule(3, 3, new int[] { 102 }, new int[] { 20 });
+        AddRule(3, 4, new int[] { 102 }, new int[] { 20 });
+        AddRule(3, 5, new int[] { 101, 111, 101, 111, 101, 111, 101, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
+        AddRule(3, 6, new int[] { 102 }, new int[] { 20 });
+        AddRule(3, 7, new int[] { 102 }, new int[] { 20 });
+        AddRule(3, 8, new int[] { 103 }, new int[] { 20 });
+        AddRule(3, 9, new int[] { 103 }, new int[] { 20 });
+        AddRule(3, 10, new int[] { 102, 111, 102, 111, 102, 111, 102, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
+        AddRule(3, 11, new int[] { 103 }, new int[] { 20 });
+        AddRule(3, 12, new int[] { 103 }, new int[] { 20 });
+        AddRule(3, 13, new int[] { 104 }, new int[] { 20 });
+        AddRule(3, 14, new int[] { 104 }, new int[] { 20 });
+        AddRule(3, 15, new int[] { 103, 111, 103, 111, 103, 111, 103, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
+        AddRule(3, 16, new int[] { 104 }, new int[] { 20 });
+        AddRule(3, 17, new int[] { 104 }, new int[] { 20 });
+        AddRule(3, 18, new int[] { 105 }, new int[] { 20 });
+        AddRule(3, 19, new int[] { 105 }, new int[] { 20 });
+        AddRule(3, 20, new int[] { 104, 121 }, new int[] { 19, 1 });
     }
 
     private void AddRule(int stage, int wave, int[] monsterName, int[] monsterCount)

@@ -50,7 +50,7 @@ public class TowerSpawner : MonoBehaviour
     private TowerData selectRandomTower()
     {
         int totalWeight = towerDatas.Values.Sum(t => t.percent);
-        Debug.Log(totalWeight);
+        
         int randomNumber = Random.Range(0, totalWeight);
         int cumulative = 0;
 

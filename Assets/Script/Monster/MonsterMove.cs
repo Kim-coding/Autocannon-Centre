@@ -14,7 +14,7 @@ public class MonsterMove : MonoBehaviour
 
     private int id;
 
-    private void Start()
+    private void Awake()
     {
         id = int.Parse(name.Replace("(Clone)", ""));
 
