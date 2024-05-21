@@ -4,10 +4,10 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
     private float speed;
-    private int damage;
+    private float damage;
     private float range;
     private Vector3 startPosition;
-    public void Set(Transform target, float bulletSpeed, int bulletDamage, float range)
+    public void Set(Transform target, float bulletSpeed, float bulletDamage, float range)
     {
         this.target = target;
         speed = bulletSpeed;

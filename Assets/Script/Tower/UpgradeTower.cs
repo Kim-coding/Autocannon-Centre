@@ -42,9 +42,6 @@ public class UpgradeTower : MonoBehaviour
 
         if(data != null) 
         {
-            data.atkSpeed += data.atkspeedInc;
-            data.damage += data.atkInc;
-
             Tower[] towers = FindObjectsOfType<Tower>();
             foreach (var tower in towers)
             {

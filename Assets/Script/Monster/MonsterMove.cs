@@ -9,7 +9,7 @@ public class MonsterMove : MonoBehaviour
 
     public Transform endPoint;
     private float threshold = 0.8f;
-    private float speed;
+    public float speed;
     private float rotSpeed = 5f;
 
     private int id;

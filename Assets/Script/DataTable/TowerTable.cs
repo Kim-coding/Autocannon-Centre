@@ -25,6 +25,9 @@ public class TowerData
     public int stage {  get; set; }
     public int percent { get; set; }
     public int percentIncr { get; set; }
+    public float towerSpeed { get; set; }
+    public float towerSpeedInc {  get; set; }
+
 }
 
 [System.Serializable]

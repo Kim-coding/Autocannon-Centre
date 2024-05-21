@@ -7,16 +7,16 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    private GameObject currentTarget;
+    public GameObject currentTarget;
     public GameObject[] soldiers;
 
     public string towerName;
-    public int damage;
+    public float damage;
     public float range;
     public float speed;
     public int percent;
     public TowerTable towerTable;
-    public float fireRate = 0.25f;
+    public float fireRate;
     public float fireTime;
 
     public int towerGrade;
@@ -25,10 +25,12 @@ public class Tower : MonoBehaviour
     public int id;
 
     public SkillData skillData;
+
+    private BuffDebuffMgr buffDebuffmgr;
     public string TowerID {  get; private set; }
 
 
-    private void Start()
+    private void Awake()
     {
         TowerID = $"{name.Replace("(Clone)", "")}_{DateTime.Now.Ticks}";
 
@@ -46,8 +48,9 @@ public class Tower : MonoBehaviour
             towerGrade = data.towerGrade;
             type = data.type;
             skillID = data.skillID;
+            fireRate = data.towerSpeed;
         }
-
+        Debug.Log(towerName);
         if (type == 2)
         {
             var skillTable = DataTableMgr.Get<SkillTable>(DataTableIds.monsterWave);
@@ -55,6 +58,7 @@ public class Tower : MonoBehaviour
             {
                 skillData = skillTable.GetID(skillID);
             }
+            buffDebuffmgr = new BuffDebuffMgr(this);
         }
 
         if (bulletPrefab != null)
@@ -65,9 +69,9 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-        if (type == 2)
+        if (type == 2 && buffDebuffmgr != null)
         {
-            BuffDebuff();
+            buffDebuffmgr.ApplyBuffsAndDebuffs(skillData);
         }
         else
         {
@@ -87,8 +91,8 @@ public class Tower : MonoBehaviour
                 fireTime += Time.deltaTime;
                 if (currentTarget != null && currentTarget.activeInHierarchy && fireTime > fireRate)
                 {
-                    Shoot(currentTarget);
                     fireTime = 0f;
+                    Shoot(currentTarget);
                 }
             }
         }
@@ -96,7 +100,7 @@ public class Tower : MonoBehaviour
 
     private void UpdateCurrentTarget()
     {
-        if (currentTarget == null || IsTargetOutOfRange(currentTarget) || !currentTarget.activeInHierarchy)
+        if (currentTarget == null || IsTargetOutOfRange(currentTarget) || !currentTarget.activeInHierarchy) 
         {
             //새로운 타겟 설정
             currentTarget = FindTarget();
@@ -142,9 +146,9 @@ public class Tower : MonoBehaviour
 
     private void Shoot(GameObject target)
     {
-        if (bulletPrefab == null)
+        if (bulletPrefab == null || target == null)
         {
-            return;   
+            return;
         }
 
         var pos = transform.position;
@@ -159,7 +163,7 @@ public class Tower : MonoBehaviour
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             if (bullet != null)
             {
-                bullet.Set(currentTarget.transform, speed, damage, range);
+                bullet.Set(target.transform, speed, damage, range);
             }
         }
     }
@@ -168,52 +172,17 @@ public class Tower : MonoBehaviour
     {
         if (towerTable != null)
         {
-            speed += data.atkspeedInc;
+            fireRate -= data.towerSpeedInc;
             damage += data.atkInc;
             percent += data.percentIncr;
         }
     }
 
-    private void BuffDebuff()
+    private void OnDestory()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
-
-        foreach (Collider collider in colliders)
+        if (buffDebuffmgr != null)
         {
-            if (collider != null)
-            {
-                if (skillData != null)
-                {
-                    if (collider.gameObject.CompareTag("Tower") && skillData.buffType != 0) // 버프 적용
-                    {
-                        Tower tower = collider.GetComponent<Tower>();
-                        if (tower != null)
-                        {
-                            Buff(tower, skillData.buffType, skillData.value);
-                        }
-                    }
-                    else if (collider.gameObject.CompareTag("monster") && skillData.debuffType != 0) // 디버프 적용
-                    {
-                        MonsterHealth monster = collider.GetComponent<MonsterHealth>();
-                        if (monster != null)
-                        {
-                            Debuff(monster, skillData.debuffType, skillData.value);
-                        }
-                    }
-                }
-            }
+            buffDebuffmgr.ClearAll();
         }
-    }
-
-    private void Buff(Tower tower, int buffType, int value)
-    {
-        // 데미지 상승 버프 or 공격 속도 버프
-        Debug.Log("버프");
-    }
-
-    private void Debuff(MonsterHealth monster, int debuffType, int value)
-    {
-        // 몬스터 이동 속도 디버프
-        Debug.Log("디버프");
     }
 }

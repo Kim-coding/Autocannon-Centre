@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MonsterHealth : MonoBehaviour
 {
-    private int maxHp;
-    public int hp;
+    private float maxHp;
+    public float hp;
     public int Gold;
 
     private bool isDead = false;
@@ -23,7 +23,7 @@ public class MonsterHealth : MonoBehaviour
         }
     }
 
-    public void OnDamage(int damage)
+    public void OnDamage(float damage)
     {
         if (isDead) return;
 
