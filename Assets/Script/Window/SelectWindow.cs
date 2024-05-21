@@ -23,11 +23,11 @@ public class SelectWindow : MonoBehaviour
     }
     public void OnClickStage3()
     {
-        SceneManager.LoadScene("2Level");
+        SceneManager.LoadScene("3Level");
     }
     public void OnClickStage4()
     {
-
+        SceneManager.LoadScene("4Level");
     }
 
     public void Backspace()
