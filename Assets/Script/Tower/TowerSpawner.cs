@@ -8,6 +8,7 @@ public class TowerSpawner : MonoBehaviour
     private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
     private TowerTable towerTable;
     public int stage;
+    public AudioClip buildSound;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class TowerSpawner : MonoBehaviour
 
     public void Spawn(Transform towerSpawnPoint)
     {
+        AudioManager.Instance.EffectPlay(buildSound);
         Tile tile = towerSpawnPoint.GetComponent<Tile>();
 
         if (tile.isBuildTower)

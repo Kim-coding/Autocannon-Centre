@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPoints: []
+  speed: 0
   endPoint: {fileID: 0}
+  playerDamageSound: {fileID: 8300000, guid: 668e6c5fbd0109b4497eeca21b25dc3d, type: 3}
 --- !u!114 &1875849162277063474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   Gold: 0
+  isDead: 0
 --- !u!136 &7027798122659386900
 CapsuleCollider:
   m_ObjectHideFlags: 0

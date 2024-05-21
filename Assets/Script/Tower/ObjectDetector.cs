@@ -15,6 +15,7 @@ public class ObjectDetector : MonoBehaviour
     private Tower selectedTower;
 
     public TowerCombiner towerCombiner;
+    public AudioClip selectedSound;
 
     private Outlinable currentOutline;
     private int cost = 10;
@@ -26,6 +27,11 @@ public class ObjectDetector : MonoBehaviour
 
     private void Update()
     {
+        if(GameManager.Instance.isGameOver)
+        {
+            return;
+        }
+
         if(Input.GetMouseButtonDown(0)) 
         {
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -33,10 +39,12 @@ public class ObjectDetector : MonoBehaviour
             {
                 if(hit.transform.CompareTag("Tile"))
                 {
+                    AudioManager.Instance.EffectPlay(selectedSound);
                     SelectTile(hit.transform);
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {
+                    AudioManager.Instance.EffectPlay(selectedSound);
                     SelectTower(hit.collider.GetComponent<Tower>());
                 }
                 else

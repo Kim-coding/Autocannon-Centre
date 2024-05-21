@@ -16,6 +16,7 @@ public class MonsterMove : MonoBehaviour
     private MonsterHealth health;
     private int id;
 
+    public AudioClip playerDamageSound;
 
     private void Awake()
     {
@@ -38,14 +39,6 @@ public class MonsterMove : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("endPoint"))
-        {
-            
-        }
-    }
-
     private void Move()
     {
         if(currentWayPointIndex < wayPoints.Count - 1)
@@ -64,7 +57,9 @@ public class MonsterMove : MonoBehaviour
 
             if (Vector3.Distance(transform.position, endPoint.position) <= threshold)
             {
+                AudioManager.Instance.EffectPlay(playerDamageSound);
                 PoolManager.instance.ReturnObjectToPool(gameObject);
+                GameManager.Instance.SubMonsterCount();
                 GameManager.Instance.SubHealth(10);
                 if (GameManager.Instance.health <= 0)
                 {

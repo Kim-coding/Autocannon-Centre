@@ -317,6 +317,7 @@ MonoBehaviour:
   type: 0
   skillID: 0
   id: 0
+  fireSound: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
 --- !u!65 &-7034400826807494849
 BoxCollider:
   m_ObjectHideFlags: 0

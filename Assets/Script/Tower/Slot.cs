@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour
     public TowerData towerData;
     public TextMeshProUGUI slotText;
     public TextMeshProUGUI upgradeText;
+    public AudioClip sound;
 
     private int upgradeCount = 0;
     private int cost = 25;
@@ -28,7 +29,7 @@ public class Slot : MonoBehaviour
                 Debug.Log("ÀÜ¾× ºÎÁ·");
                 return;
             }
-
+            AudioManager.Instance.EffectPlay(sound);
             GameManager.Instance.SubGold(cost);
             GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
             GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + 100);

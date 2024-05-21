@@ -16,12 +16,16 @@ public class GameManager : MonoBehaviour
     public int gold = 50;
     public int health = 100;
 
+    public GameObject failedWindow;
+
+    public AudioClip failedSound;
     public bool isGameOver { get; private set; }
 
     private void Awake()
     {
         Instance = this;
         upgradeTower = GetComponent<UpgradeTower>();
+        failedWindow.SetActive(false);
     }
 
     private void Start()
@@ -44,6 +48,8 @@ public class GameManager : MonoBehaviour
 
         if(isGameOver) 
         {
+            failedWindow.SetActive(true);
+            AudioManager.Instance.EffectPlay(failedSound);
             Time.timeScale = 0f;
             return;
         }
@@ -51,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public void UpdateWave(int newWave)
     {
+        if (newWave > 20)
+            return;
         wave = newWave;
         UIManager.instance.UpdateWaveText(wave);
     }
