@@ -32,7 +32,6 @@ public class BuffDebuffMgr
                         if (!buffedTowers.Contains(tower))
                         {
                             ApplyBuff(tower, skillData.buffType, skillData.value);
-                            //buffedTowers.Add(tower);
                         }
                     }
                 }
@@ -45,7 +44,6 @@ public class BuffDebuffMgr
                         if (!debuffedMonsters.Contains(monster))
                         {
                             ApplyDebuff(monster, skillData.debuffType, skillData.value);
-                            //debuffedMonsters.Add(monster);
                         }
                     }
                 }
@@ -101,20 +99,21 @@ public class BuffDebuffMgr
 
     private void ApplyDebuff(MonsterMove monster, int debuffType, float value)
     {
-        Debug.Log("몬스터 디버프 적용: ");
         if (debuffType == 1)
         {
             monster.speed -= value;
         }
+        Debug.Log("몬스터 디버프 적용: " + monster.speed);
+        debuffedMonsters.Add(monster);
     }
 
     private void RemoveDebuff(MonsterMove monster, int debuffType, float value)
     {
-        Debug.Log("몬스터 디버프 제거: ");
         if (debuffType == 1)
         {
             monster.speed += value;
         }
+        Debug.Log("몬스터 디버프 제거: " + monster.speed);
     }
 
     public void ClearAll()
