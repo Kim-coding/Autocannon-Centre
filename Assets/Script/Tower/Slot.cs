@@ -31,6 +31,8 @@ public class Slot : MonoBehaviour
 
             GameManager.Instance.SubGold(cost);
             GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
+            GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + 100);
+            GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + 200);
             upgradeCount++;
             cost += costInc * upgradeCount;
             upgradeText.text = $"+{upgradeCount}";

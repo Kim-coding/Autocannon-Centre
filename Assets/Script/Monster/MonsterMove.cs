@@ -7,15 +7,19 @@ public class MonsterMove : MonoBehaviour
     public List<Transform> wayPoints = new List<Transform>();
     private int currentWayPointIndex = 0;
 
-    public Transform endPoint;
-    private float threshold = 0.8f;
     public float speed;
+    public Transform endPoint;
+    
     private float rotSpeed = 5f;
+    private float threshold = 0.8f;
 
+    private MonsterHealth health;
     private int id;
+
 
     private void Awake()
     {
+        health = GetComponent<MonsterHealth>();
         id = int.Parse(name.Replace("(Clone)", ""));
 
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
@@ -28,7 +32,10 @@ public class MonsterMove : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if(!health.isDead) 
+        {
+            Move();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

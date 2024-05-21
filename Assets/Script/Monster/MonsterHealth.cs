@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonsterHealth : MonoBehaviour
@@ -6,11 +8,15 @@ public class MonsterHealth : MonoBehaviour
     public float hp;
     public int Gold;
 
-    private bool isDead = false;
+    public bool isDead;
     private int id;
+
+    private Animator animator;
 
     void Start()
     {
+        isDead = false;
+
         id = int.Parse(name.Replace("(Clone)", ""));
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
 
@@ -21,6 +27,8 @@ public class MonsterHealth : MonoBehaviour
             maxHp = hp;
             Gold = data.monsterGold;
         }
+
+        animator = GetComponent<Animator>();
     }
 
     public void OnDamage(float damage)
@@ -38,13 +46,23 @@ public class MonsterHealth : MonoBehaviour
     {
         if (isDead) return;
 
-        //∏ÛΩ∫≈Õ ªÁ∏¡ æ÷¥œ∏ﬁ¿Ãº«
         isDead = true;
 
         Debug.Log(Gold + " ∞Ò »πµÊ !!");
         GameManager.Instance.AddGold(Gold);
-        GameManager.Instance.SubMonsterCount();
 
+        //∏ÛΩ∫≈Õ ªÁ∏¡ æ÷¥œ∏ﬁ¿Ãº«
+        animator.SetTrigger("Die");
+
+        float dieAniLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        StartCoroutine(DieAnimation(dieAniLength));
+    }
+
+    private IEnumerator DieAnimation(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        GameManager.Instance.SubMonsterCount();
         PoolManager.instance.ReturnObjectToPool(gameObject);
     }
 
