@@ -23033,7 +23033,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 493371995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1561202483}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Backspace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &493371995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5602874462224239146, guid: 3e2ffaa9644574af5b3ca2362e957c63, type: 3}
