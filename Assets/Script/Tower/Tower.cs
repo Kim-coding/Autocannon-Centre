@@ -172,9 +172,16 @@ public class Tower : MonoBehaviour
     {
         if (towerTable != null)
         {
-            fireRate -= data.towerSpeedInc;
-            damage += data.atkInc;
-            percent += data.percentIncr;
+            if(data.type == 2)
+            {
+                percent += data.percentIncr;
+            }
+            else
+            {
+                fireRate -= data.towerSpeedInc;
+                damage += data.atkInc;
+                percent += data.percentIncr;
+            }
         }
     }
 
