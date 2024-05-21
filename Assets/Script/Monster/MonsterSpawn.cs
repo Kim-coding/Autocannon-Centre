@@ -10,6 +10,8 @@ public class MonsterSpawn : MonoBehaviour
     public List<MonsterData> monsterDatas = new List<MonsterData>();
     private Dictionary<int, Dictionary<int, WaveRule>> stageWaveRules = new Dictionary<int, Dictionary<int, WaveRule>>(); //스테이지별 웨이브 규칙
 
+    private MonsterWaveTable monsterWaveTable;
+
     public Transform[] spawnPoints;
     public Transform[] wayPointContainers;
     public int currentStage;
@@ -42,10 +44,12 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Start()
     {
+        monsterWaveTable = DataTableMgr.Get<MonsterWaveTable>(DataTableIds.monsterWave);
+
         currentWave = GameManager.Instance.wave;
         currentStage = GameManager.Instance.stage;
 
-        CreatedRules();
+        CreatedRules(currentStage);
 
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
         if (monsterTable != null)
@@ -77,7 +81,6 @@ public class MonsterSpawn : MonoBehaviour
 
         if (!stageWaveRules.ContainsKey(currentStage))
         {
-            //Debug.Log($"No wave rules defined for stage {currentStage}");
             return;
         }
 
@@ -116,7 +119,7 @@ public class MonsterSpawn : MonoBehaviour
     private void Spawn(int wave)
     {
         var rule = stageWaveRules[currentStage][wave].spawnRules[spawnIndex];
-        var monsterName = rule.monsterNames[subIndex]; 
+        var monsterName = rule.monsterNames[subIndex];
 
         MonsterData monsterData = null;
         
@@ -181,77 +184,105 @@ public class MonsterSpawn : MonoBehaviour
     }
 
 
-    private void CreatedRules()   //스테이지별 몬스터 생성 규칙 
+    private void CreatedRules(int currentStage)   //스테이지별 몬스터 생성 규칙 
     {
-        //MonsterWaveTable로 변경 예정
-        //stage 1
-        stageWaveRules.Add(1, new Dictionary<int, WaveRule>());
-        AddRule(1, 1, new int[] { 101 }, new int[]{ 20 });
-        AddRule(1, 2, new int[] { 101 }, new int[]{ 20 });
-        AddRule(1, 3, new int[] { 102 }, new int[]{ 20 });
-        AddRule(1, 4, new int[] { 102 }, new int[]{ 20 });
-        AddRule(1, 5, new int[] { 101, 111, 101, 111, 101, 111, 101, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(1, 6, new int[] { 102 }, new int[]{ 20 });
-        AddRule(1, 7, new int[] { 102 }, new int[]{ 20 });
-        AddRule(1, 8, new int[] { 103 }, new int[]{ 20 });
-        AddRule(1, 9, new int[] { 103 }, new int[]{ 20 });
-        AddRule(1, 10, new int[] { 102, 111, 102, 111, 102, 111, 102, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(1, 11, new int[] { 103 }, new int[]{ 20 });
-        AddRule(1, 12, new int[] { 103 }, new int[]{ 20 });
-        AddRule(1, 13, new int[] { 104 }, new int[]{ 20 });
-        AddRule(1, 14, new int[] { 104 }, new int[]{ 20 });
-        AddRule(1, 15, new int[] { 103, 111, 103, 111, 103, 111, 103, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(1, 16, new int[] { 104 }, new int[]{ 20 });
-        AddRule(1, 17, new int[] { 104 }, new int[]{ 20 });
-        AddRule(1, 18, new int[] { 105 }, new int[]{ 20 });
-        AddRule(1, 19, new int[] { 105 }, new int[]{ 20 });
-        AddRule(1, 20, new int[] { 104, 121 }, new int[]{ 19, 1 });
+        stageWaveRules.Add(currentStage, new Dictionary<int, WaveRule>());
 
-        //stage 2
-        stageWaveRules.Add(2, new Dictionary<int, WaveRule>());
-        AddRule(2, 1, new int[] { 201 }, new int[] { 20 });
-        AddRule(2, 2, new int[] { 201 }, new int[] { 20 });
-        AddRule(2, 3, new int[] { 202 }, new int[] { 20 });
-        AddRule(2, 4, new int[] { 202 }, new int[] { 20 });
-        AddRule(2, 5, new int[] { 201, 211, 201, 211, 201, 211, 201, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(2, 6, new int[] { 202 }, new int[] { 20 });
-        AddRule(2, 7, new int[] { 202 }, new int[] { 20 });
-        AddRule(2, 8, new int[] { 203 }, new int[] { 20 });
-        AddRule(2, 9, new int[] { 203 }, new int[] { 20 });
-        AddRule(2, 10, new int[] { 202, 211, 202, 211, 202, 211, 202, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(2, 11, new int[] { 203 }, new int[] { 20 });
-        AddRule(2, 12, new int[] { 203 }, new int[] { 20 });
-        AddRule(2, 13, new int[] { 204 }, new int[] { 20 });
-        AddRule(2, 14, new int[] { 204 }, new int[] { 20 });
-        AddRule(2, 15, new int[] { 203, 211, 203, 211, 203, 211, 203, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(2, 16, new int[] { 204 }, new int[] { 20 });
-        AddRule(2, 17, new int[] { 204 }, new int[] { 20 });
-        AddRule(2, 18, new int[] { 205 }, new int[] { 20 });
-        AddRule(2, 19, new int[] { 205 }, new int[] { 20 });
-        AddRule(2, 20, new int[] { 204, 221 }, new int[] { 19, 1 });
+        for (int wave = 1; ; wave++)
+        {
+            var waveData = monsterWaveTable.GetWaveData(currentStage, wave);
+            if (waveData == null)
+            {
+                break;
+            }
+            List<int> monsterName = new List<int>();
+            List<int> monsterCount = new List<int>();
 
-        stageWaveRules.Add(3, new Dictionary<int, WaveRule>());
-        AddRule(3, 1, new int[] { 101 }, new int[] { 20 });
-        AddRule(3, 2, new int[] { 101 }, new int[] { 20 });
-        AddRule(3, 3, new int[] { 102 }, new int[] { 20 });
-        AddRule(3, 4, new int[] { 102 }, new int[] { 20 });
-        AddRule(3, 5, new int[] { 101, 111, 101, 111, 101, 111, 101, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(3, 6, new int[] { 102 }, new int[] { 20 });
-        AddRule(3, 7, new int[] { 102 }, new int[] { 20 });
-        AddRule(3, 8, new int[] { 103 }, new int[] { 20 });
-        AddRule(3, 9, new int[] { 103 }, new int[] { 20 });
-        AddRule(3, 10, new int[] { 102, 111, 102, 111, 102, 111, 102, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(3, 11, new int[] { 103 }, new int[] { 20 });
-        AddRule(3, 12, new int[] { 103 }, new int[] { 20 });
-        AddRule(3, 13, new int[] { 104 }, new int[] { 20 });
-        AddRule(3, 14, new int[] { 104 }, new int[] { 20 });
-        AddRule(3, 15, new int[] { 103, 111, 103, 111, 103, 111, 103, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
-        AddRule(3, 16, new int[] { 104 }, new int[] { 20 });
-        AddRule(3, 17, new int[] { 104 }, new int[] { 20 });
-        AddRule(3, 18, new int[] { 105 }, new int[] { 20 });
-        AddRule(3, 19, new int[] { 105 }, new int[] { 20 });
-        AddRule(3, 20, new int[] { 104, 121 }, new int[] { 19, 1 });
+            for(int i = 1; i <= 8; i++)
+            {
+                //리스트 체우기 
+                int monsterID = (int)waveData.GetType().GetProperty($"ID{i:00}").GetValue(waveData);
+                int count = (int)waveData.GetType().GetProperty($"value{i:00}").GetValue(waveData);
+                if(monsterID > 0 &&  count > 0)
+                {
+                    monsterName.Add(monsterID);
+                    monsterCount.Add(count);
+                }
+            }
+            AddRule(currentStage, waveData.wave, monsterName.ToArray(), monsterCount.ToArray());
+        }
     }
+    
+
+        //MonsterWaveTable로 변경 예정
+        ////stage 1
+        //stageWaveRules.Add(1, new Dictionary<int, WaveRule>());
+        //AddRule(1, 1, new int[] { 101 }, new int[]{ 20 });
+        //AddRule(1, 2, new int[] { 101 }, new int[]{ 20 });
+        //AddRule(1, 3, new int[] { 102 }, new int[]{ 20 });
+        //AddRule(1, 4, new int[] { 102 }, new int[]{ 20 });
+        //AddRule(1, 5, new int[] { 101, 111, 101, 111, 101, 111, 101, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(1, 6, new int[] { 102 }, new int[]{ 20 });
+        //AddRule(1, 7, new int[] { 102 }, new int[]{ 20 });
+        //AddRule(1, 8, new int[] { 103 }, new int[]{ 20 });
+        //AddRule(1, 9, new int[] { 103 }, new int[]{ 20 });
+        //AddRule(1, 10, new int[] { 102, 111, 102, 111, 102, 111, 102, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(1, 11, new int[] { 103 }, new int[]{ 20 });
+        //AddRule(1, 12, new int[] { 103 }, new int[]{ 20 });
+        //AddRule(1, 13, new int[] { 104 }, new int[]{ 20 });
+        //AddRule(1, 14, new int[] { 104 }, new int[]{ 20 });
+        //AddRule(1, 15, new int[] { 103, 111, 103, 111, 103, 111, 103, 111 }, new int[]{ 4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(1, 16, new int[] { 104 }, new int[]{ 20 });
+        //AddRule(1, 17, new int[] { 104 }, new int[]{ 20 });
+        //AddRule(1, 18, new int[] { 105 }, new int[]{ 20 });
+        //AddRule(1, 19, new int[] { 105 }, new int[]{ 20 });
+        //AddRule(1, 20, new int[] { 104, 121 }, new int[]{ 19, 1 });
+
+        ////stage 2
+        //stageWaveRules.Add(2, new Dictionary<int, WaveRule>());
+        //AddRule(2, 1, new int[] { 201 }, new int[] { 20 });
+        //AddRule(2, 2, new int[] { 201 }, new int[] { 20 });
+        //AddRule(2, 3, new int[] { 202 }, new int[] { 20 });
+        //AddRule(2, 4, new int[] { 202 }, new int[] { 20 });
+        //AddRule(2, 5, new int[] { 201, 211, 201, 211, 201, 211, 201, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(2, 6, new int[] { 202 }, new int[] { 20 });
+        //AddRule(2, 7, new int[] { 202 }, new int[] { 20 });
+        //AddRule(2, 8, new int[] { 203 }, new int[] { 20 });
+        //AddRule(2, 9, new int[] { 203 }, new int[] { 20 });
+        //AddRule(2, 10, new int[] { 202, 211, 202, 211, 202, 211, 202, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(2, 11, new int[] { 203 }, new int[] { 20 });
+        //AddRule(2, 12, new int[] { 203 }, new int[] { 20 });
+        //AddRule(2, 13, new int[] { 204 }, new int[] { 20 });
+        //AddRule(2, 14, new int[] { 204 }, new int[] { 20 });
+        //AddRule(2, 15, new int[] { 203, 211, 203, 211, 203, 211, 203, 211 }, new int[] {4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(2, 16, new int[] { 204 }, new int[] { 20 });
+        //AddRule(2, 17, new int[] { 204 }, new int[] { 20 });
+        //AddRule(2, 18, new int[] { 205 }, new int[] { 20 });
+        //AddRule(2, 19, new int[] { 205 }, new int[] { 20 });
+        //AddRule(2, 20, new int[] { 204, 221 }, new int[] { 19, 1 });
+
+        //stageWaveRules.Add(3, new Dictionary<int, WaveRule>());
+        //AddRule(3, 1, new int[] { 101 }, new int[] { 20 });
+        //AddRule(3, 2, new int[] { 101 }, new int[] { 20 });
+        //AddRule(3, 3, new int[] { 102 }, new int[] { 20 });
+        //AddRule(3, 4, new int[] { 102 }, new int[] { 20 });
+        //AddRule(3, 5, new int[] { 101, 111, 101, 111, 101, 111, 101, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(3, 6, new int[] { 102 }, new int[] { 20 });
+        //AddRule(3, 7, new int[] { 102 }, new int[] { 20 });
+        //AddRule(3, 8, new int[] { 103 }, new int[] { 20 });
+        //AddRule(3, 9, new int[] { 103 }, new int[] { 20 });
+        //AddRule(3, 10, new int[] { 102, 111, 102, 111, 102, 111, 102, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(3, 11, new int[] { 103 }, new int[] { 20 });
+        //AddRule(3, 12, new int[] { 103 }, new int[] { 20 });
+        //AddRule(3, 13, new int[] { 104 }, new int[] { 20 });
+        //AddRule(3, 14, new int[] { 104 }, new int[] { 20 });
+        //AddRule(3, 15, new int[] { 103, 111, 103, 111, 103, 111, 103, 111 }, new int[] { 4, 1, 4, 1, 4, 1, 4, 1 });
+        //AddRule(3, 16, new int[] { 104 }, new int[] { 20 });
+        //AddRule(3, 17, new int[] { 104 }, new int[] { 20 });
+        //AddRule(3, 18, new int[] { 105 }, new int[] { 20 });
+        //AddRule(3, 19, new int[] { 105 }, new int[] { 20 });
+        //AddRule(3, 20, new int[] { 104, 121 }, new int[] { 19, 1 });
+    
 
     private void AddRule(int stage, int wave, int[] monsterName, int[] monsterCount)
     {

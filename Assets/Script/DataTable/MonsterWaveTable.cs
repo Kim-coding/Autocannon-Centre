@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class MonsterWaveData
@@ -17,15 +18,23 @@ public class MonsterWaveData
     public int value03 { get; set; }
     public int ID04 { get; set; }
     public int value04 { get; set; }
+    public int ID05 { get; set; }
+    public int value05 { get; set; }
+    public int ID06 { get; set; }
+    public int value06 { get; set; }
+    public int ID07 { get; set; }
+    public int value07 { get; set; }
+    public int ID08 { get; set; }
+    public int value08 { get; set; }
 }
 
 
 public class MonsterWaveTable : DataTable
 {
-    private Dictionary<int, MonsterWaveData> monsterWaveTable = new Dictionary<int, MonsterWaveData>();
-    public MonsterWaveData GetID(int id)
+    private Dictionary<(int stage, int wave), MonsterWaveData> monsterWaveTable = new Dictionary<(int stage, int wave), MonsterWaveData>();
+    public MonsterWaveData GetWaveData(int stage, int wave)
     {
-        monsterWaveTable.TryGetValue(id, out var data);
+        monsterWaveTable.TryGetValue((stage, wave), out var data);
         return data;
     }
 
@@ -40,7 +49,11 @@ public class MonsterWaveTable : DataTable
             var records = csvReader.GetRecords<MonsterWaveData>();
             foreach (var record in records)
             {
-                monsterWaveTable.Add(record.stage, record);
+                var key = (record.stage, record.wave);
+                if (!monsterWaveTable.ContainsKey(key))
+                {
+                    monsterWaveTable.Add(key, record);
+                }
             }
         }
     }
