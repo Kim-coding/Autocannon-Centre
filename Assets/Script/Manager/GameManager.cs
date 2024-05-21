@@ -94,4 +94,8 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    public void Backspace()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }
