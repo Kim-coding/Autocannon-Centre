@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using EPOOutline;
 using System.Linq;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class TowerCombiner : MonoBehaviour
 {
