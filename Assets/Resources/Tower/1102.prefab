@@ -324,6 +324,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5479984692086693163, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6022059255029891399, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
       propertyPath: m_LocalScale.x
       value: 38
@@ -548,6 +552,7 @@ MonoBehaviour:
   type: 0
   skillID: 0
   id: 0
+  towerIcon: 
   fireSound: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
 --- !u!65 &-8042772459679304159
 BoxCollider:

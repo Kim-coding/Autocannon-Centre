@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class SaveData
 {
-    public bool[] stageClear = new bool[4];
+    public bool[] stagesCleared = new bool[4];
 }

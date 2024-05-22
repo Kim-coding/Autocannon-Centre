@@ -326,6 +326,7 @@ MonoBehaviour:
   type: 0
   skillID: 0
   id: 0
+  towerIcon: 
   fireSound: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
 --- !u!65 &-4988550554310282491
 BoxCollider:
@@ -838,6 +839,10 @@ PrefabInstance:
     - target: {fileID: 1330385042468529093, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711742371470446335, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7642199764366842959, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
       propertyPath: m_LocalScale.x
