@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField]
     public AudioSource musicSource;
     public AudioSource effectSource;
 
@@ -33,5 +34,15 @@ public class AudioManager : MonoBehaviour
     public void EffectPlay(AudioClip clip)
     {
         effectSource.PlayOneShot(clip);
+    }
+
+    public void SoundOnOff(bool onOff)
+    {
+        musicSource.volume = onOff ? 1.0f : 0;
+    }
+
+    public void EffectSoundOnOff(bool onOff) 
+    {
+        effectSource.volume = onOff ? 1.0f : 0;
     }
 }

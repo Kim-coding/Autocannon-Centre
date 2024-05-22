@@ -7,6 +7,7 @@ public class StartWindow : MonoBehaviour
     public Button optionButton;
 
     private WindowManager windowManager;
+    public AudioClip selectedSound;
 
     void Start()
     {
@@ -17,12 +18,13 @@ public class StartWindow : MonoBehaviour
     }
     public void OnClickGame()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
         windowManager.Open(Windows.SelectStage);
     }
 
     public void OnClickOption()
     {
-        windowManager.Open(Windows.Option);
+        //windowManager.Open(Windows.Option);
     }
 
     public void OnClickExit()

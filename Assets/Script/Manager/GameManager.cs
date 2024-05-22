@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour
     public int health = 100;
 
     public GameObject failedWindow;
+    public GameObject OptionWindow;
 
     public AudioClip failedSound;
+    public AudioClip selectedSound;
     public bool isGameOver { get; private set; }
     private SaveData saveData;
 
@@ -32,6 +34,10 @@ public class GameManager : MonoBehaviour
         if(failedWindow != null)
         {
             failedWindow.SetActive(false);
+        }
+        if(OptionWindow != null)
+        {
+            OptionWindow.SetActive(false);
         }
         saveData = SaveLoadSystem.LoadGame();
     }
@@ -129,7 +135,10 @@ public class GameManager : MonoBehaviour
 
     public void OnClickOption()
     {
-
+        AudioManager.Instance.EffectPlay(selectedSound);
+        Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
+        OptionWindow.isStatic = (OptionWindow.isStatic == true) ? false : true;
+        OptionWindow.SetActive(OptionWindow.isStatic);
     }
     public void Backspace()
     {
