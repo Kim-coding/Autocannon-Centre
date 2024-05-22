@@ -408,11 +408,7 @@ MonoBehaviour:
   wayPoints: []
   speed: 0
   endPoint: {fileID: 0}
-<<<<<<< HEAD
-  speed: 0
-=======
   playerDamageSound: {fileID: 8300000, guid: 668e6c5fbd0109b4497eeca21b25dc3d, type: 3}
->>>>>>> origin/develop
 --- !u!114 &718223179114324209
 MonoBehaviour:
   m_ObjectHideFlags: 0
