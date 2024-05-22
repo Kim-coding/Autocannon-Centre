@@ -23,7 +23,6 @@ public class Tower : MonoBehaviour
     public int type;
     public int skillID;
     public int id;
-    public string towerIcon;
 
     public AudioClip fireSound;
 
@@ -52,7 +51,6 @@ public class Tower : MonoBehaviour
             type = data.type;
             skillID = data.skillID;
             fireRate = data.towerSpeed;
-            towerIcon = data.towerIcon;
         }
         Debug.Log(towerName);
         if (type == 2)

@@ -1,7 +1,7 @@
 ID,skillName,buffType,debuffType,value
 11,atkBuff_1,1,0,2
-12,atkBuff_2,1,0,4
-13,atkBuff_3,1,0,6
+12,atkBuff_2,1,0,5
+13,atkBuff_3,1,0,10
 21,atkSpeedBuff_1,2,0,0.05
 22,atkSpeedBuff_2,2,0,0.1
 23,atkspeedBuff_3,2,0,0.2
