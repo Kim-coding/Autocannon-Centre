@@ -77,11 +77,10 @@ public class GameManager : MonoBehaviour
 
     private void StageClear()
     {
-        saveData.stagesCleared[stage - 1] = true;
-        if(stage < saveData.stagesCleared.Length)
-        {
-            saveData.stagesCleared[stage] = true;
-        }
+        if (saveData.stagesCleared[stage] == true)
+            return;
+        
+        saveData.stagesCleared[stage] = true;
         SaveLoadSystem.SaveGame(saveData);
     }
 
