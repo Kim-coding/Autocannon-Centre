@@ -156,7 +156,7 @@ public class Tower : MonoBehaviour
         }
 
         var pos = transform.position;
-        pos.y += 1.7f;
+        pos.y += 2f;
 
         GameObject bulletGO = PoolManager.instance.GetObjectPool(bulletPrefab.name);
         if(bulletGO != null) 
