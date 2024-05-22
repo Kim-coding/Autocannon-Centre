@@ -414,8 +414,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPoints: []
-  endPoint: {fileID: 0}
   speed: 0
+  endPoint: {fileID: 0}
+<<<<<<< HEAD
+  speed: 0
+=======
+  playerDamageSound: {fileID: 8300000, guid: 668e6c5fbd0109b4497eeca21b25dc3d, type: 3}
+>>>>>>> origin/develop
 --- !u!114 &2856901922551602133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   Gold: 0
+  isDead: 0
 --- !u!136 &-6203966919814694264
 CapsuleCollider:
   m_ObjectHideFlags: 0

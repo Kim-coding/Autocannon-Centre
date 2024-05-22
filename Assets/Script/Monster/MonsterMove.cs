@@ -7,15 +7,20 @@ public class MonsterMove : MonoBehaviour
     public List<Transform> wayPoints = new List<Transform>();
     private int currentWayPointIndex = 0;
 
-    public Transform endPoint;
-    private float threshold = 0.8f;
     public float speed;
+    public Transform endPoint;
+    
     private float rotSpeed = 5f;
+    private float threshold = 0.8f;
 
+    private MonsterHealth health;
     private int id;
+
+    public AudioClip playerDamageSound;
 
     private void Awake()
     {
+        health = GetComponent<MonsterHealth>();
         id = int.Parse(name.Replace("(Clone)", ""));
 
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
@@ -28,14 +33,9 @@ public class MonsterMove : MonoBehaviour
 
     private void Update()
     {
-        Move();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("endPoint"))
+        if(!health.isDead) 
         {
-            
+            Move();
         }
     }
 
@@ -57,7 +57,9 @@ public class MonsterMove : MonoBehaviour
 
             if (Vector3.Distance(transform.position, endPoint.position) <= threshold)
             {
+                AudioManager.Instance.EffectPlay(playerDamageSound);
                 PoolManager.instance.ReturnObjectToPool(gameObject);
+                GameManager.Instance.SubMonsterCount();
                 GameManager.Instance.SubHealth(10);
                 if (GameManager.Instance.health <= 0)
                 {

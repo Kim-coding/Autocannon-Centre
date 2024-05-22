@@ -8,6 +8,8 @@ using System.Linq;
 
 public class TowerCombiner : MonoBehaviour
 {
+    public AudioClip bulidSound;
+
     public TextMeshProUGUI towerName;
     public TextMeshProUGUI towerdamage;
     public TextMeshProUGUI towerAtkSpeed;
@@ -109,6 +111,7 @@ public class TowerCombiner : MonoBehaviour
 
             if (combinationTower1.id ==  combinationTower2.id && combinationTower2.id == combinationTower3.id)
             {
+                AudioManager.Instance.EffectPlay(bulidSound);
                 int newTowerID = combinationTower1.id + 100;
                 TowerData newTowerData = towerTable.GetID(newTowerID);
                 if (newTowerData != null)
@@ -136,6 +139,7 @@ public class TowerCombiner : MonoBehaviour
 
             if (combinationTower1.towerGrade == combinationTower2.towerGrade && combinationTower2.towerGrade == combinationTower3.towerGrade)
             {
+                AudioManager.Instance.EffectPlay(bulidSound);
                 List<TowerData> Towers = towerTable.towerDatas
                         .FindAll(t => t.stage <= towerSpawner.stage && t.towerGrade == combinationTower1.towerGrade + 1);
                 if (Towers.Count > 0)

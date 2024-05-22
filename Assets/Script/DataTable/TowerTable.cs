@@ -10,6 +10,7 @@ using UnityEngine;
 public class TowerData
 {
     public static readonly string FormatTowerPath = "Tower/{0}";  //타워 프리팹 위치
+    public static readonly string FormatTowerIconsPath = "TowerIcons/{0}";  //타워 아이콘 위치
 
     public int ID {  get; set; }
     public string name { get; set; }

@@ -24,6 +24,8 @@ public class Tower : MonoBehaviour
     public int skillID;
     public int id;
 
+    public AudioClip fireSound;
+
     public SkillData skillData;
 
     private BuffDebuffMgr buffDebuffmgr;
@@ -164,6 +166,7 @@ public class Tower : MonoBehaviour
             if (bullet != null)
             {
                 bullet.Set(target.transform, speed, damage, range);
+                AudioManager.Instance.EffectPlay(fireSound);
             }
         }
     }

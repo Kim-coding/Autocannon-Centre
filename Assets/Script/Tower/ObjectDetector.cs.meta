@@ -3,7 +3,9 @@ guid: 0597d6d3ce971934bbeebfff771c8866
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - towerCombiner: {instanceID: 0}
+  - selectedSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
