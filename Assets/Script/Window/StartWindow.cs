@@ -8,6 +8,7 @@ public class StartWindow : MonoBehaviour
 
     private WindowManager windowManager;
 
+    public AudioClip selectedSound;
     void Start()
     {
         windowManager = GetComponentInParent<WindowManager>();
@@ -17,16 +18,22 @@ public class StartWindow : MonoBehaviour
     }
     public void OnClickGame()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
         windowManager.Open(Windows.SelectStage);
     }
 
     public void OnClickOption()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
         windowManager.Open(Windows.Option);
     }
 
     public void OnClickExit()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
 #if UNITY_EDITOR
         //Application.isPlaying=false;
 #else

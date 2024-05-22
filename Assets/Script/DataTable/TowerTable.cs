@@ -28,7 +28,7 @@ public class TowerData
     public int percentIncr { get; set; }
     public float towerSpeed { get; set; }
     public float towerSpeedInc {  get; set; }
-
+    public string towerIcon { get; set; }
 }
 
 [System.Serializable]

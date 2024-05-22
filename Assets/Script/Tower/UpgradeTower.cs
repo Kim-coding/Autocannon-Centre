@@ -13,6 +13,8 @@ public class UpgradeTower : MonoBehaviour
     public TowerSpawner towerSpawner;
     public int stage;
 
+    public AudioClip selectedSound;
+
     void Awake()
     {
         upgradeWindow.SetActive(false);
@@ -33,6 +35,8 @@ public class UpgradeTower : MonoBehaviour
     }
     public void OnUpgradClick()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
         upgradeWindow.SetActive(!upgradeWindow.activeSelf);
     }
 

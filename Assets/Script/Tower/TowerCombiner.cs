@@ -9,6 +9,9 @@ using System.Linq;
 public class TowerCombiner : MonoBehaviour
 {
     public AudioClip bulidSound;
+    public AudioClip selectedSound;
+
+    public Image towerIcon;
 
     public TextMeshProUGUI towerName;
     public TextMeshProUGUI towerdamage;
@@ -56,6 +59,12 @@ public class TowerCombiner : MonoBehaviour
     public void OnInfo(Tower tower)
     {
         selectedTower = tower;
+
+        Sprite icon = Resources.Load<Sprite>(string.Format(TowerData.FormatTowerIconsPath, selectedTower.towerIcon));
+        if (icon != null)
+        {
+            towerIcon.sprite = icon;
+        }
         towerName.text = $"name : {tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"damage : {tower.damage.ToString()}";
         towerAtkSpeed.text = $"Speed : {tower.fireRate.ToString()}";
@@ -64,6 +73,8 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot1()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
         if (combinationTower1 != null)
         {
             ClearSlot1();
@@ -77,6 +88,8 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot2()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
         if (combinationTower2 != null)
         {
             ClearSlot2();
@@ -90,6 +103,8 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot3()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
+
         if (combinationTower3 != null)
         {
             ClearSlot3();
@@ -103,6 +118,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickButton()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
         if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
             Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
@@ -131,6 +147,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickRandomButton()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
         if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
             Tile tile1 = combinationTower1.GetComponentInParent<Tile>();

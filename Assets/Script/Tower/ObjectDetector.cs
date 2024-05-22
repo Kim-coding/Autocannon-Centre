@@ -99,7 +99,9 @@ public class ObjectDetector : MonoBehaviour
 
     public void OnClick()
     {
-        if(selectedTile != null) 
+        AudioManager.Instance.EffectPlay(selectedSound);
+
+        if (selectedTile != null) 
         {
             if(GameManager.Instance.gold < cost)
             {
