@@ -75640,7 +75640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeTower: {fileID: 1561202482}
   stage: 1
-  wave: 2
+  wave: 1
   monsterCount: 0
   gold: 50
   health: 100
