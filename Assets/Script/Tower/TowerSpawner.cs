@@ -9,24 +9,33 @@ public class TowerSpawner : MonoBehaviour
     private TowerTable towerTable;
     public int stage;
     public AudioClip buildSound;
+    private TowerCombiner towerCombiner;
 
     private void Start()
     {
         stage = GameManager.Instance.stage;
+        towerCombiner = GetComponent<TowerCombiner>();
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
-        var data = towerTable.towerDatas.Where(t => t.stage <= stage && t.towerGrade == 1);
 
+        var data = towerTable.towerDatas.Where(t => t.stage <= stage && t.towerGrade == 1);
         foreach (var t in data)
         {
             towerDatas[t.ID] = t;
         }
     }
 
-    public void UpgradeTowerPercent(int id, int percentInc)
+    public void UpgradeSpwanTower(int id, TowerData data)
     {
+        Debug.Log(id);
         if(towerDatas.ContainsKey(id)) 
         {
-            towerDatas[id].percent += percentInc;
+            towerDatas[id].percent += data.percentIncr;
+            towerDatas[id].towerSpeed -= data.towerSpeedInc;
+            towerDatas[id].damage += data.atkInc;
+        }
+        else
+        {
+            towerCombiner.UpgradeCombiTower(id, data);
         }
     }
 

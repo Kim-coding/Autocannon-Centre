@@ -54,7 +54,7 @@ public class UpgradeTower : MonoBehaviour
                     tower.UpgradeTower(data);
                 }
             }
-            towerSpawner.UpgradeTowerPercent(towerId, data.percentIncr);
+            towerSpawner.UpgradeSpwanTower(towerId, data);
         }
     }
 }

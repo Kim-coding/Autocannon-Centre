@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
-public class SaveLoadSystem : MonoBehaviour
+public class SaveLoadSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    private static string saveFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
+
+    public static void SaveGame(SaveData data)
     {
-        
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(saveFilePath, json);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static SaveData LoadGame()
     {
-        
+        if (File.Exists(saveFilePath))
+        {
+            string json = File.ReadAllText(saveFilePath);
+            return JsonUtility.FromJson<SaveData>(json);
+        }
+        return new SaveData();
     }
 }
