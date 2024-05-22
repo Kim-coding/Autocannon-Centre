@@ -75683,7 +75683,6 @@ MonoBehaviour:
   slotParent: {fileID: 1580842080}
   towerSpawner: {fileID: 1561202479}
   stage: 1
-  selectedSound: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
 --- !u!114 &1561202483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103833,41 +103832,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5195654051046931839, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a1c07a3873e498141a795c77bf5b4ef9, type: 3}
-    - target: {fileID: 5195654051046931839, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195654051046931839, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195654051046931839, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7467475797741860009, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 7702604333114744638, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
       propertyPath: m_Name
       value: CombinationSlot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
-    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -1631596422574026493, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
-    - target: {fileID: 8655759917273203678, guid: 933f65b3e353fa248a25f7bd881b2c01, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

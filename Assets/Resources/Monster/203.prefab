@@ -433,6 +433,7 @@ MonoBehaviour:
   hp: 0
   Gold: 0
   isDead: 0
+  hpBar: {fileID: 3901920276045354052}
 --- !u!136 &8069365045966377878
 CapsuleCollider:
   m_ObjectHideFlags: 0
