@@ -75688,6 +75688,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulidSound: {fileID: 8300000, guid: 02bb7218c46aae7479282b4012438b03, type: 3}
+  selectedSound: {fileID: 0}
+  towerIcon: {fileID: 1633581365}
   towerName: {fileID: 1611703889}
   towerdamage: {fileID: 1944965108}
   towerAtkSpeed: {fileID: 852757094}

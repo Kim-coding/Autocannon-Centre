@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterHealth : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class MonsterHealth : MonoBehaviour
 
     public bool isDead;
     private int id;
+
+    public Image hpBar;
 
     private Animator animator;
 

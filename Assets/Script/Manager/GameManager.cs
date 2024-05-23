@@ -20,16 +20,27 @@ public class GameManager : MonoBehaviour
 
     public AudioClip failedSound;
     public bool isGameOver { get; private set; }
+    private SaveData saveData;
 
     private void Awake()
     {
         Instance = this;
-        upgradeTower = GetComponent<UpgradeTower>();
-        failedWindow.SetActive(false);
+        if(upgradeTower != null) 
+        {
+            upgradeTower = GetComponent<UpgradeTower>();
+        }
+        if(failedWindow != null)
+        {
+            failedWindow.SetActive(false);
+        }
+        saveData = SaveLoadSystem.LoadGame();
     }
 
     private void Start()
     {
+        if(stage == 0)
+            return;
+
         UIManager.instance.UpdateStageText(stage);
         UIManager.instance.UpdateWaveText(wave);
         UIManager.instance.UpdateMonsterText(monsterCount);
@@ -48,11 +59,30 @@ public class GameManager : MonoBehaviour
 
         if(isGameOver) 
         {
-            failedWindow.SetActive(true);
+            if (failedWindow != null)
+            {
+                failedWindow.SetActive(true);
+            }
             AudioManager.Instance.EffectPlay(failedSound);
             Time.timeScale = 0f;
             return;
         }
+
+        if(wave >= 20 && monsterCount <= 0)
+        {
+            Debug.Log("ÀúÀå");
+            StageClear();
+        }
+    }
+
+    private void StageClear()
+    {
+        saveData.stagesCleared[stage - 1] = true;
+        if(stage < saveData.stagesCleared.Length)
+        {
+            saveData.stagesCleared[stage] = true;
+        }
+        SaveLoadSystem.SaveGame(saveData);
     }
 
     public void UpdateWave(int newWave)

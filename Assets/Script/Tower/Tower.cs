@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour
     public int type;
     public int skillID;
     public int id;
-
+    public string towerIcon;
     public AudioClip fireSound;
 
     public SkillData skillData;
@@ -51,6 +51,7 @@ public class Tower : MonoBehaviour
             type = data.type;
             skillID = data.skillID;
             fireRate = data.towerSpeed;
+            towerIcon = data.towerIcon;
         }
         Debug.Log(towerName);
         if (type == 2)
@@ -154,7 +155,7 @@ public class Tower : MonoBehaviour
         }
 
         var pos = transform.position;
-        pos.y += 1.7f;
+        pos.y += 2f;
 
         GameObject bulletGO = PoolManager.instance.GetObjectPool(bulletPrefab.name);
         if(bulletGO != null) 
