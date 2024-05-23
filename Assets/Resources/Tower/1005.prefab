@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2073791089258999279, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab2c6dde441adb8478e8d0b0c6b3b8d3, type: 2}
     - target: {fileID: 2711742371470446335, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -170,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7642199764366842959, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 7642199764366842959, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -212,6 +216,11 @@ PrefabInstance:
 --- !u!4 &4004028817288544259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7642199764366842959, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
+  m_PrefabInstance: {fileID: 6746294164834589772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5758376492183977865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1330385042468529093, guid: 08f8dfd68a4270642a281bcdf01b0c11, type: 3}
   m_PrefabInstance: {fileID: 6746294164834589772}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9179869520470470810
@@ -368,6 +377,7 @@ MonoBehaviour:
   skillID: 0
   id: 0
   towerIcon: 
+  onRange: {fileID: 5758376492183977865}
   fireSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
 --- !u!65 &3805324645692466959
 BoxCollider:

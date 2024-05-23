@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour
     public int health = 100;
 
     public GameObject failedWindow;
+    public GameObject OptionWindow;
 
     public AudioClip failedSound;
+    public AudioClip selectedSound;
     public bool isGameOver { get; private set; }
     private SaveData saveData;
 
@@ -32,6 +34,10 @@ public class GameManager : MonoBehaviour
         if(failedWindow != null)
         {
             failedWindow.SetActive(false);
+        }
+        if(OptionWindow != null)
+        {
+            OptionWindow.SetActive(false);
         }
         saveData = SaveLoadSystem.LoadGame();
     }
@@ -77,11 +83,10 @@ public class GameManager : MonoBehaviour
 
     private void StageClear()
     {
-        saveData.stagesCleared[stage - 1] = true;
-        if(stage < saveData.stagesCleared.Length)
-        {
-            saveData.stagesCleared[stage] = true;
-        }
+        if (saveData.stagesCleared[stage] == true)
+            return;
+        
+        saveData.stagesCleared[stage] = true;
         SaveLoadSystem.SaveGame(saveData);
     }
 
@@ -130,7 +135,10 @@ public class GameManager : MonoBehaviour
 
     public void OnClickOption()
     {
-
+        AudioManager.Instance.EffectPlay(selectedSound);
+        Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
+        OptionWindow.isStatic = (OptionWindow.isStatic == true) ? false : true;
+        OptionWindow.SetActive(OptionWindow.isStatic);
     }
     public void Backspace()
     {

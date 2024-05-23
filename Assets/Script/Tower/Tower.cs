@@ -24,6 +24,8 @@ public class Tower : MonoBehaviour
     public int skillID;
     public int id;
     public string towerIcon;
+    public GameObject onRange;
+
     public AudioClip fireSound;
 
     public SkillData skillData;

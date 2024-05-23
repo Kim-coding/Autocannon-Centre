@@ -39,6 +39,7 @@ public class MonsterHealth : MonoBehaviour
         if (isDead) return;
 
         hp -= damage;
+        hpBar.fillAmount = hp / maxHp;
         if(hp <= 0)
         {
             OnDie();
@@ -73,5 +74,6 @@ public class MonsterHealth : MonoBehaviour
     {
         hp = maxHp;
         isDead = false;
+        hpBar.fillAmount = 1;
     }
 }

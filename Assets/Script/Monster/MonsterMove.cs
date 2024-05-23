@@ -8,6 +8,7 @@ public class MonsterMove : MonoBehaviour
     private int currentWayPointIndex = 0;
 
     public float speed;
+    public int damage;
     public Transform endPoint;
     
     private float rotSpeed = 5f;
@@ -28,6 +29,7 @@ public class MonsterMove : MonoBehaviour
         {
             var data = monsterTable.GetID(id);
             speed = data.monsterSpeed;
+            damage = data.damage;
         }
     }
 
@@ -60,7 +62,7 @@ public class MonsterMove : MonoBehaviour
                 AudioManager.Instance.EffectPlay(playerDamageSound);
                 PoolManager.instance.ReturnObjectToPool(gameObject);
                 GameManager.Instance.SubMonsterCount();
-                GameManager.Instance.SubHealth(10);
+                GameManager.Instance.SubHealth(damage);
                 if (GameManager.Instance.health <= 0)
                 {
                     GameManager.Instance.EndGame();

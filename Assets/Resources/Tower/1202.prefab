@@ -73,6 +73,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+--- !u!1 &4414678484776509573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4085683862841103834, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+  m_PrefabInstance: {fileID: 429906171778397535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6225649923462820888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6022059255029891399, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
@@ -393,6 +398,8 @@ MonoBehaviour:
   type: 0
   skillID: 0
   id: 0
+  towerIcon: 
+  onRange: {fileID: 4414678484776509573}
   fireSound: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
 --- !u!65 &-8363844607097323370
 BoxCollider:
