@@ -98,6 +98,7 @@ public class Tower : MonoBehaviour
                 {
                     fireTime = 0f;
                     Shoot(currentTarget);
+                    
                 }
             }
         }
@@ -140,6 +141,7 @@ public class Tower : MonoBehaviour
             }
         }
 
+        Debug.Log(nearestMonster);
         return nearestMonster;
     }
 
@@ -151,11 +153,11 @@ public class Tower : MonoBehaviour
 
     private void Shoot(GameObject target)
     {
-        if (bulletPrefab == null || target == null)
+        if (bulletPrefab == null || target == null || currentTarget == null)
         {
             return;
         }
-
+        
         var pos = transform.position;
         pos.y += 2f;
 
