@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class WindowManager : MonoBehaviour
 {
     public GameObject startWindow;
-    //public GameObject optionWindow;
+    public GameObject mannerWindow;
     public GameObject selectStageWindow;
 
     private Dictionary<Windows, GameObject> windows;
@@ -16,7 +16,7 @@ public class WindowManager : MonoBehaviour
         windows = new Dictionary<Windows, GameObject>()
         {
             {Windows.Start, startWindow },
-            //{Windows.Option, optionWindow},
+            {Windows.Manner, mannerWindow},
             {Windows.SelectStage, selectStageWindow }
         };
 
