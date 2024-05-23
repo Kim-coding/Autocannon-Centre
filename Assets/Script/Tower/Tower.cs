@@ -81,6 +81,11 @@ public class Tower : MonoBehaviour
         else
         {
             UpdateCurrentTarget();
+            
+            if (currentTarget != null && IsTargetOutOfRange(currentTarget))
+            {
+                currentTarget = null;
+            }
 
             foreach (var soldier in soldiers)
             {
@@ -127,20 +132,19 @@ public class Tower : MonoBehaviour
         
         foreach (Collider collider in colliders) 
         {
-            if(collider != null)
+            if(collider != null && collider.gameObject.activeInHierarchy && collider.gameObject.CompareTag("monster"))
             {
-                if(collider.gameObject.CompareTag("monster"))
+                
+                float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
+                if (distance < shortDistance)
                 {
-                    float distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
-                    if (distance < shortDistance)
-                    {
-                        shortDistance = distance;
-                        nearestMonster = collider.gameObject;
-                    }
+                    shortDistance = distance;
+                    nearestMonster = collider.gameObject;
                 }
+                
             }
         }
-
+        
         return nearestMonster;
     }
 
@@ -152,11 +156,11 @@ public class Tower : MonoBehaviour
 
     private void Shoot(GameObject target)
     {
-        if (bulletPrefab == null || target == null || currentTarget == null)
+        if (bulletPrefab == null || target == null)
         {
             return;
         }
-        
+        Debug.Log(target);
         var pos = transform.position;
         pos.y += 2f;
 

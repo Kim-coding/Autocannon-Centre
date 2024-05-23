@@ -76739,6 +76739,7 @@ MonoBehaviour:
   health: 100
   failedWindow: {fileID: 387429968}
   optionWindow: {fileID: 1034264381}
+  Plane: {fileID: 1290895449}
   failedSound: {fileID: 8300000, guid: 95553cd2316e844408e95f7df0183242, type: 3}
   selectedSound: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
 --- !u!114 &1561202484
