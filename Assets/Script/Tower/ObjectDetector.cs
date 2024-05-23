@@ -62,6 +62,11 @@ public class ObjectDetector : MonoBehaviour
             currentOutline.enabled = false;
         }
 
+        if(selectedTower != null && selectedTower.onRange != null) 
+        {
+            selectedTower.onRange.SetActive(false);
+        }
+
         selectedTile = null;
         selectedTower = null;
         towerCombiner.ClearSelection();
@@ -92,6 +97,10 @@ public class ObjectDetector : MonoBehaviour
         {
             outline.enabled = true;
             currentOutline = outline;
+            if(selectedTower.onRange != null)
+            {
+                selectedTower.onRange.SetActive(true);
+            }
         }
 
         towerCombiner.OnInfo(selectedTower);

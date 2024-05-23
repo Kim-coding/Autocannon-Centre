@@ -160,6 +160,8 @@ MonoBehaviour:
   type: 0
   skillID: 0
   id: 0
+  towerIcon: 
+  onRange: {fileID: 2646129751861205346}
   fireSound: {fileID: 0}
 --- !u!65 &5897734672669753422
 BoxCollider:
@@ -441,6 +443,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+--- !u!1 &2646129751861205346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4085683862841103834, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+  m_PrefabInstance: {fileID: 2020905871654456504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5735639594873785855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6022059255029891399, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}

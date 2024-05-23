@@ -162,6 +162,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4784134912606054835}
     m_Modifications:
+    - target: {fileID: 2025815608008615982, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab2c6dde441adb8478e8d0b0c6b3b8d3, type: 2}
     - target: {fileID: 4085683862841103834, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
       propertyPath: m_Name
       value: Range
@@ -231,6 +235,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+--- !u!1 &3942390426416889182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4085683862841103834, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
+  m_PrefabInstance: {fileID: 1010333430963644548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6744081186221664707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6022059255029891399, guid: 84aca4fe7ac4b7b49a4168aa26adaa72, type: 3}
@@ -405,6 +414,7 @@ MonoBehaviour:
   skillID: 0
   id: 0
   towerIcon: 
+  onRange: {fileID: 3942390426416889182}
   fireSound: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
 --- !u!65 &1787478447329789995
 BoxCollider:

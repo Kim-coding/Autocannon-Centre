@@ -20,6 +20,7 @@ public class MonsterData
     public float monsterSpeed { get; set; }
     public int monsterGold { get; set; }
     public float scale { get; set; }
+    public int damage {  get; set; }
 }
 public class MonsterTable : DataTable
 {

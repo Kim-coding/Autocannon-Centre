@@ -53502,6 +53502,18 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57970,6 +57982,18 @@ PrefabInstance:
     - target: {fileID: 7984472939845332934, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184054568141578455, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76139,8 +76163,8 @@ MonoBehaviour:
   stage: 1
   wave: 1
   monsterCount: 0
-  gold: 10000
-  health: 5000
+  gold: 9999
+  health: 100
   failedWindow: {fileID: 387429968}
   OptionWindow: {fileID: 1034264381}
   failedSound: {fileID: 8300000, guid: 95553cd2316e844408e95f7df0183242, type: 3}
