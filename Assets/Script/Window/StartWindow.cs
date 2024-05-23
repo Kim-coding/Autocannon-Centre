@@ -14,7 +14,7 @@ public class StartWindow : MonoBehaviour
         windowManager = GetComponentInParent<WindowManager>();
 
         gameButton.onClick.AddListener(OnClickGame);
-        optionButton.onClick.AddListener(OnClickOption);
+        optionButton.onClick.AddListener(OnClickManner);
     }
     public void OnClickGame()
     {
@@ -22,9 +22,9 @@ public class StartWindow : MonoBehaviour
         windowManager.Open(Windows.SelectStage);
     }
 
-    public void OnClickOption()
+    public void OnClickManner()
     {
-        //windowManager.Open(Windows.Option);
+        windowManager.Open(Windows.Manner);
     }
 
     public void OnClickExit()

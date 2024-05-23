@@ -1,6 +1,6 @@
 public enum Windows
 {
     Start,
-    //Option,
+    Manner,
     SelectStage,
 }
