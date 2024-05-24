@@ -831,6 +831,7 @@ MonoBehaviour:
   health: 100
   failedWindow: {fileID: 0}
   optionWindow: {fileID: 0}
+  Plane: {fileID: 0}
   failedSound: {fileID: 0}
   selectedSound: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
 --- !u!4 &375565763
@@ -4949,7 +4950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7984472939845332934, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
       propertyPath: m_text
-      value: "\uD0C0\uC774\uD2C0"
+      value: "\uB79C\uB364 \uB514\uD39C\uC2A4"
       objectReference: {fileID: 0}
     - target: {fileID: 7984472939845332934, guid: 3d95cb2cd85a0764f86c7391515168d3, type: 3}
       propertyPath: m_fontSize

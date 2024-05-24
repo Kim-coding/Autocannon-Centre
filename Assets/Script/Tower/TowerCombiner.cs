@@ -279,19 +279,19 @@ public class TowerCombiner : MonoBehaviour
     private void ClearSlot1()
     {
         combinationTower1 = null;
-        combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+        combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = null;
     }
 
     private void ClearSlot2()
     {
         combinationTower2 = null;
-        combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+        combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = null;
     }
 
     private void ClearSlot3()
     {
         combinationTower3 = null;
-        combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+        combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = null;
     }
 
     public void UpgradeCombiTower(int id, TowerData data)
