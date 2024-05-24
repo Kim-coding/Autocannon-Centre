@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
     public AudioClip failedSound;
     public AudioClip selectedSound;
     public bool isGameOver { get; private set; }
+    private bool isPlay;
     private SaveData saveData;
 
     private int gameSpeed = 1;
     private void Awake()
     {
+        isPlay = false;
         Time.timeScale = 1;
         Instance = this;
         if(upgradeTower != null) 
@@ -73,11 +75,16 @@ public class GameManager : MonoBehaviour
 
         if(isGameOver) 
         {
+            if(isPlay)
+            {
+                return;
+            }
             if (failedWindow != null)
             {
                 failedWindow.SetActive(true);
             }
             AudioManager.Instance.EffectPlay(failedSound);
+            isPlay = true;
             Time.timeScale = 0f;
             return;
         }

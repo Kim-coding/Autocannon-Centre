@@ -39,11 +39,11 @@ public class AudioManager : MonoBehaviour
 
     public void SoundOnOff(bool onOff)
     {
-        musicSource.volume = onOff ? 0.7f : 0;
+        musicSource.volume = onOff ? 1.0f : 0;
     }
 
     public void EffectSoundOnOff(bool onOff) 
     {
-        effectSource.volume = onOff ? 0.7f : 0;
+        effectSource.volume = onOff ? 1.0f : 0;
     }
 }
