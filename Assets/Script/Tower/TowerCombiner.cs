@@ -83,8 +83,8 @@ public class TowerCombiner : MonoBehaviour
         }
         towerName.text = $"이름 : {tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"공격력 : {tower.damage.ToString()}";
-        towerAtkSpeed.text = $"공속 : {tower.fireRate.ToString()}";
-        towerRange.text = $"사거리 : {tower.range.ToString()}";
+        towerAtkSpeed.text = $"공격 간격 : {tower.fireRate.ToString()}";
+        towerRange.text = $"사정거리 : {tower.range.ToString()}";
     }
 
     public void CombinationSlot1()
@@ -279,19 +279,19 @@ public class TowerCombiner : MonoBehaviour
     private void ClearSlot1()
     {
         combinationTower1 = null;
-        combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+        combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = null;
     }
 
     private void ClearSlot2()
     {
         combinationTower2 = null;
-        combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+        combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = null;
     }
 
     private void ClearSlot3()
     {
         combinationTower3 = null;
-        combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = "Empty";
+        combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = null;
     }
 
     public void UpgradeCombiTower(int id, TowerData data)

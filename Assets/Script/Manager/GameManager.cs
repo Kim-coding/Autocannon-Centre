@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject failedWindow;
     public GameObject optionWindow;
+    public GameObject Plane;
 
     public AudioClip failedSound;
     public AudioClip selectedSound;
@@ -25,9 +26,9 @@ public class GameManager : MonoBehaviour
     private SaveData saveData;
 
     private int gameSpeed = 1;
-
     private void Awake()
     {
+        Time.timeScale = 1;
         Instance = this;
         if(upgradeTower != null) 
         {
@@ -41,7 +42,12 @@ public class GameManager : MonoBehaviour
         {
             optionWindow.SetActive(false);
         }
+        if (Plane != null)
+        {
+            Plane.SetActive(false);
+        }
         saveData = SaveLoadSystem.LoadGame();
+       
     }
 
     private void Start()
@@ -144,11 +150,13 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = gameSpeed;
             optionWindow.SetActive(false);
+            Plane.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
             optionWindow.SetActive(true);
+            Plane.SetActive(true);
         }
     }
 
@@ -165,5 +173,11 @@ public class GameManager : MonoBehaviour
     public void GameSpeed2() 
     {
         gameSpeed = 2;
+    }
+
+    public void ChangeStage(int newStage)
+    {
+        stage = newStage;
+        SceneManager.LoadScene($"{newStage}Level");
     }
 }

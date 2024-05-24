@@ -24,6 +24,7 @@ public class StartWindow : MonoBehaviour
 
     public void OnClickManner()
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
         windowManager.Open(Windows.Manner);
     }
 

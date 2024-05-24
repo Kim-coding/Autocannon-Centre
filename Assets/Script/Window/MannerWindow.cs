@@ -7,6 +7,7 @@ public class MannerWindow : MonoBehaviour
 {
     private WindowManager windowManager;
 
+    public AudioClip selectedSound;
     public Button[] buttons;
     public GameObject[] imges;
 
@@ -23,6 +24,7 @@ public class MannerWindow : MonoBehaviour
 
     public void OnClick(int index)
     {
+        AudioManager.Instance.EffectPlay(selectedSound);
         for (int i = 0; i < imges.Length; i++) 
         {
             imges[i].SetActive(i == index);

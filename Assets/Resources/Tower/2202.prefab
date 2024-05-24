@@ -160,6 +160,8 @@ MonoBehaviour:
   type: 0
   skillID: 0
   id: 0
+  towerIcon: 
+  onRange: {fileID: 0}
   fireSound: {fileID: 0}
 --- !u!65 &4882691010122958384
 BoxCollider:
@@ -402,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6112646537922994528, guid: 5136fc7609ce9db41adca5feb91e9256, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.108
       objectReference: {fileID: 0}
     - target: {fileID: 6112646537922994528, guid: 5136fc7609ce9db41adca5feb91e9256, type: 3}
       propertyPath: m_LocalPosition.z

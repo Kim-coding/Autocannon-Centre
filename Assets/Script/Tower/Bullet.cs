@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         if (Vector3.Distance(startPosition, transform.position) > range)
         {
             PoolManager.instance.ReturnObjectToPool(gameObject);
+            target = null;
         }
     }
 
