@@ -84,7 +84,7 @@ public class TowerCombiner : MonoBehaviour
         towerName.text = $"이름 : {tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"공격력 : {tower.damage.ToString()}";
         towerAtkSpeed.text = $"공격 간격 : {tower.fireRate.ToString()}";
-        towerRange.text = $"사정거리 : {tower.range.ToString()}";
+        towerRange.text = $"사정거리 : {tower.range.ToString("F2")}";
     }
 
     public void CombinationSlot1()
