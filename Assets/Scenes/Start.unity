@@ -831,6 +831,7 @@ MonoBehaviour:
   health: 100
   failedWindow: {fileID: 0}
   optionWindow: {fileID: 0}
+  Plane: {fileID: 0}
   failedSound: {fileID: 0}
   selectedSound: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
 --- !u!4 &375565763
@@ -2064,7 +2065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2A4\uD14C\uC774\uC9C0"
+  m_text: "\uC2A4\uD14C\uC774\uC9C0 4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
   m_sharedMaterial: {fileID: -1631596422574026493, guid: 3cb9e3180fba1394e905b623471fc2c6, type: 2}
