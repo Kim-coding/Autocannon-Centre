@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPoints: []
   speed: 0
+  damage: 0
   endPoint: {fileID: 0}
   playerDamageSound: {fileID: 8300000, guid: 668e6c5fbd0109b4497eeca21b25dc3d, type: 3}
 --- !u!114 &305277595736383642
@@ -449,10 +450,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.65
+  m_Radius: 1
   m_Height: 1.6
   m_Direction: 1
-  m_Center: {x: 0, y: 1.1, z: 0}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!54 &5224070969451761940
 Rigidbody:
   m_ObjectHideFlags: 0
