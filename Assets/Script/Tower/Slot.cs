@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
@@ -14,10 +15,28 @@ public class Slot : MonoBehaviour
     private int cost = 25;
     private int costInc = 5;
 
+    private Button button;
+    private void Awake()
+    {
+        button = this.GetComponent<Button>();
+    }
+
     public void SetData(TowerData data)
     {
         towerData = data;
         slotText.text = data.name;
+    }
+
+    private void Update()
+    {
+        if(GameManager.Instance.gold < cost)
+        {
+            button.enabled = false;
+        }
+        else
+        {
+            button.enabled = true;
+        }
     }
 
     public void OnSlotClick()
