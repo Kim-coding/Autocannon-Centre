@@ -41,10 +41,10 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateGoldText(int newGold) 
     {
-        gold.text = $"골드 : {newGold}G";
+        gold.text = $" : {newGold}G";
     }
     public void UpdateHealthText(int newHealth) 
     {
-        health.text = $"남은 체력 : {newHealth}";
+        health.text = $" : {newHealth}";
     }
 }
