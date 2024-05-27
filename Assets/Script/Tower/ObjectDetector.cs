@@ -19,6 +19,8 @@ public class ObjectDetector : MonoBehaviour
 
     private Outlinable currentOutline;
     private int cost = 10;
+
+    public Button button;
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -32,7 +34,16 @@ public class ObjectDetector : MonoBehaviour
             return;
         }
 
-        if(Input.GetMouseButtonDown(0)) 
+        if (GameManager.Instance.gold < cost)
+        {
+            button.enabled = false;
+        }
+        else
+        {
+            button.enabled = true;
+        }
+
+        if (Input.GetMouseButtonDown(0)) 
         {
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit,Mathf.Infinity))
@@ -47,10 +58,10 @@ public class ObjectDetector : MonoBehaviour
                     AudioManager.Instance.EffectPlay(selectedSound);
                     SelectTower(hit.collider.GetComponent<Tower>());
                 }
-                else
-                {
-                    ClearSelection();
-                }
+            }
+            else
+            {
+                ClearSelection();
             }
         }
     }
@@ -104,6 +115,7 @@ public class ObjectDetector : MonoBehaviour
         }
 
         towerCombiner.OnInfo(selectedTower);
+        towerCombiner.AddTowerSlot(selectedTower);
     }
 
     public void OnClick()
@@ -120,4 +132,18 @@ public class ObjectDetector : MonoBehaviour
         selectedTile = null;
     }
 
+    public void OnClickDemolish()
+    {
+        if(selectedTower != null) 
+        {
+            if (GameManager.Instance.gold < 5)
+            {
+                return;
+            }
+            GameManager.Instance.SubGold(5);
+            Tile tile = selectedTower.GetComponentInParent<Tile>();
+            tile.RemoveCurrentTower();
+            Destroy(selectedTower.gameObject);
+        }
+    }
 }

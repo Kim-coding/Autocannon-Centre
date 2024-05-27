@@ -15,12 +15,13 @@ public class TowerCombiner : MonoBehaviour
     public AudioClip bulidSound;
     public AudioClip selectedSound;
 
+    public Button cancelButton;
+
     public Image towerIcon;
 
     public TextMeshProUGUI towerName;
     public TextMeshProUGUI towerdamage;
     public TextMeshProUGUI towerAtkSpeed;
-    public TextMeshProUGUI towerRange;
 
     public GameObject combinationSlot1;
     public GameObject combinationSlot2;
@@ -64,10 +65,10 @@ public class TowerCombiner : MonoBehaviour
 
     public void ClearSelection()
     {
-        if(currentOutline != null)
-        {
-            currentOutline.enabled = false;
-        }
+        towerIcon.sprite = Resources.Load<Sprite>(string.Format(TowerData.FormatTowerIconsPath, "Default"));
+        towerName.text = $"이름 : ";
+        towerdamage.text = $"공격력 : ";
+        towerAtkSpeed.text = $"공격 간격 : ";
 
         selectedTower = null;
     }
@@ -83,8 +84,7 @@ public class TowerCombiner : MonoBehaviour
         }
         towerName.text = $"이름 : {tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"공격력 : {tower.damage.ToString()}";
-        towerAtkSpeed.text = $"공격 간격 : {tower.fireRate.ToString()}";
-        towerRange.text = $"사정거리 : {tower.range.ToString("F2")}";
+        towerAtkSpeed.text = $"공격 간격 : {tower.fireRate.ToString("F2")}";
     }
 
     public void CombinationSlot1()
@@ -278,20 +278,29 @@ public class TowerCombiner : MonoBehaviour
 
     private void ClearSlot1()
     {
-        combinationTower1 = null;
-        combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = null;
+        if(combinationTower1 != null)
+        {
+            combinationTower1 = null;
+            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = null;
+        }
     }
 
     private void ClearSlot2()
     {
-        combinationTower2 = null;
-        combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = null;
+        if (combinationTower2 != null)
+        {
+            combinationTower2 = null;
+            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = null;
+        }
     }
 
     private void ClearSlot3()
     {
-        combinationTower3 = null;
-        combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = null;
+        if (combinationTower3 != null)
+        {
+            combinationTower3 = null;
+            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = null;
+        }
     }
 
     public void UpgradeCombiTower(int id, TowerData data)
@@ -308,5 +317,51 @@ public class TowerCombiner : MonoBehaviour
             towerDatas3[id].towerSpeed -= data.towerSpeedInc;
             towerDatas3[id].damage += data.atkInc;
         }
+    }
+
+    public void AddTowerSlot(Tower tower)
+    {
+        if (IsTowerInSlots(tower.TowerID))
+        {
+            return;
+        }
+        if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
+        {
+            ClearSlot1();
+
+            combinationTower1 = combinationTower2;
+            combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = combinationTower2.towerName;
+
+            combinationTower2 = combinationTower3;
+            combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = combinationTower3.towerName;
+
+            combinationTower3 = tower;
+            combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = tower.towerName;
+        }
+        else
+        {
+            if (combinationTower1 == null)
+            {
+                combinationTower1 = tower;
+                combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = tower.towerName;
+            }
+            else if (combinationTower2 == null)
+            {
+                combinationTower2 = tower;
+                combinationSlot2.GetComponentInChildren<TextMeshProUGUI>().text = tower.towerName;
+            }
+            else if (combinationTower3 == null)
+            {
+                combinationTower3 = tower;
+                combinationSlot3.GetComponentInChildren<TextMeshProUGUI>().text = tower.towerName;
+            }
+        }
+    }
+
+    public void OnClickCancel()
+    {
+        ClearSlot1 ();
+        ClearSlot2 ();
+        ClearSlot3 ();
     }
 }
