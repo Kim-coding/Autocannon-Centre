@@ -129,6 +129,10 @@ public class ObjectDetector : MonoBehaviour
             GameManager.Instance.SubGold(cost);
             towerSpawner.Spawn(selectedTile);
         }
+        else
+        {
+            Debug.Log("¿ÃªÛ«ÿ");
+        }
         selectedTile = null;
     }
 

@@ -56,6 +56,7 @@ public class TowerSpawner : MonoBehaviour
             InstantiateTower(selectedTower, towerSpawnPoint, tile);
             tile.isBuildTower = true;
         }
+
     }
 
     private TowerData selectRandomTower()
