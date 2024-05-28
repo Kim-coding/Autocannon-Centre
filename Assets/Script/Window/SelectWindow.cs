@@ -15,6 +15,7 @@ public class SelectWindow : MonoBehaviour
     public Button stage2;
     public Button stage3;
     public Button stage4;
+    public Button stage5;
 
     private void Start()
     {
@@ -25,11 +26,13 @@ public class SelectWindow : MonoBehaviour
         stage2.interactable = saveData.stagesCleared[1];
         stage3.interactable = saveData.stagesCleared[2];
         stage4.interactable = saveData.stagesCleared[3];
+        stage5.interactable = saveData.stagesCleared[4];
 
         stage1.onClick.AddListener(()=>OnClickStage(1));
         stage2.onClick.AddListener(()=>OnClickStage(2));
         stage3.onClick.AddListener(()=>OnClickStage(3));
         stage4.onClick.AddListener(()=>OnClickStage(4));
+        stage5.onClick.AddListener(()=>OnClickStage(5));
     }
 
     public void OnClickStage(int stage)
