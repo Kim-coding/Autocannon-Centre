@@ -5,4 +5,5 @@ using UnityEngine;
 public class SaveData
 {
     public bool[] stagesCleared = new bool[4];
+    public bool tutorial = false;
 }

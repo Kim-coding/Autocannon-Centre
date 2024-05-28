@@ -16,27 +16,26 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            audioSourcePool = new List<AudioSource>();
-            for (int i = 0; i < poolSize; i++)
-            {
-                AudioSource source = gameObject.AddComponent<AudioSource>();
-                audioSourcePool.Add(source);
-            }
-
-            musicSource = gameObject.AddComponent<AudioSource>();
-            musicSource.loop = true;
-            musicSource.clip = background;
-            musicSource.Play();
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+
+        audioSourcePool = new List<AudioSource>();
+        for (int i = 0; i < poolSize; i++)
+        {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            audioSourcePool.Add(source);
+        }
+
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.loop = true;
+        musicSource.clip = background;
+        musicSource.volume = 0.5f;
+        musicSource.Play();
     }
 
     public void EffectPlay(AudioClip clip)
@@ -62,13 +61,12 @@ public class AudioManager : MonoBehaviour
                 return audioSourcePool[index];
             }
         }
-        // 모든 소스가 사용 중이면 null 반환
         return null;
     }
 
     public void SoundOnOff(bool onOff)
     {
-        musicSource.volume = onOff ? 0.7f : 0;
+        musicSource.volume = onOff ? 0.6f : 0;
     }
 
     public void EffectSoundOnOff(bool onOff)

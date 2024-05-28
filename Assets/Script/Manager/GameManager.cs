@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,13 +22,21 @@ public class GameManager : MonoBehaviour
     public GameObject optionWindow;
     public GameObject Plane;
 
+    public GameObject tutorialPanel;
+    public List<GameObject> tutorialImages;
+    public Button nextButton;
+    public Button backButton;
+    public TextMeshProUGUI nextButtonText;
+
     public AudioClip failedSound;
     public AudioClip selectedSound;
+
     public bool isGameOver { get; private set; }
     private bool isPlay;
     private SaveData saveData;
 
     private int gameSpeed = 1;
+    private int currentTutorialImageIndex = 0;
     private void Awake()
     {
         isPlay = false;
@@ -49,7 +59,13 @@ public class GameManager : MonoBehaviour
             Plane.SetActive(false);
         }
         saveData = SaveLoadSystem.LoadGame();
-       
+
+        if(saveData.tutorial == false && stage == 1)
+        {
+            tutorialPanel.SetActive(true);
+            ShowTutorialImage(currentTutorialImageIndex);
+            Time.timeScale = 0;
+        }
     }
 
     private void Start()
@@ -187,4 +203,63 @@ public class GameManager : MonoBehaviour
         stage = newStage;
         SceneManager.LoadScene($"{newStage}Level");
     }
+
+    private void ShowTutorialImage(int index)
+    {
+        if (index < 0 || index >= tutorialImages.Count)
+            return;
+
+        foreach (var image in tutorialImages)
+        {
+            image.SetActive(false);
+        }
+
+        tutorialImages[index].SetActive(true);
+        currentTutorialImageIndex = index;
+
+        // backButton 활성화/비활성화 설정
+        backButton.gameObject.SetActive(index > 0);
+
+        // nextButton 텍스트 설정
+        if (index == tutorialImages.Count - 1)
+        {
+            nextButtonText.text = "완료";
+        }
+        else
+        {
+            nextButtonText.text = "다음";
+        }
+    }
+
+    public void OnClickNext()
+    {
+        int nextIndex = currentTutorialImageIndex + 1;
+
+        if (nextIndex < tutorialImages.Count)
+        {
+            ShowTutorialImage(nextIndex);
+        }
+        else
+        {
+            EndTutorial();
+        }
+    }
+
+    public void OnClickBack()
+    {
+        int nextIndex = currentTutorialImageIndex - 1;
+
+        if(nextIndex >= 0 && nextIndex < tutorialImages.Count)
+        {
+            ShowTutorialImage(nextIndex);
+        }
+    }
+    private void EndTutorial()
+    {
+        saveData.tutorial = true;
+        SaveLoadSystem.SaveGame(saveData);
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
 }
