@@ -40,9 +40,15 @@ public class GameManager : MonoBehaviour
     private int currentTutorialImageIndex = 0;
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         isPlay = false;
         Time.timeScale = 1;
-        Instance = this;
         if(upgradeTower != null) 
         {
             upgradeTower = GetComponent<UpgradeTower>();
@@ -102,7 +108,6 @@ public class GameManager : MonoBehaviour
 
         if(wave >= 20 && monsterCount <= 0)
         {
-            Debug.Log("ÀúÀå");
             StageClear();
         }
     }
