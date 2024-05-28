@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateMonsterText(int newMonsterCount)
     {
-        monsterCount.text = $"몬스터 : {newMonsterCount}";
+        monsterCount.text = $"남은 몬스터 : {newMonsterCount}";
     }
     public void UpdateGoldText(int newGold) 
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using EPOOutline;
+using TMPro;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -21,10 +22,17 @@ public class ObjectDetector : MonoBehaviour
     private int cost = 10;
 
     public Button button;
+    public Button autoButton;
+    private bool isAutoAddMode = false;
     private void Awake()
     {
         mainCamera = Camera.main;
         towerSpawner = GetComponent<TowerSpawner>();
+
+        if(autoButton != null )
+        {
+            autoButton.onClick.AddListener(() => TowerAutoAddMode());
+        }
     }
 
     private void Update()
@@ -115,7 +123,23 @@ public class ObjectDetector : MonoBehaviour
         }
 
         towerCombiner.OnInfo(selectedTower);
-        towerCombiner.AddTowerSlot(selectedTower);
+        if(isAutoAddMode) 
+        {
+            towerCombiner.AddTowerSlot(selectedTower);
+        }
+    }
+
+    private void TowerAutoAddMode()
+    {
+        isAutoAddMode = !isAutoAddMode;
+        if(isAutoAddMode ) 
+        {
+            autoButton.GetComponentInChildren<TextMeshProUGUI>().text = "ON";
+        }
+        else
+        {
+            autoButton.GetComponentInChildren<TextMeshProUGUI>().text = "OFF";
+        }
     }
 
     public void OnClick()
@@ -128,10 +152,6 @@ public class ObjectDetector : MonoBehaviour
             }
             GameManager.Instance.SubGold(cost);
             towerSpawner.Spawn(selectedTile);
-        }
-        else
-        {
-            Debug.Log("¿ÃªÛ«ÿ");
         }
         selectedTile = null;
     }
