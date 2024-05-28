@@ -72,6 +72,7 @@ public class MonsterSpawn : MonoBehaviour
     {
         if(currentWave > 20 && GameManager.Instance.monsterCount <= 0 && !isSuccess)
         {
+            AudioManager.Instance.EffectStop();
             AudioManager.Instance.EffectPlay(successSound);
             successWindow.SetActive(true);
             isSuccess = true;

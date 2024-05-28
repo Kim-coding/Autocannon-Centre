@@ -50,6 +50,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void EffectStop()
+    {
+        foreach (var source in audioSourcePool)
+        {
+            source.Stop();
+        }
+    }
+
     private AudioSource GetAvailableAudioSource()
     {
         for (int i = 0; i < audioSourcePool.Count; i++)
