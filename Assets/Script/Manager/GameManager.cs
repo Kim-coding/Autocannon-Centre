@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject tutorialPanel;
     public List<GameObject> tutorialImages;
+    public List<GameObject> tutorialInfo;
     public Button nextButton;
     public Button backButton;
     public TextMeshProUGUI nextButtonText;
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
         if(saveData.tutorial == false && stage == 1)
         {
             tutorialPanel.SetActive(true);
+            Plane.SetActive(true);
             ShowTutorialImage(currentTutorialImageIndex);
             Time.timeScale = 0;
         }
@@ -206,8 +208,13 @@ public class GameManager : MonoBehaviour
         {
             image.SetActive(false);
         }
+        foreach ( var image in tutorialInfo)
+        {
+            image.SetActive(false);
+        }
 
         tutorialImages[index].SetActive(true);
+        tutorialInfo[index].SetActive(true);
         currentTutorialImageIndex = index;
 
         // backButton 활성화/비활성화 설정
@@ -252,6 +259,7 @@ public class GameManager : MonoBehaviour
         saveData.tutorial = true;
         SaveLoadSystem.SaveGame(saveData);
         tutorialPanel.SetActive(false);
+        Plane.SetActive(false);
         Time.timeScale = 1;
     }
 
