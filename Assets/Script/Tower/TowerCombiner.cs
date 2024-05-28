@@ -66,7 +66,7 @@ public class TowerCombiner : MonoBehaviour
     public void ClearSelection()
     {
         towerIcon.sprite = Resources.Load<Sprite>(string.Format(TowerData.FormatTowerIconsPath, "Default"));
-        towerName.text = $"타워 이름 : ";
+        towerName.text = $"타워 이름";
         towerdamage.text = $"공격력 : ";
         towerAtkSpeed.text = $"공격 빈도 : ";
 
@@ -82,7 +82,7 @@ public class TowerCombiner : MonoBehaviour
         {
             towerIcon.sprite = icon;
         }
-        towerName.text = $"타워 이름 : {tower.towerName.Replace("(Clone)", "")}";
+        towerName.text = $"{tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"공격력 : {tower.damage.ToString()}";
         towerAtkSpeed.text = $"공격 빈도 : {tower.fireRate.ToString("F2")}";
     }
