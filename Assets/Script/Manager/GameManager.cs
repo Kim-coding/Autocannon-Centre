@@ -82,13 +82,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Time.timeScale = 1.0f;
-            isGameOver = false;
-            SceneManager.LoadScene("Start");
-        }
-
         if(isGameOver) 
         {
             if(isPlay)
