@@ -11,10 +11,12 @@ public class UpgradeTower : MonoBehaviour
     private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
     private TowerTable towerTable;
     public TowerSpawner towerSpawner;
-    public int stage;
+    private int stage;
 
     void Awake()
     {
+        stage = GameManager.Instance.stage;
+
         upgradeWindow.SetActive(false);
         
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
