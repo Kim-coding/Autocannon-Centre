@@ -25,6 +25,7 @@ public class Tower : MonoBehaviour
     public int id;
     public string towerIcon;
     public GameObject onRange;
+    public GameObject onLevel;
 
     public AudioClip fireSound;
 

@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI nextButtonText;
 
     public AudioClip failedSound;
-    public AudioClip selectedSound;
 
     public bool isGameOver { get; private set; }
     private bool isPlay;
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour
             {
                 failedWindow.SetActive(true);
             }
-            AudioManager.Instance.EffectPlay(failedSound);
+            AudioManager.Instance.SelectedSoundPlay();
             isPlay = true;
             Time.timeScale = 0f;
             return;
@@ -167,7 +166,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickOption()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         bool isOptionWindowActive = optionWindow.activeSelf;
 
         if (isOptionWindowActive)
@@ -186,16 +185,19 @@ public class GameManager : MonoBehaviour
 
     public void Backspace()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         SceneManager.LoadScene("Start");
     }
 
     public void GameSpeed1()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         gameSpeed = 1;
     }
 
     public void GameSpeed2() 
     {
+        AudioManager.Instance.SelectedSoundPlay();
         gameSpeed = 2;
     }
 
@@ -224,10 +226,8 @@ public class GameManager : MonoBehaviour
         tutorialInfo[index].SetActive(true);
         currentTutorialImageIndex = index;
 
-        // backButton 활성화/비활성화 설정
         backButton.gameObject.SetActive(index > 0);
 
-        // nextButton 텍스트 설정
         if (index == tutorialImages.Count - 1)
         {
             nextButtonText.text = "완료";
@@ -240,6 +240,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickNext()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         int nextIndex = currentTutorialImageIndex + 1;
 
         if (nextIndex < tutorialImages.Count)
@@ -254,6 +255,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickBack()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         int nextIndex = currentTutorialImageIndex - 1;
 
         if(nextIndex >= 0 && nextIndex < tutorialImages.Count)

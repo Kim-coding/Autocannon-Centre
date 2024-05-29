@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     
     public AudioSource musicSource;
     public AudioClip background;
+    public AudioClip selectedSound;
 
     private void Awake()
     {
@@ -56,6 +57,11 @@ public class AudioManager : MonoBehaviour
         {
             source.Stop();
         }
+    }
+
+    public void SelectedSoundPlay()
+    {
+        EffectPlay(selectedSound);
     }
 
     private AudioSource GetAvailableAudioSource()

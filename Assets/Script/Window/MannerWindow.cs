@@ -7,7 +7,6 @@ public class MannerWindow : MonoBehaviour
 {
     private WindowManager windowManager;
 
-    public AudioClip selectedSound;
     public Button[] buttons;
     public GameObject[] imges;
 
@@ -24,7 +23,7 @@ public class MannerWindow : MonoBehaviour
 
     public void OnClick(int index)
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         for (int i = 0; i < imges.Length; i++) 
         {
             imges[i].SetActive(i == index);
@@ -34,6 +33,7 @@ public class MannerWindow : MonoBehaviour
    
     public void Backspace()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         windowManager.Open(Windows.Start);
     }
 }

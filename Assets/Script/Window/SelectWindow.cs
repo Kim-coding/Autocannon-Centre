@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SelectWindow : MonoBehaviour
 {
     private WindowManager windowManager;
-    public AudioClip selectedSound;
 
     SaveData saveData;
 
@@ -37,13 +36,13 @@ public class SelectWindow : MonoBehaviour
 
     public void OnClickStage(int stage)
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         GameManager.Instance.ChangeStage(stage);
     }
 
     public void Backspace()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         windowManager.Open(Windows.Start);
     }

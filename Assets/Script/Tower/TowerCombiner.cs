@@ -13,9 +13,6 @@ public class TowerCombiner : MonoBehaviour
     private Dictionary<int, TowerData> towerDatas3 = new Dictionary<int, TowerData>();
 
     public AudioClip bulidSound;
-    public AudioClip selectedSound;
-
-    public Button cancelButton;
 
     public Image towerIcon;
 
@@ -94,7 +91,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot1()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         if (combinationTower1 != null)
         {
@@ -109,7 +106,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot2()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         if (combinationTower2 != null)
         {
@@ -124,7 +121,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot3()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         if (combinationTower3 != null)
         {
@@ -139,7 +136,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickButton()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
             Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
@@ -148,7 +145,7 @@ public class TowerCombiner : MonoBehaviour
 
             if (combinationTower1.id ==  combinationTower2.id && combinationTower2.id == combinationTower3.id)
             {
-                AudioManager.Instance.EffectPlay(bulidSound);
+                AudioManager.Instance.SelectedSoundPlay();
                 int newTowerID = combinationTower1.id + 100;
                 TowerData newTowerData;
 
@@ -183,7 +180,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickRandomButton()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
             Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
@@ -192,7 +189,7 @@ public class TowerCombiner : MonoBehaviour
 
             if (combinationTower1.towerGrade == combinationTower2.towerGrade && combinationTower2.towerGrade == combinationTower3.towerGrade)
             {
-                AudioManager.Instance.EffectPlay(bulidSound);
+                AudioManager.Instance.SelectedSoundPlay();
                 List<TowerData> nextTowers;
 
                 if(combinationTower1.towerGrade == 1)
@@ -380,6 +377,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickCancel()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         ClearSlot1 ();
         ClearSlot2 ();
         ClearSlot3 ();
