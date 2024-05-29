@@ -6,6 +6,8 @@ using System.Linq;
 public class TowerSpawner : MonoBehaviour
 {
     private Dictionary<int, TowerData> towerDatas;
+    public Dictionary<int, TowerData> temporaryUpgrades;
+
     private TowerTable towerTable;
     public int stage;
     public AudioClip buildSound;
@@ -14,6 +16,8 @@ public class TowerSpawner : MonoBehaviour
     private void Start()
     {
         towerDatas = new Dictionary<int, TowerData>();
+        temporaryUpgrades = new Dictionary<int, TowerData>();
+        
         stage = GameManager.Instance.stage;
         towerCombiner = GetComponent<TowerCombiner>();
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
@@ -22,16 +26,39 @@ public class TowerSpawner : MonoBehaviour
         foreach (var t in data)
         {
             towerDatas[t.ID] = t;
+            temporaryUpgrades[t.ID] = new TowerData
+            {
+                ID = t.ID,
+                percent = t.percent,
+                towerSpeed = t.towerSpeed,
+                damage = t.damage,
+                percentIncr = 0,
+                towerSpeedInc = 0,
+                atkInc = 0,
+
+            };
         }
     }
 
     public void UpgradeSpwanTower(int id, TowerData data)
     {
-        if(towerDatas.ContainsKey(id)) 
+        if (towerDatas.ContainsKey(id))
         {
-            towerDatas[id].percent += data.percentIncr;
-            towerDatas[id].towerSpeed -= data.towerSpeedInc;
-            towerDatas[id].damage += data.atkInc;
+            if (!temporaryUpgrades.ContainsKey(id))
+            {
+                temporaryUpgrades[id] = new TowerData
+                {
+                    ID = id,
+                    percent = towerDatas[id].percent,
+                    towerSpeed = towerDatas[id].towerSpeed,
+                    damage = towerDatas[id].damage
+                };
+            }
+
+            temporaryUpgrades[id].percentIncr += data.percentIncr;
+            temporaryUpgrades[id].towerSpeedInc += data.towerSpeedInc;
+            temporaryUpgrades[id].atkInc += data.atkInc;
+
         }
         else
         {
@@ -82,6 +109,23 @@ public class TowerSpawner : MonoBehaviour
     {
         var towerName = selectedTower.ID.ToString();
         var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
-        Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity, tile.transform);
+        GameObject towerInstance = Instantiate(towerPrefab, towerSpawnPoint.position, Quaternion.identity, tile.transform);
+        Tower towerScript = towerInstance.GetComponent<Tower>();
+        if (towerScript != null)
+        {
+            towerScript.InitializeTower();
+
+            if (temporaryUpgrades.ContainsKey(selectedTower.ID))
+            {
+                Debug.Log(temporaryUpgrades[selectedTower.ID].ID);
+                Debug.Log(temporaryUpgrades[selectedTower.ID].towerSpeed);
+                Debug.Log(temporaryUpgrades[selectedTower.ID].damage);
+                towerScript.UpgradeTower(temporaryUpgrades[selectedTower.ID]);
+            }
+        }
+    }
+    public void ResetAllTowers()
+    {
+        temporaryUpgrades = new Dictionary<int, TowerData>(towerDatas);
     }
 }

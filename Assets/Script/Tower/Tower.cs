@@ -33,6 +33,10 @@ public class Tower : MonoBehaviour
     private BuffDebuffMgr buffDebuffmgr;
     public string TowerID {  get; private set; }
 
+    private float initialDamage;
+    private float initialSpeed;
+    private float initialFireRate;
+    private int initialPercent;
 
     private void Awake()
     {
@@ -56,7 +60,8 @@ public class Tower : MonoBehaviour
             towerIcon = data.towerIcon;
             Debug.Log(data.damage);
         }
-        Debug.Log(towerName);
+        SaveInitialState();
+
         if (type == 2)
         {
             var skillTable = DataTableMgr.Get<SkillTable>(DataTableIds.towerSkill);
@@ -71,6 +76,27 @@ public class Tower : MonoBehaviour
         {
             PoolManager.instance.CreatePool(bulletPrefab, 1);
         }
+    }
+    public void InitializeTower()
+    {
+        ResetState();
+    }
+
+
+    private void SaveInitialState()
+    {
+        initialDamage = damage;
+        initialSpeed = speed;
+        initialFireRate = fireRate;
+        initialPercent = percent;
+    }
+
+    public void ResetState()
+    {
+        damage = initialDamage;
+        speed = initialSpeed;
+        fireRate = initialFireRate;
+        percent = initialPercent;
     }
 
     private void Update()

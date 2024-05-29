@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public UpgradeTower upgradeTower;
+    public TowerSpawner towerSpawner;
 
     public int stage;
     public int wave = 0;
@@ -201,6 +202,7 @@ public class GameManager : MonoBehaviour
     public void ChangeStage(int newStage)
     {
         stage = newStage;
+        towerSpawner.ResetAllTowers();
         SceneManager.LoadScene($"{newStage}Level");
     }
 

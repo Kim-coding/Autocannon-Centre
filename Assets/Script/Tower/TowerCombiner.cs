@@ -310,18 +310,33 @@ public class TowerCombiner : MonoBehaviour
 
     public void UpgradeCombiTower(int id, TowerData data)
     {
-        if(towerDatas2.ContainsKey(id)) 
+        if (towerDatas2.ContainsKey(id))
         {
             towerDatas2[id].percent += data.percent;
             towerDatas2[id].towerSpeed -= data.towerSpeedInc;
             towerDatas2[id].damage += data.atkInc;
         }
-        else if(towerDatas3.ContainsKey(id)) 
+        else if (towerDatas3.ContainsKey(id))
         {
             towerDatas3[id].percent += data.percent;
             towerDatas3[id].towerSpeed -= data.towerSpeedInc;
             towerDatas3[id].damage += data.atkInc;
         }
+
+        if (!towerSpawner.temporaryUpgrades.ContainsKey(id))
+        {
+            towerSpawner.temporaryUpgrades[id] = new TowerData
+            {
+                ID = id,
+                percent = data.percent,
+                towerSpeed = data.towerSpeed,
+                damage = data.damage
+            };
+        }
+
+        towerSpawner.temporaryUpgrades[id].percent += data.percentIncr;
+        towerSpawner.temporaryUpgrades[id].towerSpeed -= data.towerSpeedInc;
+        towerSpawner.temporaryUpgrades[id].damage += data.atkInc;
     }
 
     public void AddTowerSlot(Tower tower)
