@@ -65,6 +65,11 @@ public class TowerCombiner : MonoBehaviour
 
     public void ClearSelection()
     {
+        if (currentOutline != null)
+        {
+            currentOutline.enabled = false;
+        }
+
         towerIcon.sprite = Resources.Load<Sprite>(string.Format(TowerData.FormatTowerIconsPath, "Default"));
         towerName.text = $"타워 이름";
         towerdamage.text = $"공격력 : ";

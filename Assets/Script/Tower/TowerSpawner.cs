@@ -5,7 +5,7 @@ using System.Linq;
 
 public class TowerSpawner : MonoBehaviour
 {
-    private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
+    private Dictionary<int, TowerData> towerDatas;
     private TowerTable towerTable;
     public int stage;
     public AudioClip buildSound;
@@ -13,6 +13,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void Start()
     {
+        towerDatas = new Dictionary<int, TowerData>();
         stage = GameManager.Instance.stage;
         towerCombiner = GetComponent<TowerCombiner>();
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
@@ -26,7 +27,6 @@ public class TowerSpawner : MonoBehaviour
 
     public void UpgradeSpwanTower(int id, TowerData data)
     {
-        Debug.Log(id);
         if(towerDatas.ContainsKey(id)) 
         {
             towerDatas[id].percent += data.percentIncr;

@@ -54,7 +54,7 @@ public class Tower : MonoBehaviour
             skillID = data.skillID;
             fireRate = data.towerSpeed;
             towerIcon = data.towerIcon;
-            Debug.Log("1");
+            Debug.Log(data.damage);
         }
         Debug.Log(towerName);
         if (type == 2)
@@ -161,7 +161,6 @@ public class Tower : MonoBehaviour
         {
             return;
         }
-        Debug.Log(target);
         var pos = transform.position;
         pos.y += 2f;
 

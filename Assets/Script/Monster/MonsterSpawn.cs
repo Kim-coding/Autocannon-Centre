@@ -14,8 +14,8 @@ public class MonsterSpawn : MonoBehaviour
 
     public Transform[] spawnPoints;
     public Transform[] wayPointContainers;
-    public int currentStage;
-    public int currentWave;
+    private int currentStage;
+    private int currentWave;
 
     private float spawnTime = 1f;
     private float spawnTimer;

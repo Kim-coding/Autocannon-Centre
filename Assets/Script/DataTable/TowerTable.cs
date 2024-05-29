@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-[System.Serializable]
 public class TowerData
 {
     public static readonly string FormatTowerPath = "Tower/{0}";  //타워 프리팹 위치
@@ -32,7 +31,6 @@ public class TowerData
 
 }
 
-[System.Serializable]
 public class TowerTable : DataTable
 {
     private Dictionary<int, TowerData> towerTable = new Dictionary<int, TowerData>();
