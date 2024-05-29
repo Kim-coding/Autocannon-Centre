@@ -65,6 +65,11 @@ public class TowerCombiner : MonoBehaviour
 
     public void ClearSelection()
     {
+        if (currentOutline != null)
+        {
+            currentOutline.enabled = false;
+        }
+
         towerIcon.sprite = Resources.Load<Sprite>(string.Format(TowerData.FormatTowerIconsPath, "Default"));
         towerName.text = $"타워 이름";
         towerdamage.text = $"공격력 : ";
@@ -99,6 +104,8 @@ public class TowerCombiner : MonoBehaviour
         {
             combinationTower1 = selectedTower;
             combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.towerName;
+
+            EnableOutline(combinationTower1);
         }
     }
 
@@ -280,6 +287,7 @@ public class TowerCombiner : MonoBehaviour
     {
         if(combinationTower1 != null)
         {
+            DisableOutline(combinationTower1);
             combinationTower1 = null;
             combinationSlot1.GetComponentInChildren<TextMeshProUGUI>().text = null;
         }
@@ -363,5 +371,38 @@ public class TowerCombiner : MonoBehaviour
         ClearSlot1 ();
         ClearSlot2 ();
         ClearSlot3 ();
+    }
+
+    private void EnableOutline(Tower tower)
+    {
+        if (currentOutline != null)
+        {
+            currentOutline.enabled = false;
+            Debug.Log("있어");
+        }
+        else
+        {
+            Debug.Log("없어1");
+        }
+
+        var outline = tower.GetComponent<Outlinable>();
+        if (outline != null)
+        {
+            outline.enabled = true;
+            currentOutline = outline;
+        }
+        else
+        {
+            Debug.Log("없어2");
+        }
+    }
+
+    private void DisableOutline(Tower tower)
+    {
+        var outline = tower.GetComponent<Outlinable>();
+        if (outline != null)
+        {
+            outline.enabled = false;
+        }
     }
 }

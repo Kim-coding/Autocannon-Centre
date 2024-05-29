@@ -52,7 +52,6 @@ public class MonsterHealth : MonoBehaviour
 
         isDead = true;
 
-        Debug.Log(Gold + " ∞Ò »πµÊ !!");
         GameManager.Instance.AddGold(Gold);
 
         //∏ÛΩ∫≈Õ ªÁ∏¡ æ÷¥œ∏ﬁ¿Ãº«
