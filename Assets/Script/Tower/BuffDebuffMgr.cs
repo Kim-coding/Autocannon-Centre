@@ -71,8 +71,6 @@ public class BuffDebuffMgr
 
     private void ApplyBuff(Tower tower, int buffType, float value)
     {
-        Debug.Log("버프 적용: " + tower.towerName);
-        Debug.Log($"버프 적용: {tower.towerName}, ID: {tower.TowerID}, Damage: {tower.damage}, FireRate: {tower.fireRate}");
         if (buffType == 1) 
         {
             tower.damage += value;
@@ -86,7 +84,6 @@ public class BuffDebuffMgr
 
     private void RemoveBuff(Tower tower, int buffType, float value)
     {
-        Debug.Log("버프 제거: " + tower.towerName);
         if (buffType == 1)
         {
             tower.damage -= value;
@@ -103,7 +100,6 @@ public class BuffDebuffMgr
         {
             monster.speed -= value;
         }
-        Debug.Log("몬스터 디버프 적용: " + monster.speed);
         debuffedMonsters.Add(monster);
     }
 
@@ -113,7 +109,6 @@ public class BuffDebuffMgr
         {
             monster.speed += value;
         }
-        Debug.Log("몬스터 디버프 제거: " + monster.speed);
     }
 
     public void ClearAll()

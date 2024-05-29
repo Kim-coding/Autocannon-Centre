@@ -159,7 +159,6 @@ public class TowerCombiner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("다음 등급 없음");
                     return;
                 }
 
@@ -173,7 +172,7 @@ public class TowerCombiner : MonoBehaviour
             }
             else
             {
-                Debug.Log("잘못된 조합입니다");
+                return;
             }
         }
     }
@@ -202,7 +201,6 @@ public class TowerCombiner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("다음 등급 없음");
                     return;
                 }
 
@@ -217,7 +215,7 @@ public class TowerCombiner : MonoBehaviour
             }
             else
             {
-                Debug.Log("잘못된 조합입니다");
+                return;
             }
         }
     }

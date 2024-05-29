@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
 
     public int stage;
     public int wave = 0;
-    public int monsterCount = 0;
+    private int monsterCount = 0;
     
-    public int gold = 50;
-    public int health = 100;
+    private int gold = 50;
+    private int health = 100;
 
     public GameObject failedWindow;
     public GameObject optionWindow;
@@ -112,6 +112,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int GetGold()
+    {
+        return gold;
+    }
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public int GetMonsterCount()
+    {
+        return monsterCount;
+    }
+
     private void StageClear()
     {
         if (saveData.stagesCleared[stage] == true)
@@ -161,6 +175,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        AudioManager.Instance.EffectPlay(failedSound);
         isGameOver = true;
     }
 

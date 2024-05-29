@@ -29,7 +29,7 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.Instance.gold < cost)
+        if(GameManager.Instance.GetGold() < cost)
         {
             button.enabled = false;
         }
@@ -43,9 +43,8 @@ public class Slot : MonoBehaviour
     {
         if(upgradeCount < 3)
         {
-            if (GameManager.Instance.gold < cost)
+            if (GameManager.Instance.GetGold() < cost)
             {
-                Debug.Log("ÀÜ¾× ºÎÁ·");
                 return;
             }
             AudioManager.Instance.EffectPlay(sound);
@@ -59,7 +58,7 @@ public class Slot : MonoBehaviour
         }
         else
         {
-            Debug.Log("È½¼ö ÃÊ°ú");
+            return;
         }
     }
 }

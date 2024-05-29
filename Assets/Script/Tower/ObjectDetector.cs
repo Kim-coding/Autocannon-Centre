@@ -41,7 +41,7 @@ public class ObjectDetector : MonoBehaviour
             return;
         }
 
-        if (GameManager.Instance.gold < cost)
+        if (GameManager.Instance.GetGold() < cost)
         {
             button.enabled = false;
         }
@@ -147,7 +147,7 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTile != null) 
         {
-            if(GameManager.Instance.gold < cost)
+            if(GameManager.Instance.GetGold() < cost)
             {
                 return;
             }
@@ -162,7 +162,7 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTower != null) 
         {
-            if (GameManager.Instance.gold < 5)
+            if (GameManager.Instance.GetGold() < 5)
             {
                 return;
             }

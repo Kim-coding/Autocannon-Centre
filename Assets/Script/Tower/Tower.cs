@@ -59,7 +59,6 @@ public class Tower : MonoBehaviour
             skillID = data.skillID;
             fireRate = data.towerSpeed;
             towerIcon = data.towerIcon;
-            Debug.Log(data.damage);
         }
         SaveInitialState();
 

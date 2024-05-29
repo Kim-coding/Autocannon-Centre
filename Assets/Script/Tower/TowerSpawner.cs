@@ -117,9 +117,6 @@ public class TowerSpawner : MonoBehaviour
 
             if (temporaryUpgrades.ContainsKey(selectedTower.ID))
             {
-                Debug.Log(temporaryUpgrades[selectedTower.ID].ID);
-                Debug.Log(temporaryUpgrades[selectedTower.ID].towerSpeed);
-                Debug.Log(temporaryUpgrades[selectedTower.ID].damage);
                 towerScript.UpgradeTower(temporaryUpgrades[selectedTower.ID]);
             }
         }
