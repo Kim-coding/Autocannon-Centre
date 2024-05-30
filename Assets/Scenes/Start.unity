@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1156,9 +1156,6 @@ MonoBehaviour:
   towerSpawner: {fileID: 375565764}
   stage: 0
   wave: 0
-  monsterCount: 0
-  gold: 50
-  health: 100
   failedWindow: {fileID: 0}
   optionWindow: {fileID: 0}
   Plane: {fileID: 0}
@@ -6215,7 +6212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 918d239e2aff92e4490e7370d4ab87ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd9621386a4d9fb41bd38259a6966e47, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
