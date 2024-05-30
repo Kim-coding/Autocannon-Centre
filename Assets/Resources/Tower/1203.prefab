@@ -598,6 +598,7 @@ MonoBehaviour:
   id: 0
   towerIcon: 
   onRange: {fileID: 8044562250012297263}
+  onLevel: {fileID: 7083876065282513936}
   fireSound: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
 --- !u!65 &8462520809240308742
 BoxCollider:

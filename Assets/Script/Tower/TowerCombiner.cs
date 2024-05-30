@@ -13,9 +13,6 @@ public class TowerCombiner : MonoBehaviour
     private Dictionary<int, TowerData> towerDatas3 = new Dictionary<int, TowerData>();
 
     public AudioClip bulidSound;
-    public AudioClip selectedSound;
-
-    public Button cancelButton;
 
     public Image towerIcon;
 
@@ -94,7 +91,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot1()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         if (combinationTower1 != null)
         {
@@ -109,7 +106,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot2()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         if (combinationTower2 != null)
         {
@@ -124,7 +121,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void CombinationSlot3()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
 
         if (combinationTower3 != null)
         {
@@ -139,7 +136,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickButton()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
             Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
@@ -148,7 +145,7 @@ public class TowerCombiner : MonoBehaviour
 
             if (combinationTower1.id ==  combinationTower2.id && combinationTower2.id == combinationTower3.id)
             {
-                AudioManager.Instance.EffectPlay(bulidSound);
+                AudioManager.Instance.SelectedSoundPlay();
                 int newTowerID = combinationTower1.id + 100;
                 TowerData newTowerData;
 
@@ -162,7 +159,6 @@ public class TowerCombiner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("다음 등급 없음");
                     return;
                 }
 
@@ -176,14 +172,14 @@ public class TowerCombiner : MonoBehaviour
             }
             else
             {
-                Debug.Log("잘못된 조합입니다");
+                return;
             }
         }
     }
 
     public void OnClickRandomButton()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         if (combinationTower1 != null && combinationTower2 != null && combinationTower3 != null)
         {
             Tile tile1 = combinationTower1.GetComponentInParent<Tile>();
@@ -192,7 +188,7 @@ public class TowerCombiner : MonoBehaviour
 
             if (combinationTower1.towerGrade == combinationTower2.towerGrade && combinationTower2.towerGrade == combinationTower3.towerGrade)
             {
-                AudioManager.Instance.EffectPlay(bulidSound);
+                AudioManager.Instance.SelectedSoundPlay();
                 List<TowerData> nextTowers;
 
                 if(combinationTower1.towerGrade == 1)
@@ -205,7 +201,6 @@ public class TowerCombiner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("다음 등급 없음");
                     return;
                 }
 
@@ -220,7 +215,7 @@ public class TowerCombiner : MonoBehaviour
             }
             else
             {
-                Debug.Log("잘못된 조합입니다");
+                return;
             }
         }
     }
@@ -310,18 +305,33 @@ public class TowerCombiner : MonoBehaviour
 
     public void UpgradeCombiTower(int id, TowerData data)
     {
-        if(towerDatas2.ContainsKey(id)) 
+        if (towerDatas2.ContainsKey(id))
         {
             towerDatas2[id].percent += data.percent;
             towerDatas2[id].towerSpeed -= data.towerSpeedInc;
             towerDatas2[id].damage += data.atkInc;
         }
-        else if(towerDatas3.ContainsKey(id)) 
+        else if (towerDatas3.ContainsKey(id))
         {
             towerDatas3[id].percent += data.percent;
             towerDatas3[id].towerSpeed -= data.towerSpeedInc;
             towerDatas3[id].damage += data.atkInc;
         }
+
+        if (!towerSpawner.temporaryUpgrades.ContainsKey(id))
+        {
+            towerSpawner.temporaryUpgrades[id] = new TowerData
+            {
+                ID = id,
+                percent = data.percent,
+                towerSpeed = data.towerSpeed,
+                damage = data.damage
+            };
+        }
+
+        towerSpawner.temporaryUpgrades[id].percent += data.percentIncr;
+        towerSpawner.temporaryUpgrades[id].towerSpeed -= data.towerSpeedInc;
+        towerSpawner.temporaryUpgrades[id].damage += data.atkInc;
     }
 
     public void AddTowerSlot(Tower tower)
@@ -365,6 +375,7 @@ public class TowerCombiner : MonoBehaviour
 
     public void OnClickCancel()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         ClearSlot1 ();
         ClearSlot2 ();
         ClearSlot3 ();

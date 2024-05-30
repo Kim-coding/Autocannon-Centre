@@ -63,7 +63,7 @@ public class MonsterMove : MonoBehaviour
                 PoolManager.instance.ReturnObjectToPool(gameObject);
                 GameManager.Instance.SubMonsterCount();
                 GameManager.Instance.SubHealth(damage);
-                if (GameManager.Instance.health <= 0)
+                if (GameManager.Instance.GetHealth() <= 0)
                 {
                     GameManager.Instance.EndGame();
                 }

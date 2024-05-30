@@ -10,13 +10,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public UpgradeTower upgradeTower;
+    public TowerSpawner towerSpawner;
 
     public int stage;
     public int wave = 0;
-    public int monsterCount = 0;
+    private int monsterCount = 0;
     
-    public int gold = 50;
-    public int health = 100;
+    private int gold = 50;
+    private int health = 100;
 
     public GameObject failedWindow;
     public GameObject optionWindow;
@@ -30,7 +31,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI nextButtonText;
 
     public AudioClip failedSound;
-    public AudioClip selectedSound;
 
     public bool isGameOver { get; private set; }
     private bool isPlay;
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
             {
                 failedWindow.SetActive(true);
             }
-            AudioManager.Instance.EffectPlay(failedSound);
+            AudioManager.Instance.SelectedSoundPlay();
             isPlay = true;
             Time.timeScale = 0f;
             return;
@@ -110,6 +110,20 @@ public class GameManager : MonoBehaviour
         {
             StageClear();
         }
+    }
+
+    public int GetGold()
+    {
+        return gold;
+    }
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public int GetMonsterCount()
+    {
+        return monsterCount;
     }
 
     private void StageClear()
@@ -161,12 +175,13 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        AudioManager.Instance.EffectPlay(failedSound);
         isGameOver = true;
     }
 
     public void OnClickOption()
     {
-        AudioManager.Instance.EffectPlay(selectedSound);
+        AudioManager.Instance.SelectedSoundPlay();
         bool isOptionWindowActive = optionWindow.activeSelf;
 
         if (isOptionWindowActive)
@@ -185,22 +200,26 @@ public class GameManager : MonoBehaviour
 
     public void Backspace()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         SceneManager.LoadScene("Start");
     }
 
     public void GameSpeed1()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         gameSpeed = 1;
     }
 
     public void GameSpeed2() 
     {
+        AudioManager.Instance.SelectedSoundPlay();
         gameSpeed = 2;
     }
 
     public void ChangeStage(int newStage)
     {
         stage = newStage;
+        towerSpawner.ResetAllTowers();
         SceneManager.LoadScene($"{newStage}Level");
     }
 
@@ -222,10 +241,8 @@ public class GameManager : MonoBehaviour
         tutorialInfo[index].SetActive(true);
         currentTutorialImageIndex = index;
 
-        // backButton 활성화/비활성화 설정
         backButton.gameObject.SetActive(index > 0);
 
-        // nextButton 텍스트 설정
         if (index == tutorialImages.Count - 1)
         {
             nextButtonText.text = "완료";
@@ -238,6 +255,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickNext()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         int nextIndex = currentTutorialImageIndex + 1;
 
         if (nextIndex < tutorialImages.Count)
@@ -252,6 +270,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickBack()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         int nextIndex = currentTutorialImageIndex - 1;
 
         if(nextIndex >= 0 && nextIndex < tutorialImages.Count)

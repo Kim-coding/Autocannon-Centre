@@ -11,9 +11,9 @@ public class UpgradeTower : MonoBehaviour
     private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
     private TowerTable towerTable;
     public TowerSpawner towerSpawner;
-    private int stage;
+    public int stage;
 
-    void Awake()
+    void Start()
     {
         stage = GameManager.Instance.stage;
 
@@ -35,6 +35,7 @@ public class UpgradeTower : MonoBehaviour
     }
     public void OnUpgradClick()
     {
+        AudioManager.Instance.SelectedSoundPlay();
         upgradeWindow.SetActive(!upgradeWindow.activeSelf);
     }
 

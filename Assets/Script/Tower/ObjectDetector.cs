@@ -16,7 +16,6 @@ public class ObjectDetector : MonoBehaviour
     private Tower selectedTower;
 
     public TowerCombiner towerCombiner;
-    public AudioClip selectedSound;
 
     private Outlinable currentOutline;
     private int cost = 10;
@@ -42,7 +41,7 @@ public class ObjectDetector : MonoBehaviour
             return;
         }
 
-        if (GameManager.Instance.gold < cost)
+        if (GameManager.Instance.GetGold() < cost)
         {
             button.enabled = false;
         }
@@ -58,12 +57,12 @@ public class ObjectDetector : MonoBehaviour
             {
                 if(hit.transform.CompareTag("Tile"))
                 {
-                    AudioManager.Instance.EffectPlay(selectedSound);
+                    AudioManager.Instance.SelectedSoundPlay();
                     SelectTile(hit.transform);
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {
-                    AudioManager.Instance.EffectPlay(selectedSound);
+                    AudioManager.Instance.SelectedSoundPlay();
                     SelectTower(hit.collider.GetComponent<Tower>());
                 }
             }
@@ -84,6 +83,7 @@ public class ObjectDetector : MonoBehaviour
         if(selectedTower != null && selectedTower.onRange != null) 
         {
             selectedTower.onRange.SetActive(false);
+            selectedTower.onLevel.SetActive(false);
         }
 
         selectedTile = null;
@@ -119,6 +119,7 @@ public class ObjectDetector : MonoBehaviour
             if(selectedTower.onRange != null)
             {
                 selectedTower.onRange.SetActive(true);
+                selectedTower.onLevel.SetActive(true);
             }
         }
 
@@ -146,10 +147,11 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTile != null) 
         {
-            if(GameManager.Instance.gold < cost)
+            if(GameManager.Instance.GetGold() < cost)
             {
                 return;
             }
+            AudioManager.Instance.SelectedSoundPlay();
             GameManager.Instance.SubGold(cost);
             towerSpawner.Spawn(selectedTile);
         }
@@ -160,10 +162,11 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTower != null) 
         {
-            if (GameManager.Instance.gold < 5)
+            if (GameManager.Instance.GetGold() < 5)
             {
                 return;
             }
+            AudioManager.Instance.SelectedSoundPlay();
             GameManager.Instance.SubGold(5);
             Tile tile = selectedTower.GetComponentInParent<Tile>();
             tile.RemoveCurrentTower();
