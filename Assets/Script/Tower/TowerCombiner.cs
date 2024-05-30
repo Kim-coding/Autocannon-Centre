@@ -86,6 +86,10 @@ public class TowerCombiner : MonoBehaviour
         }
         towerName.text = $"{tower.towerName.Replace("(Clone)", "")}";
         towerdamage.text = $"공격력 : {tower.damage.ToString()}";
+        if(tower.fireRate <= 0)
+        {
+            tower.fireRate = 0;
+        }
         towerAtkSpeed.text = $"공격 빈도 : {tower.fireRate.ToString("F2")}";
     }
 
