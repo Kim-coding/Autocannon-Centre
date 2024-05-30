@@ -33,6 +33,7 @@ public class MonsterSpawn : MonoBehaviour
     public AudioClip successSound;
     public GameObject successWindow;
     private bool isSuccess = false;
+    public GameObject plane;
     private class SpawnRule           //몬스터별 생성 수, 한 웨이브에 두 가지 몬스터가 나올 수 있기 때문에 배열로 받음
     {
         public int[] monsterNames;
@@ -48,6 +49,7 @@ public class MonsterSpawn : MonoBehaviour
     private void Start()
     {
         successWindow.SetActive(false);
+        plane.SetActive(false);
         monsterWaveTable = DataTableMgr.Get<MonsterWaveTable>(DataTableIds.monsterWave);
 
         currentWave = GameManager.Instance.wave;
@@ -75,6 +77,7 @@ public class MonsterSpawn : MonoBehaviour
             AudioManager.Instance.EffectStop();
             AudioManager.Instance.EffectPlay(successSound);
             successWindow.SetActive(true);
+            plane.SetActive(true);
             isSuccess = true;
             return;
         }
