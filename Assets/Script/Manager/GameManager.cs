@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -130,8 +131,13 @@ public class GameManager : MonoBehaviour
     {
         if (saveData.stagesCleared[stage] == true)
             return;
-        
-        saveData.stagesCleared[stage] = true;
+
+        for (int i = 0; i < saveData.stagesCleared.Length; i++) //OBT용 1스테이 클리어하면 모든 스테이지 오픈
+        {
+            saveData.stagesCleared[i] = true;
+        }
+
+        //saveData.stagesCleared[stage] = true;
         SaveLoadSystem.SaveGame(saveData);
     }
 
