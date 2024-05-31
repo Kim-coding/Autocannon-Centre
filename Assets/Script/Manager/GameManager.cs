@@ -132,12 +132,12 @@ public class GameManager : MonoBehaviour
         if (saveData.stagesCleared[stage] == true)
             return;
 
-        for (int i = 0; i < saveData.stagesCleared.Length; i++) //OBT용 1스테이 클리어하면 모든 스테이지 오픈
-        {
-            saveData.stagesCleared[i] = true;
-        }
+        //for (int i = 0; i < saveData.stagesCleared.Length; i++) //OBT용 1스테이 클리어하면 모든 스테이지 오픈
+        //{
+        //    saveData.stagesCleared[i] = true;
+        //}
 
-        //saveData.stagesCleared[stage] = true;
+        saveData.stagesCleared[stage] = true;
         SaveLoadSystem.SaveGame(saveData);
     }
 
