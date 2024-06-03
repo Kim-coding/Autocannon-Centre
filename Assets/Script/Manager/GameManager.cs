@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,8 +18,9 @@ public class GameManager : MonoBehaviour
     private int health = 100;
 
     public GameObject failedWindow;
+    public GameObject successWindow;
     public GameObject optionWindow;
-    public GameObject Plane;
+    public GameObject plane;
 
     public GameObject tutorialPanel;
     public List<GameObject> tutorialImages;
@@ -32,6 +30,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI nextButtonText;
 
     public AudioClip failedSound;
+    public AudioClip successSound;
 
     public bool isGameOver { get; private set; }
     private bool isPlay;
@@ -58,20 +57,24 @@ public class GameManager : MonoBehaviour
         {
             failedWindow.SetActive(false);
         }
+        if(successWindow != null)
+        {
+            successWindow.SetActive(false);
+        }
         if(optionWindow != null)
         {
             optionWindow.SetActive(false);
         }
-        if (Plane != null)
+        if (plane != null)
         {
-            Plane.SetActive(false);
+            plane.SetActive(false);
         }
         saveData = SaveLoadSystem.LoadGame();
 
         if(saveData.tutorial == false && stage == 1)
         {
             tutorialPanel.SetActive(true);
-            Plane.SetActive(true);
+            plane.SetActive(true);
             ShowTutorialImage(currentTutorialImageIndex);
             Time.timeScale = 0;
         }
@@ -125,6 +128,14 @@ public class GameManager : MonoBehaviour
     public int GetMonsterCount()
     {
         return monsterCount;
+    }
+
+    public void Success()
+    {
+        AudioManager.Instance.EffectStop();
+        AudioManager.Instance.EffectPlay(successSound);
+        successWindow.SetActive(true);
+        plane.SetActive(true);
     }
 
     private void StageClear()
@@ -194,13 +205,13 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = gameSpeed;
             optionWindow.SetActive(false);
-            Plane.SetActive(false);
+            plane.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
             optionWindow.SetActive(true);
-            Plane.SetActive(true);
+            plane.SetActive(true);
         }
     }
 
@@ -289,7 +300,7 @@ public class GameManager : MonoBehaviour
         saveData.tutorial = true;
         SaveLoadSystem.SaveGame(saveData);
         tutorialPanel.SetActive(false);
-        Plane.SetActive(false);
+        plane.SetActive(false);
         Time.timeScale = 1;
     }
 
