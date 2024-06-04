@@ -76,7 +76,7 @@ public class TowerSpawner : MonoBehaviour
             return;
         }
 
-        TowerData selectedTower = selectRandomTower();
+        TowerData selectedTower = SelectRandomTower();
 
         if(selectedTower != null) 
         {
@@ -86,7 +86,7 @@ public class TowerSpawner : MonoBehaviour
 
     }
 
-    private TowerData selectRandomTower()
+    private TowerData SelectRandomTower()
     {
         int totalWeight = towerDatas.Values.Sum(t => t.percent);
         

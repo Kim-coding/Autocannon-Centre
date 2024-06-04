@@ -49,9 +49,10 @@ public class Slot : MonoBehaviour
             }
             AudioManager.Instance.EffectPlay(sound);
             GameManager.Instance.SubGold(cost);
-            GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID);
-            GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + 100);
-            GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + 200);
+            for (int i = 0; i < 3; i++)
+            {
+                GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + i * 100);
+            }
             upgradeCount++;
             cost += costInc * upgradeCount;
             upgradeText.text = $"+{upgradeCount}";

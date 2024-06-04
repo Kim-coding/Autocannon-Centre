@@ -41,7 +41,7 @@ public class Tower : MonoBehaviour
 
     private void Awake()
     {
-        TowerID = $"{name.Replace("(Clone)", "")}_{DateTime.Now.Ticks}";
+        TowerID = $"{name}_{DateTime.Now.Ticks}";
 
         id = int.Parse(name.Replace("(Clone)", ""));
 

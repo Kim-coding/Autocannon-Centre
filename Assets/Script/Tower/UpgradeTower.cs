@@ -33,7 +33,7 @@ public class UpgradeTower : MonoBehaviour
             }
         }
     }
-    public void OnUpgradClick()
+    public void OnClickUpgrade()
     {
         AudioManager.Instance.SelectedSoundPlay();
         upgradeWindow.SetActive(!upgradeWindow.activeSelf);

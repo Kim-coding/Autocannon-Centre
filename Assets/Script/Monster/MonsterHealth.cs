@@ -54,7 +54,6 @@ public class MonsterHealth : MonoBehaviour
 
         GameManager.Instance.AddGold(Gold);
 
-        //몬스터 사망 애니메이션
         animator.SetTrigger("Die");
 
         float dieAniLength = animator.GetCurrentAnimatorStateInfo(0).length;
