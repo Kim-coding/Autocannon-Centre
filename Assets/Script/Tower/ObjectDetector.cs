@@ -8,6 +8,7 @@ using TMPro;
 public class ObjectDetector : MonoBehaviour
 {
     private TowerSpawner towerSpawner;
+    private GameManager gameManager;
     private Camera mainCamera;
     private Ray ray;
     private RaycastHit hit;
@@ -25,7 +26,9 @@ public class ObjectDetector : MonoBehaviour
     private bool isAutoAddMode = false;
     private void Awake()
     {
+
         mainCamera = Camera.main;
+        gameManager = GetComponent<GameManager>();
         towerSpawner = GetComponent<TowerSpawner>();
 
         if(autoButton != null )
@@ -36,12 +39,17 @@ public class ObjectDetector : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.Instance.isGameOver)
+        if (gameManager == null)
         {
             return;
         }
 
-        if (GameManager.Instance.GetGold() < cost)
+        if (gameManager.isGameOver)
+        {
+            return;
+        }
+
+        if (gameManager.GetGold() < cost)
         {
             button.enabled = false;
         }
@@ -147,12 +155,12 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTile != null) 
         {
-            if(GameManager.Instance.GetGold() < cost)
+            if(gameManager.GetGold() < cost)
             {
                 return;
             }
             AudioManager.Instance.SelectedSoundPlay();
-            GameManager.Instance.SubGold(cost);
+            gameManager.SubGold(cost);
             towerSpawner.Spawn(selectedTile);
         }
         selectedTile = null;
@@ -162,12 +170,12 @@ public class ObjectDetector : MonoBehaviour
     {
         if(selectedTower != null) 
         {
-            if (GameManager.Instance.GetGold() < 5)
+            if (gameManager.GetGold() < 5)
             {
                 return;
             }
             AudioManager.Instance.SelectedSoundPlay();
-            GameManager.Instance.SubGold(5);
+            gameManager.SubGold(5);
             Tile tile = selectedTower.GetComponentInParent<Tile>();
             tile.RemoveCurrentTower();
             Destroy(selectedTower.gameObject);

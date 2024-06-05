@@ -13,9 +13,12 @@ public class UpgradeTower : MonoBehaviour
     public TowerSpawner towerSpawner;
     public int stage;
 
+    private GameManager gameManager;
+
     void Start()
     {
-        stage = GameManager.Instance.stage;
+        gameManager = GetComponent<GameManager>();
+        stage = gameManager.stage;
 
         upgradeWindow.SetActive(false);
         
@@ -43,12 +46,11 @@ public class UpgradeTower : MonoBehaviour
     {
         TowerData data = towerTable.GetID(towerId);
 
-        if(data != null) 
+        if(data != null && towerSpawner.spawnedTowers.ContainsKey(towerId)) 
         {
-            Tower[] towers = FindObjectsOfType<Tower>();
-            foreach (var tower in towers)
+            foreach (var tower in towerSpawner.spawnedTowers[towerId])
             {
-                if (tower.name.Replace("(Clone)", "") == towerId.ToString())
+                if (tower.id == towerId)
                 {
                     tower.UpgradeTower(data);
                 }

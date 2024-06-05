@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23901418676351086}
   m_Layer: 0
   m_Name: TB_Env_GroundDC_plain
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

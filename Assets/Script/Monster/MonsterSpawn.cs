@@ -31,7 +31,7 @@ public class MonsterSpawn : MonoBehaviour
     private int id;
 
     private bool isSuccess = false;
-
+    private GameManager gameManager;
     private class SpawnRule           //몬스터별 생성 수, 한 웨이브에 두 가지 몬스터가 나올 수 있기 때문에 배열로 받음
     {
         public int[] monsterNames;
@@ -46,10 +46,16 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Start()
     {
+        GameObject gameManagerObject = GameObject.FindWithTag("GameController");
+        if (gameManagerObject != null)
+        {
+            gameManager = gameManagerObject.GetComponent<GameManager>();
+        }
+
         monsterWaveTable = DataTableMgr.Get<MonsterWaveTable>(DataTableIds.monsterWave);
 
-        currentWave = GameManager.Instance.wave;
-        currentStage = GameManager.Instance.stage;
+        currentWave = gameManager.wave;
+        currentStage = gameManager.stage;
 
         CreatedRules(currentStage);
 
@@ -68,9 +74,9 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Update()
     {
-        if(currentWave > 20 && GameManager.Instance.GetMonsterCount() <= 0 && !isSuccess)
+        if(currentWave > 20 && gameManager.GetMonsterCount() <= 0 && !isSuccess)
         {
-            GameManager.Instance.Success();
+            gameManager.Success();
             isSuccess = true;
             return;
         }
@@ -82,8 +88,8 @@ public class MonsterSpawn : MonoBehaviour
             {
                 isWaiting = false;
                 waitTimer = 0f;
-                GameManager.Instance.UpdateWave(currentWave);
-                GameManager.Instance.SetMonsterCount();
+                gameManager.UpdateWave(currentWave);
+                gameManager.SetMonsterCount();
             }
             return;
         }

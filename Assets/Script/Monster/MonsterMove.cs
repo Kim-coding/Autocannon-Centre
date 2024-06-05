@@ -19,8 +19,15 @@ public class MonsterMove : MonoBehaviour
 
     public AudioClip playerDamageSound;
 
+    private GameManager gameManager;
+
     private void Awake()
     {
+        GameObject gameManagerObject = GameObject.FindWithTag("GameController");
+        if (gameManagerObject != null)
+        {
+            gameManager = gameManagerObject.GetComponent<GameManager>();
+        }
         health = GetComponent<MonsterHealth>();
         id = int.Parse(name.Replace("(Clone)", ""));
 
@@ -61,11 +68,11 @@ public class MonsterMove : MonoBehaviour
             {
                 AudioManager.Instance.EffectPlay(playerDamageSound);
                 PoolManager.instance.ReturnObjectToPool(gameObject);
-                GameManager.Instance.SubMonsterCount();
-                GameManager.Instance.SubHealth(damage);
-                if (GameManager.Instance.GetHealth() <= 0)
+                gameManager.SubMonsterCount();
+                gameManager.SubHealth(damage);
+                if (gameManager.GetHealth() <= 0)
                 {
-                    GameManager.Instance.EndGame();
+                    gameManager.EndGame();
                 }
             }
         }

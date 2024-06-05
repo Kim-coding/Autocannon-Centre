@@ -7,18 +7,22 @@ public class TowerSpawner : MonoBehaviour
 {
     private Dictionary<int, TowerData> towerDatas;
     public Dictionary<int, TowerData> temporaryUpgrades;
+    public Dictionary<int, List<Tower>> spawnedTowers;
 
     private TowerTable towerTable;
     public int stage;
     public AudioClip buildSound;
     private TowerCombiner towerCombiner;
+    private GameManager gameManager;
 
     private void Start()
     {
+        gameManager = GetComponent<GameManager>();
         towerDatas = new Dictionary<int, TowerData>();
         temporaryUpgrades = new Dictionary<int, TowerData>();
-        
-        stage = GameManager.Instance.stage;
+        spawnedTowers = new Dictionary<int, List<Tower>>();
+
+        stage = gameManager.stage;
         towerCombiner = GetComponent<TowerCombiner>();
         towerTable = DataTableMgr.Get<TowerTable>(DataTableIds.tower);
 
@@ -119,6 +123,11 @@ public class TowerSpawner : MonoBehaviour
             {
                 towerScript.UpgradeTower(temporaryUpgrades[selectedTower.ID]);
             }
+            if (!spawnedTowers.ContainsKey(selectedTower.ID))
+            {
+                spawnedTowers[selectedTower.ID] = new List<Tower>();
+            }
+            spawnedTowers[selectedTower.ID].Add(towerScript);
         }
     }
     public void ResetAllTowers()

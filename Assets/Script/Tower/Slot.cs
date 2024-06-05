@@ -16,8 +16,15 @@ public class Slot : MonoBehaviour
     private int costInc = 5;
 
     private Button button;
+
+    private GameManager gameManager;
     private void Awake()
     {
+        GameObject gameManagerObject = GameObject.FindWithTag("GameController");
+        if (gameManagerObject != null)
+        {
+            gameManager = gameManagerObject.GetComponent<GameManager>();
+        }
         button = this.GetComponent<Button>();
     }
 
@@ -29,7 +36,7 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.Instance.GetGold() < cost)
+        if(gameManager.GetGold() < cost)
         {
             button.enabled = false;
         }
@@ -43,15 +50,15 @@ public class Slot : MonoBehaviour
     {
         if(upgradeCount < 3)
         {
-            if (GameManager.Instance.GetGold() < cost)
+            if (gameManager.GetGold() < cost)
             {
                 return;
             }
             AudioManager.Instance.EffectPlay(sound);
-            GameManager.Instance.SubGold(cost);
+            gameManager.SubGold(cost);
             for (int i = 0; i < 3; i++)
             {
-                GameManager.Instance.upgradeTower.TowerUpgrade(towerData.ID + i * 100);
+                gameManager.upgradeTower.TowerUpgrade(towerData.ID + i * 100);
             }
             upgradeCount++;
             cost += costInc * upgradeCount;

@@ -15,9 +15,16 @@ public class MonsterHealth : MonoBehaviour
     public Image hpBar;
 
     private Animator animator;
+    private GameManager gameManager;
 
     void Start()
     {
+        GameObject gameManagerObject = GameObject.FindWithTag("GameController");
+        if (gameManagerObject != null)
+        {
+            gameManager = gameManagerObject.GetComponent<GameManager>();
+        }
+
         isDead = false;
 
         id = int.Parse(name.Replace("(Clone)", ""));
@@ -52,7 +59,7 @@ public class MonsterHealth : MonoBehaviour
 
         isDead = true;
 
-        GameManager.Instance.AddGold(Gold);
+        gameManager.AddGold(Gold);
 
         animator.SetTrigger("Die");
 
@@ -64,7 +71,7 @@ public class MonsterHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
 
-        GameManager.Instance.SubMonsterCount();
+        gameManager.SubMonsterCount();
         PoolManager.instance.ReturnObjectToPool(gameObject);
     }
 

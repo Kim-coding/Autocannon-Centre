@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Numerics;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,20 +13,19 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI gold;
     public TextMeshProUGUI health;
 
-    private static UIManager m_instance;
-    public static UIManager instance
-    {
-        get
-        {
-            if (m_instance == null)
-            {
-                m_instance = FindObjectOfType<UIManager>();
-            }
+    public GameObject failedWindow;
+    public GameObject successWindow;
+    public GameObject optionWindow;
+    public GameObject plane;
 
-            return m_instance;
-        }
-    }
+    public GameObject tutorialPanel;
+    public List<GameObject> tutorialImages;
+    public List<GameObject> tutorialInfo;
+    public Button nextButton;
+    public Button backButton;
+    public TextMeshProUGUI nextButtonText;
 
+    private int currentTutorialImageIndex = 0;
     public void UpdateStageText(int newStage)
     {
         stage.text = $"스테이지 : {newStage}";
@@ -46,5 +47,118 @@ public class UIManager : MonoBehaviour
     public void UpdateHealthText(int newHealth) 
     {
         health.text = $" : {newHealth}";
+    }
+    public void ShowFailedWindow()
+    {
+        if (failedWindow != null)
+        {
+            failedWindow.SetActive(true);
+        }
+    }
+
+    public void ShowSuccessWindow()
+    {
+        if (successWindow != null)
+        {
+            successWindow.SetActive(true);
+        }
+        if (plane != null)
+        {
+            plane.SetActive(true);
+        }
+    }
+    public void ToggleOptionWindow(int gameSpeed)
+    {
+        if (optionWindow != null && plane != null)
+        {
+            bool isOptionWindowActive = optionWindow.activeSelf;
+
+            if (isOptionWindowActive)
+            {
+                Time.timeScale = gameSpeed;
+                optionWindow.SetActive(false);
+                plane.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 0;
+                optionWindow.SetActive(true);
+                plane.SetActive(true);
+            }
+        }
+    }
+    public void ShowTutorialPanel()
+    {
+        if (tutorialPanel != null && plane != null)
+        {
+            tutorialPanel.SetActive(true);
+            plane.SetActive(true);
+        }
+    }
+
+    public void ShowTutorialImage(int index)
+    {
+        if (index < 0 || index >= tutorialImages.Count)
+            return;
+
+        foreach (var image in tutorialImages)
+        {
+            image.SetActive(false);
+        }
+        foreach (var image in tutorialInfo)
+        {
+            image.SetActive(false);
+        }
+
+        tutorialImages[index].SetActive(true);
+        tutorialInfo[index].SetActive(true);
+        currentTutorialImageIndex = index;
+
+        backButton.gameObject.SetActive(index > 0);
+
+        if (index == tutorialImages.Count - 1)
+        {
+            nextButtonText.text = "완료";
+        }
+        else
+        {
+            nextButtonText.text = "다음";
+        }
+    }
+
+    public void OnClickNext()
+    {
+        AudioManager.Instance.SelectedSoundPlay();
+        int nextIndex = currentTutorialImageIndex + 1;
+
+        if (nextIndex < tutorialImages.Count)
+        {
+            ShowTutorialImage(nextIndex);
+        }
+        else
+        {
+            EndTutorial();
+        }
+    }
+
+    public void OnClickBack()
+    {
+        AudioManager.Instance.SelectedSoundPlay();
+        int nextIndex = currentTutorialImageIndex - 1;
+
+        if (nextIndex >= 0 && nextIndex < tutorialImages.Count)
+        {
+            ShowTutorialImage(nextIndex);
+        }
+    }
+
+    public void EndTutorial()
+    {
+        if (tutorialPanel != null && plane != null)
+        {
+            tutorialPanel.SetActive(false);
+            plane.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 }
