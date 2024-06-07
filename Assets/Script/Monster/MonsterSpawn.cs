@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,7 +8,7 @@ using static MonsterData;
 
 public class MonsterSpawn : MonoBehaviour
 {
-    public List<MonsterData> monsterDatas = new List<MonsterData>();
+    private Dictionary<int, MonsterData> monsterDatas = new Dictionary<int, MonsterData>();
     private Dictionary<int, Dictionary<int, WaveRule>> stageWaveRules = new Dictionary<int, Dictionary<int, WaveRule>>(); //스테이지별 웨이브 규칙
 
     private MonsterWaveTable monsterWaveTable;
@@ -27,8 +28,6 @@ public class MonsterSpawn : MonoBehaviour
     private float waitTime = 15f;
     private float waitTimer;
     private bool isWaiting = true;
-
-    private int id;
 
     private bool isSuccess = false;
     private GameManager gameManager;
@@ -62,11 +61,7 @@ public class MonsterSpawn : MonoBehaviour
         var monsterTable = DataTableMgr.Get<MonsterTable>(DataTableIds.monster);
         if (monsterTable != null)
         {
-            var monster = monsterTable.monsterDatas;
-            foreach(var m in monster)
-            {
-                monsterDatas.Add(m);
-            }
+            monsterDatas = monsterTable.monsterDatas.ToDictionary(m => m.monsterName);
         }
 
         MonsterPools();
@@ -77,6 +72,7 @@ public class MonsterSpawn : MonoBehaviour
         if(currentWave > 20 && gameManager.GetMonsterCount() <= 0 && !isSuccess)
         {
             gameManager.Success();
+            gameManager.StageClear();
             isSuccess = true;
             return;
         }
@@ -136,18 +132,7 @@ public class MonsterSpawn : MonoBehaviour
         var rule = stageWaveRules[currentStage][wave].spawnRules[spawnIndex];
         var monsterName = rule.monsterNames[subIndex];
 
-        MonsterData monsterData = null;
-        
-        foreach(var m in monsterDatas)
-        {
-            if(m.monsterName == monsterName)
-            {
-                monsterData = m;
-                break;
-            }
-        }
-        
-        if(monsterData != null)
+        if(monsterDatas.TryGetValue(monsterName, out var monsterData))
         {
             GameObject monster = PoolManager.instance.GetObjectPool(monsterName.ToString());
             var index = Random.Range(0, spawnPoints.Length - 1);
@@ -189,8 +174,7 @@ public class MonsterSpawn : MonoBehaviour
 
         foreach (var monsterName in requiredMonsters)
         {
-            MonsterData monsterData = monsterDatas.Find(m => m.monsterName == monsterName);
-            if (monsterData != null)
+            if (monsterDatas.TryGetValue(monsterName, out var monsterData))
             {
                 GameObject prefab = Resources.Load<GameObject>(string.Format(MonsterData.FormatMonsterPath, monsterData.monsterName));
                 PoolManager.instance.CreatePool(prefab, 1);

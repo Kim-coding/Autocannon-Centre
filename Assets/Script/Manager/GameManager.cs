@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(wave >= 20 && monsterCount <= 0)
+        if(wave > 20 && monsterCount <= 0)
         {
             StageClear();
         }
@@ -99,10 +99,10 @@ public class GameManager : MonoBehaviour
         uiManager.ShowSuccessWindow();
     }
 
-    private void StageClear()
+    public void StageClear()
     {
-        if (saveData.stagesCleared[stage] == true)
-            return;
+        //if (saveData.stagesCleared[stage] == true)
+        //    return;
 
         saveData.stagesCleared[stage] = true;
         SaveLoadSystem.SaveGame(saveData);
@@ -175,11 +175,6 @@ public class GameManager : MonoBehaviour
         gameSpeed = 2;
     }
 
-    private void ShowTutorialImage(int index)
-    {
-        uiManager.ShowTutorialImage(index);
-    }
-
     public void OnClickNext()
     {
         uiManager.OnClickNext();
@@ -188,12 +183,6 @@ public class GameManager : MonoBehaviour
     public void OnClickBack()
     {
         uiManager.OnClickBack();
-    }
-    private void EndTutorial()
-    {
-        saveData.tutorial = true;
-        SaveLoadSystem.SaveGame(saveData);
-        uiManager.EndTutorial();
     }
 
 }

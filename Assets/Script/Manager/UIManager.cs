@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     public GameObject failedWindow;
     public GameObject successWindow;
     public GameObject optionWindow;
-    public GameObject plane;
 
     public GameObject tutorialPanel;
     public List<GameObject> tutorialImages;
@@ -62,14 +61,10 @@ public class UIManager : MonoBehaviour
         {
             successWindow.SetActive(true);
         }
-        if (plane != null)
-        {
-            plane.SetActive(true);
-        }
     }
     public void ToggleOptionWindow(int gameSpeed)
     {
-        if (optionWindow != null && plane != null)
+        if (optionWindow != null)
         {
             bool isOptionWindowActive = optionWindow.activeSelf;
 
@@ -77,22 +72,19 @@ public class UIManager : MonoBehaviour
             {
                 Time.timeScale = gameSpeed;
                 optionWindow.SetActive(false);
-                plane.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0;
                 optionWindow.SetActive(true);
-                plane.SetActive(true);
             }
         }
     }
     public void ShowTutorialPanel()
     {
-        if (tutorialPanel != null && plane != null)
+        if (tutorialPanel != null)
         {
             tutorialPanel.SetActive(true);
-            plane.SetActive(true);
         }
     }
 
@@ -154,10 +146,9 @@ public class UIManager : MonoBehaviour
 
     public void EndTutorial()
     {
-        if (tutorialPanel != null && plane != null)
+        if (tutorialPanel != null)
         {
             tutorialPanel.SetActive(false);
-            plane.SetActive(false);
             Time.timeScale = 1;
         }
     }

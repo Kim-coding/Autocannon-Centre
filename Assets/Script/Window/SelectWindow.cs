@@ -21,6 +21,7 @@ public class SelectWindow : MonoBehaviour
         for (int i = 0; i < stage.Length; i++)
         {
             int index = i;
+            stage[i].interactable = saveData.stagesCleared[i];
             stage[i].onClick.AddListener(() => OnClickStage(index + 1));
         }
     }

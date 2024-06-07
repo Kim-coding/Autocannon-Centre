@@ -46,13 +46,16 @@ public class UpgradeTower : MonoBehaviour
     {
         TowerData data = towerTable.GetID(towerId);
 
-        if(data != null && towerSpawner.spawnedTowers.ContainsKey(towerId)) 
+        if(data != null) 
         {
-            foreach (var tower in towerSpawner.spawnedTowers[towerId])
+            if(towerSpawner.spawnedTowers.ContainsKey(towerId))
             {
-                if (tower.id == towerId)
+                foreach (var tower in towerSpawner.spawnedTowers[towerId])
                 {
-                    tower.UpgradeTower(data);
+                    if (tower.id == towerId)
+                    {
+                        tower.UpgradeTower(data);
+                    }
                 }
             }
             towerSpawner.UpgradeSpwanTower(towerId, data);

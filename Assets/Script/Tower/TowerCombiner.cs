@@ -52,14 +52,6 @@ public class TowerCombiner : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(selectedTower != null) 
-        {
-            OnInfo(selectedTower);
-        }
-    }
-
     public void ClearSelection()
     {
         if (currentOutline != null)
@@ -170,7 +162,8 @@ public class TowerCombiner : MonoBehaviour
                 {
                     tile2.RemoveCurrentTower();
                     tile3.RemoveCurrentTower();
-                    SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
+                    GameObject newTower = SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
+                    AddTower(newTowerData.ID, newTower.GetComponent<Tower>());
                     ReSetSlot();
                 }
             }
@@ -213,7 +206,8 @@ public class TowerCombiner : MonoBehaviour
                     TowerData newTowerData = SelectRandomTower(nextTowers);
                     tile2.RemoveCurrentTower();
                     tile3.RemoveCurrentTower();
-                    SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
+                    GameObject newTower = SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
+                    AddTower(newTowerData.ID,newTower.GetComponent<Tower>());
                     ReSetSlot();
                 }
             }
@@ -242,6 +236,15 @@ public class TowerCombiner : MonoBehaviour
         return null;
     }
 
+    private void AddTower(int towerID,Tower tower)
+    {
+        if (!towerSpawner.spawnedTowers.ContainsKey(towerID))
+        {
+            towerSpawner.spawnedTowers[towerID] = new List<Tower>();
+        }
+        towerSpawner.spawnedTowers[towerID].Add(tower);
+    }
+
     private void ReSetSlot()
     {
         Destroy(combinationTower1.gameObject);
@@ -253,14 +256,15 @@ public class TowerCombiner : MonoBehaviour
         ClearSlot3();
     }
 
-    private void SpawnNewTower(TowerData newTowerData, Vector3 position, Tile tile1)
+    private GameObject SpawnNewTower(TowerData newTowerData, Vector3 position, Tile tile1)
     {
         // 货肺款 鸥况 积己
         var towerName = newTowerData.ID.ToString();
         var towerPrefab = Resources.Load<GameObject>(string.Format(TowerData.FormatTowerPath, towerName));
+        GameObject newTower = null;
         if (towerPrefab != null)
         {
-            GameObject newTower = Instantiate(towerPrefab, position, Quaternion.identity, tile1.transform);
+            newTower = Instantiate(towerPrefab, position, Quaternion.identity, tile1.transform);
             Tile tile = newTower.GetComponentInParent<Tile>();
             if (tile != null)
             {
@@ -271,6 +275,7 @@ public class TowerCombiner : MonoBehaviour
         {
             Debug.LogError($"Tower prefab not found for {towerName}");
         }
+        return newTower;
     }
 
     private bool IsTowerInSlots(string towerID)

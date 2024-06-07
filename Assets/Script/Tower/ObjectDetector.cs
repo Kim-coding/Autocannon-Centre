@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using EPOOutline;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -24,14 +25,17 @@ public class ObjectDetector : MonoBehaviour
     public Button button;
     public Button autoButton;
     private bool isAutoAddMode = false;
+
+    private EventSystem eventSystem;
+    public List<GraphicRaycaster> graphicRaycasters;
     private void Awake()
     {
-
         mainCamera = Camera.main;
         gameManager = GetComponent<GameManager>();
         towerSpawner = GetComponent<TowerSpawner>();
+        eventSystem = EventSystem.current;
 
-        if(autoButton != null )
+        if (autoButton != null )
         {
             autoButton.onClick.AddListener(() => TowerAutoAddMode());
         }
@@ -60,6 +64,11 @@ public class ObjectDetector : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) 
         {
+            if (IsPointerOverSpecificUIObject())
+            {
+                return;
+            }
+
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit,Mathf.Infinity))
             {
@@ -180,5 +189,26 @@ public class ObjectDetector : MonoBehaviour
             tile.RemoveCurrentTower();
             Destroy(selectedTower.gameObject);
         }
+    }
+
+    private bool IsPointerOverSpecificUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(eventSystem)
+        {
+            position = new Vector2(Input.mousePosition.x, Input.mousePosition.y)
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+
+        foreach (var raycaster in graphicRaycasters)
+        {
+            raycaster.Raycast(eventDataCurrentPosition, results);
+            if (results.Count > 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
