@@ -67,6 +67,14 @@ public class TowerCombiner : MonoBehaviour
         selectedTower = null;
     }
 
+    public void UpdateTowerInfo(Tower tower)
+    {
+        if(selectedTower == tower)
+        {
+            OnInfo(selectedTower);
+        }
+    }
+
     public void OnInfo(Tower tower)
     {
         selectedTower = tower;

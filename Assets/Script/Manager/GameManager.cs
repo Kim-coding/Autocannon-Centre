@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private SaveData saveData;
 
     private int gameSpeed = 1;
-
+    private bool isLastWave = false;
     private void Awake()
     {
         uiManager = GetComponent<UIManager>();
@@ -118,10 +118,14 @@ public class GameManager : MonoBehaviour
 
     public void SetMonsterCount()
     {
-        if (stage != 20)
+        if (isLastWave)
+            return;
+
+        monsterCount += 20;
+        uiManager.UpdateMonsterText(monsterCount);
+        if(wave == 20)
         {
-            monsterCount += 20;
-            uiManager.UpdateMonsterText(monsterCount);
+            isLastWave = true;
         }
     }
 
