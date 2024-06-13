@@ -11,6 +11,7 @@ public class UpgradeTower : MonoBehaviour
     private Dictionary<int, TowerData> towerDatas = new Dictionary<int, TowerData>();
     private TowerTable towerTable;
     public TowerSpawner towerSpawner;
+    private TowerCombiner towerCombiner;
     public int stage;
 
     private GameManager gameManager;
@@ -18,6 +19,7 @@ public class UpgradeTower : MonoBehaviour
     void Start()
     {
         gameManager = GetComponent<GameManager>();
+        towerCombiner = GetComponent<TowerCombiner>();
         stage = gameManager.stage;
 
         upgradeWindow.SetActive(false);
@@ -55,6 +57,7 @@ public class UpgradeTower : MonoBehaviour
                     if (tower.id == towerId)
                     {
                         tower.UpgradeTower(data);
+                        towerCombiner.UpdateTowerInfo(tower);
                     }
                 }
             }
