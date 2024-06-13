@@ -118,7 +118,10 @@ public class MonsterSpawn : MonoBehaviour
                         {
                             spawnIndex = 0;
                             currentWave++; // 배열의 모든 몬스터 생성 완료 시 웨이브 전환
-                            isWaiting = true;
+                            if (currentStage != 20)  // 스테이지가 20이 아닌 경우에만 대기 상태로 설정합니다.
+                            {
+                                isWaiting = true;
+                            }
                         }
                     }
                 }

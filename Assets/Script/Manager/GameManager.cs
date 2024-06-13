@@ -118,8 +118,11 @@ public class GameManager : MonoBehaviour
 
     public void SetMonsterCount()
     {
-        monsterCount += 20;
-        uiManager.UpdateMonsterText(monsterCount);
+        if (stage != 20)
+        {
+            monsterCount += 20;
+            uiManager.UpdateMonsterText(monsterCount);
+        }
     }
 
     public void SubMonsterCount()
