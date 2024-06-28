@@ -448,7 +448,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 496.1028, y: 933.293}
+  m_SizeDelta: {x: 522.8632, y: 953.014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &23560844587949275
 CanvasRenderer:
@@ -2307,7 +2307,6 @@ MonoBehaviour:
   failedWindow: {fileID: 788390083964028633}
   successWindow: {fileID: 796966017881611589}
   optionWindow: {fileID: 8183285213871339256}
-  plane: {fileID: 0}
   tutorialPanel: {fileID: 686964756738184189}
   tutorialImages:
   - {fileID: 7039920645487762359}

@@ -1,3 +1,4 @@
+using GooglePlayGames;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
     private bool isLastWave = false;
     private void Awake()
     {
+        PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) => { });
+
+
         uiManager = GetComponent<UIManager>();
         isPlay = false;
         Time.timeScale = 1;
@@ -103,6 +108,32 @@ public class GameManager : MonoBehaviour
     {
         //if (saveData.stagesCleared[stage] == true)
         //    return;
+        if (saveData.stagesCleared[stage] != true)
+        {
+            PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_3, 1, (bool success) => { });
+            if(health == 100)
+            {
+                switch (stage)
+                {
+                    case 1:
+                        PlayGamesPlatform.Instance.UnlockAchievement(GPGSIds.achievement__1, (bool success) => { });
+                        break;
+                    case 2:
+                        PlayGamesPlatform.Instance.UnlockAchievement(GPGSIds.achievement__2, (bool success) => { });
+                        break;
+                    case 3:
+                        PlayGamesPlatform.Instance.UnlockAchievement(GPGSIds.achievement__3, (bool success) => { });
+                        break;
+                    case 4:
+                        PlayGamesPlatform.Instance.UnlockAchievement(GPGSIds.achievement__4, (bool success) => { });
+                        break;
+                    case 5:
+                        PlayGamesPlatform.Instance.UnlockAchievement(GPGSIds.achievement_2, (bool success) => { });
+                        break;
+                }
+            }
+        }
+            
 
         saveData.stagesCleared[stage] = true;
         SaveLoadSystem.SaveGame(saveData);

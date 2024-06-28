@@ -17,15 +17,15 @@ public class MonsterSpawn : MonoBehaviour
     public Transform[] wayPointContainers;
     private int currentStage;
     private int currentWave;
-
-    private float spawnTime = 1f;
+    [Header("스폰 주기")]
+    public float spawnTime = 1f;
     private float spawnTimer;
 
     private int spawnCount = 0;
     private int spawnIndex = 0;
     private int subIndex = 0;
-
-    private float waitTime = 15f;
+    [Header("웨이브 대기 시간")]
+    public float waitTime = 15f;
     private float waitTimer;
     private bool isWaiting = true;
 

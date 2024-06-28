@@ -4,9 +4,12 @@ using UnityEngine;
 using TMPro;
 using System.Numerics;
 using UnityEngine.UI;
+using GooglePlayGames;
 
 public class UIManager : MonoBehaviour
 {
+    private SaveData saveData;
+
     public TextMeshProUGUI stage;
     public TextMeshProUGUI wave;
     public TextMeshProUGUI monsterCount;
@@ -150,6 +153,11 @@ public class UIManager : MonoBehaviour
         {
             tutorialPanel.SetActive(false);
             Time.timeScale = 1;
+            if (saveData.tutorial != true)
+            {
+                saveData.tutorial = true;
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement, 1, (bool success) => { });
+            }
         }
     }
 }

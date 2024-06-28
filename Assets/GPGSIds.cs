@@ -24,7 +24,16 @@
 
 public static class GPGSIds
 {
-        public const string achievement_test = "CgkIlcrLvLgNEAIQAQ"; // <GPGSID>
+        public const string achievement = "CgkIlcrLvLgNEAIQCw"; // <GPGSID> 튜토리얼
+        public const string achievement__1 = "CgkIlcrLvLgNEAIQBA"; // <GPGSID> 1 스테이지
+        public const string achievement__2 = "CgkIlcrLvLgNEAIQBQ"; // <GPGSID> 2 스테이지
+        public const string achievement__3 = "CgkIlcrLvLgNEAIQBg"; // <GPGSID> 3 스테이지
+        public const string achievement__4 = "CgkIlcrLvLgNEAIQBw"; // <GPGSID> 4 스테이지
+        public const string achievement_2 = "CgkIlcrLvLgNEAIQCA"; // <GPGSID> 도전 스테이지
+        public const string achievement_3 = "CgkIlcrLvLgNEAIQAg"; // <GPGSID> 스테이지 올 클리어
+        public const string achievement_4 = "CgkIlcrLvLgNEAIQAw"; // <GPGSID> 부자
+        public const string achievement_5 = "CgkIlcrLvLgNEAIQCg"; // <GPGSID> 발로해도..
+        public const string achievement_6 = "CgkIlcrLvLgNEAIQCQ"; // <GPGSID> 실패자
 
 }
 

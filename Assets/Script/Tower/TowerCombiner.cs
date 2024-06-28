@@ -172,6 +172,10 @@ public class TowerCombiner : MonoBehaviour
                     tile3.RemoveCurrentTower();
                     GameObject newTower = SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
                     AddTower(newTowerData.ID, newTower.GetComponent<Tower>());
+                    if (towerSpawner.temporaryUpgrades.ContainsKey(newTowerData.ID))
+                    {
+                        newTower.GetComponent<Tower>().UpgradeTower(towerSpawner.temporaryUpgrades[newTowerData.ID]);
+                    }
                     ReSetSlot();
                 }
             }
@@ -216,6 +220,10 @@ public class TowerCombiner : MonoBehaviour
                     tile3.RemoveCurrentTower();
                     GameObject newTower = SpawnNewTower(newTowerData, combinationTower1.transform.position, tile1);
                     AddTower(newTowerData.ID,newTower.GetComponent<Tower>());
+                    if (towerSpawner.temporaryUpgrades.ContainsKey(newTowerData.ID))
+                    {
+                        newTower.GetComponent<Tower>().UpgradeTower(towerSpawner.temporaryUpgrades[newTowerData.ID]);
+                    }
                     ReSetSlot();
                 }
             }
@@ -322,18 +330,18 @@ public class TowerCombiner : MonoBehaviour
 
     public void UpgradeCombiTower(int id, TowerData data)
     {
-        if (towerDatas2.ContainsKey(id))
-        {
-            towerDatas2[id].percent += data.percent;
-            towerDatas2[id].towerSpeed -= data.towerSpeedInc;
-            towerDatas2[id].damage += data.atkInc;
-        }
-        else if (towerDatas3.ContainsKey(id))
-        {
-            towerDatas3[id].percent += data.percent;
-            towerDatas3[id].towerSpeed -= data.towerSpeedInc;
-            towerDatas3[id].damage += data.atkInc;
-        }
+        //if (towerDatas2.ContainsKey(id))
+        //{
+        //    towerDatas2[id].percent += data.percent;
+        //    towerDatas2[id].towerSpeed -= data.towerSpeedInc;
+        //    towerDatas2[id].damage += data.atkInc;
+        //}
+        //else if (towerDatas3.ContainsKey(id))
+        //{
+        //    towerDatas3[id].percent += data.percent;
+        //    towerDatas3[id].towerSpeed -= data.towerSpeedInc;
+        //    towerDatas3[id].damage += data.atkInc;
+        //}
 
         if (!towerSpawner.temporaryUpgrades.ContainsKey(id))
         {
